@@ -1,0 +1,110 @@
+\documentclass[a4paper,12pt,oneside]{book}
+
+% ========================================
+% Load Preamble (package, margin, font, dll)
+% ========================================
+\input{preamble}
+
+% ========================================
+% DOKUMEN UTAMA
+% ========================================
+\begin{document}
+
+% ========================================
+% HALAMAN AWAL (Roman numbering)
+% ========================================
+\pagenumbering{roman}
+
+% Cover
+\begin{titlepage}
+    \thispagestyle{empty}
+    \pdfbookmark{Cover}{ }
+    \include{components/Cover}
+    \pagebreak
+    \thispagestyle{empty}
+\end{titlepage}
+\cleardoublepage
+
+% Lembar Persetujuan
+\phantomsection
+\addcontentsline{toc}{chapter}{Lembar Persetujuan}
+\include{components/Lembar-Persetujuan}
+\cleardoublepage
+
+% Lembar Orisinalitas
+\phantomsection
+\addcontentsline{toc}{chapter}{Lembar Pernyataan Orisinalitas}
+\include{components/Lembar-Orisinalitas}
+\cleardoublepage
+
+% Abstrak Bahasa Indonesia
+\phantomsection
+\addcontentsline{toc}{chapter}{Abstrak}
+\include{components/Abstrak-Indo}
+\cleardoublepage
+
+% Abstract Bahasa Inggris
+\phantomsection
+\addcontentsline{toc}{chapter}{\textit{Abstract}}
+\include{components/Abstract-Eng}
+\cleardoublepage
+
+% Kata Pengantar
+\phantomsection
+\addcontentsline{toc}{chapter}{Kata Pengantar}
+\include{components/Kata-Pengantar}
+\cleardoublepage
+
+% Daftar Isi
+\phantomsection
+\addcontentsline{toc}{chapter}{Daftar Isi}
+\renewcommand{\contentsname}{\begin{center}Daftar Isi\end{center}}
+\tableofcontents
+\clearpage
+
+% Daftar Tabel
+\phantomsection
+\addcontentsline{toc}{chapter}{Daftar Tabel}
+\renewcommand{\listtablename}{\begin{center}Daftar Tabel\end{center}}
+\listoftables
+\clearpage
+
+% Daftar Gambar
+\phantomsection
+\addcontentsline{toc}{chapter}{Daftar Gambar}
+\renewcommand{\listfigurename}{\begin{center}Daftar Gambar\end{center}}
+\listoffigures
+
+% ========================================
+% ISI DOKUMEN (Arabic numbering)
+% ========================================
+
+\cleardoublepage
+\pagenumbering{arabic}
+
+% Bab-bab utama
+
+% ========================================
+% DAFTAR PUSTAKA
+% ========================================
+% Style options:
+% - acm: numbered style [1]
+% - agsm: Harvard style (Sukimin, 2017)
+% - apalike: APA style (Sukimin, 2017)
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Daftar Pustaka}
+\renewcommand{\bibname}{\begin{center}Daftar Pustaka\end{center}}
+\bibliographystyle{agsm}  % Harvard style
+\bibliography{References}
+
+% ========================================
+% LAMPIRAN
+% ========================================
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Lampiran}
+\renewcommand{\chaptername}{\begin{center}Lampiran\end{center}}
+\include{chapters/Lampiran}
+
+\end{document}
