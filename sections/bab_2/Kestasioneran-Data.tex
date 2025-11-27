@@ -1,0 +1,15 @@
+\section{Menguji Kestasioneran Data}
+Kestationeran dalam data deret waktu merupakan salah satu asumsi utama dalam analisis deret waktu. Suatu deret dianggap stasioner apabila nilai rata-rata dan variansinya tidak berubah seiring waktu \citep{ilmi2023gstarima}. Artinya, data tersebut cenderung stabil dan berfluktuasi di sekitar nilai tengah yang tetap. Untuk menilai apakah data stasioner dalam hal rata-rata, dapat dilakukan secara visual dengan membuat plot antara nilai observasi dan waktu. Jika grafik menunjukkan pola fluktuasi yang konsisten di sekitar garis lurus dengan penyebaran yang relatif seragam, maka data dapat dianggap stasioner. Selain pendekatan visual, pengujian kestasioneran rata-rata juga dapat dilakukan menggunakan metode statistik seperti uji \textit{Augmented Dickey-Fuller} (ADF).
+
+\begin{equation}\label{adf}
+    \Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \sum_{i=1}^{p} \delta_i \Delta y_{t-i} + \varepsilon_t
+\end{equation}
+Keterangan:
+\begin{itemize}
+    \item $\Delta y_t$ : Diferensiasi orde pertama, yaitu $y_t - y_{t-1}$, digunakan untuk mengubah data menjadi stasioner.
+    \item $\alpha$ : Konstanta (intersep) dalam model regresi.
+    \item $\beta t$ : Tren waktu (opsional), mencerminkan arah pergerakan jangka panjang dalam data.
+    \item $\gamma y_{t-1}$ : Komponen autoregresif (lag 1), digunakan untuk menguji keberadaan akar unit (unit root).
+    \item $\sum_{i=1}^{p} \delta_i \Delta y_{t-i}$ : Lag dari perubahan $y$ hingga lag ke-$p$, untuk mengatasi autokorelasi serial dalam residual.
+    \item $\varepsilon_t$ : Error term (white noise), mewakili gangguan acak yang tidak berkorelasi satu sama lain.
+\end{itemize}
