@@ -1,0 +1,60 @@
+\section{ARIMA Model} 
+\textit{Autoregressive Integrated Moving Average} (ARIMA) merupakan salah satu model deret waktu konvensional yang banyak digunakan, terutama sejak diperkenalkan oleh Box dan Jenkins (1970). Model ini membentuk pola deret waktu berdasarkan nilai masa lalu (lag) dan error acak (white noise)\citep{rathod2017forecasting}. ARIMA terdiri dari tiga komponen utama, yaitu: Autoregressive (AR), Integrated (I), dan Moving Average (MA). Komponen AR merepresentasikan pengaruh nilai sebelumnya, I berfungsi menjadikan data stasioner melalui proses differencing, sedangkan MA mencerminkan pengaruh kesalahan masa lalu. Secara umum, model ini dinotasikan sebagai ARIMA (p, d, q), di mana p adalah orde AR, d adalah tingkat differencing, dan q adalah orde MA.
+
+Persamaan umum model ARIMA adalah sebagai berikut:
+\begin{equation}\label{arima}
+    y_t = \phi_1 y_{t-1} + \phi_2 y_{t-2} + \cdots + \phi_p y_{t-p} + \varepsilon_t - \theta_1 \varepsilon_{t-1} - \theta_2 \varepsilon_{t-2} - \cdots - \theta_q \varepsilon_{t-q}
+\end{equation}
+Keterangan:
+\begin{itemize}
+    \item $y_t$: Nilai deret waktu pada waktu ke-$t$,
+    \item $\phi_i$: Parameter model AR \textit{(autoregresif)},
+    \item $\theta_j$: Parameter model MA \textit{(moving average)},
+    \item $\varepsilon_t$: Error acak \textit{(white noise)} pada waktu ke-$t$,
+    \item $B$: Operator backshift, yaitu $B^k y_t = y_{t-k}$.
+\end{itemize}
+
+Langkah langkah dalam membangunan model ARIMA yaitu:
+\begin{enumerate}
+    \item Identifikasi dan Estimasi Model
+    Setelah data dibuat stasioner, langkah selanjutnya adalah menentukan orde model ARIMA, yaitu nilai $p$ \textit{(Autoregressive)} dan $q$ \textit{(Moving Average)}. Nilai $p$ ditentukan dengan melihat pola pemotongan \textit{(Cut-off)} pada grafik \textit{Partial Autocorrelation Function} (PACF), sedangkan nilai $q$ ditentukan dari pola pada \textit{Autocorrelation Function} (ACF).
+    Rumus ACF:
+    \begin{equation}\label{arima_acf}
+        ACF(k) = \frac{\sum_{t=1}^{T-k} (e_t - \bar{e})(e_{t+k} - \bar{e})}{\sum_{t=1}^{T-k} (e_t - \bar{e})^2}
+    \end{equation}
+    Keterangan:
+    \begin{itemize}
+        \item $ACF(k)$ = Korelasi antara residu pada lag ke-$k$
+        \item $k$ = Lag yang diinginkan
+        \item $e_t$ = Residu pada waktu ke-$t$
+        \item $\bar{e}$ = Rata-rata dari semua residu
+        \item $T$ = Jumlah observasi dalam deret waktu
+    \end{itemize}
+    
+    Rumus PACF:
+    \begin{equation}\label{arima_pacf}
+        \phi_{11} = \rho_1
+    \end{equation}
+    Keterangan:
+    Di mana $\rho_1$ adalah nilai ACF pada lag ke-1.
+    Estimasi Parameter Model: Latih model ARIMA dengan orde (p, d, q) yang telah ditentukan menggunakan data pelatihan. Parameter-parameter model diestimasi menggunakan metode \textit{Maximum Likelihood Estimation} (MLE)
+    
+    \item Diagnostik Model
+    Analisis Residu: Periksa residu model (kesalahan prediksi) untuk memastikan mereka mendekati \textit{white noise} (tidak ada autokorelasi, rata-rata nol, varians konstan). Gunakan uji \textit{Ljung-Box} dan plot ACF/PACF residu.
+    Rumus \textit{Ljung-Box}:
+    \begin{equation}\label{arima_ljung}
+        Q = n(n+2) \sum_{k=1}^{h} \frac{\hat{\rho}_k^2}{n - k}
+    \end{equation}
+    Keterangan:
+    \begin{itemize}
+        \item $Q$ : Statistik uji Ljung-Box.
+        \item $n$ : Jumlah observasi (ukuran sampel) dalam deret waktu.
+        \item $h$ : Jumlah lag yang diuji (batas atas jumlah autokorelasi yang dihitung). Nilai $h$ dapat ditentukan sesuai kebutuhan; secara umum digunakan nilai $h = 10$, $15$, $20$, atau $25$.
+        \item $\hat{\rho}_k$ : Estimasi koefisien autokorelasi sampel (SACF) dari residu pada lag ke-$k$.
+    \end{itemize}
+
+    Evaluasi Akurasi: Jika anda memiliki data pengujian, bandingkan prediksi model pada data pengujian dengan nilai aktualnya menggunakan metrik seperti RMSE, MAE atau MAPE.
+
+    \item Peramalan
+    Lakukan Peramalan ke Depan: Gunakan model ARIMA yang telah tervalidasi untuk membuat prediksi nilai di masa depan.
+\end{enumerate}
