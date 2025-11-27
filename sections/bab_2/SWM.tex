@@ -1,0 +1,99 @@
+\section{Spatial Weight Matrix (SWM)}
+\subsection{Konsep Dasar Spatial Weight Matrix}
+Matriks Bobot Spasial (SWM) merupakan matriks persegi berukuran $N \times N$, di mana $N$ menyatakan jumlah total lokasi atau grid yang diamati. Setiap elemen $w_{ij}$ dalam matriks ini merepresentasikan besarnya pengaruh lokasi $j$ terhadap lokasi $i$, dengan ketentuan sebagai berikut:
+\begin{itemize}
+    \item $w_{ii} = 0$, yang berarti suatu lokasi tidak memberikan pengaruh terhadap dirinya sendiri.
+    \item Jika terdapat keterkaitan spasial antara lokasi $j$ dan $i$, maka $w_{ij}>0$; jika tidak ada hubungan, maka $w_{ij}=0$.
+\end{itemize}
+
+\subsection{Bentuk Umum Matriks SWM}
+Secara umum, matriks bobot spasial dapat dituliskan dalam bentuk:
+\begin{equation}\label{swm}
+    \mathbf{W} = 
+    \begin{bmatrix}
+    0 & w_{12} & w_{13} & \cdots & w_{1N} \\
+    w_{21} & 0 & w_{23} & \cdots & w_{2N} \\
+    w_{31} & w_{32} & 0 & \cdots & w_{3N} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    w_{N1} & w_{N2} & w_{N3} & \cdots & 0
+    \end{bmatrix}
+\end{equation}
+Dengan:
+\begin{itemize}
+    \item $w_{ij}$ menyatakan kekuatan hubungan dari lokasi $j$ ke lokasi $i$
+    \item Setiap baris menyatakan distribusi pengaruh dari semua lokasi terhadap satu lokasi tertentu.
+\end{itemize}
+
+\subsection{Jenis-jenis Pembobotan}
+Berikut adalah beberapa metode populer dalam membentuk nilai $w_{ij}$ dalam SWM:
+\begin{enumerate}[label=\alph*)]
+    \item Bobot Lokasi Seragam \textit{(Uniform Weight)}
+    Mengasumsikan bahwa semua lokasi tetangga memiliki pengaruh yang sama besar terhadap lokasi target:
+    \begin{equation}\label{swm_uniform}
+        w_{ij} = 
+        \begin{cases}
+        \frac{1}{n}, & i \ne j \\
+        0, & i = j
+        \end{cases}
+    \end{equation}
+    dengan $n = N - 1$ sebagai jumlah lokasi tetangga.
+    Bobot ini sederhana dan tidak memperhitungkan jarak geografis, namun tetap dapat menghasilkan model yang baik dalam kondisi tertentu.
+    \item Bobot Inverse Jarak \textit{(Inverse Distance Weight)}
+    Menggunakan jarak antar lokasi sebagai dasar pembobotan. Lokasi yang lebih dekat memiliki bobot lebih besar:
+    \begin{equation}\label{swm_inverse0}
+        d_{ij} = d_{ji} = \left( \left[ x_i(u_i) - x_j(u_j) \right]^2 + \left[ x_i(v_i) - x_j(v_j) \right]^2 \right)^{1/2}
+    \end{equation}
+    \begin{equation}\label{swm_inverse}
+        w_{ij} = w_{ji} = \frac{1}{d_{ij}} = \frac{1}{d_{ji}}
+    \end{equation}
+    dan normalisasi bobot lokasi invers jarak dapat dihitung menggunakan rumus berikut:
+    \begin{equation}\label{swm_inverse1}
+        w_{ij} =
+        \begin{cases}
+        \frac{w_{ij}}{\sum_{j=1}^{m} w_{ij}}, & i \ne j \\
+        0, & i = j
+        \end{cases}
+    \end{equation}
+    Keterangan:
+    $x_i$    = lambang lokasi ke-$i$ dengan $i=1,2,...,N$
+    $u$      = koordinat lintang lokasi
+    $v$      = koordinat bujur lokasi
+    $d_{ij}$ = jarak antar lokasi ke-$i$ terhadap lokasi lainnya (lokasi ke-$j$).
+    \item Bobot Korelasi Silang \textit{(Cross-Correlation Weight)}
+    Didasarkan pada kemiripan pola waktu antar lokasi, dihitung dari korelasi silang pada lag tertentu:
+    \begin{equation}\label{swm_korelasi}
+        \rho_{ij}(k) = \frac{\gamma_{ij}(k)}{\sigma_i \sigma_j}
+    \end{equation}
+    Keterangan:
+    \begin{itemize}
+        \item $\rho_{ij}(k)$ : korelasi silang antara lokasi ke-$i$ dan ke-$j$ pada lag waktu ke-$k$
+        \item $\gamma_{ij}(k)$ : kovarians silang antara lokasi ke-$i$ dan ke-$j$ pada lag waktu ke-$k$
+        \item $\sigma_i$, $\sigma_j$ : simpangan baku dari lokasi ke-$i$ dan ke-$j$
+    \end{itemize}
+    
+    di mana $\gamma_{ij}(k)$ merupakan kovarians silang antara pengamatan pada lokasi ke-$i$ dan ke-$j$ pada lag waktu $k$. $\sigma_i$ dan $\sigma_j$ merupakan simpangan baku dari pengamatan lokasi ke-$i$ dan ke-$j$
+    \begin{equation}\label{swm_korelasi2}
+         r_{ij}(k) = \frac{\sum_{t=k+1}^{n} [z_i(t)-\bar{z}_i][z_j(t-k)-\bar{z}_j]}{\left( \sum_{t=1}^{n} [z_i(t)-\bar{z}_i]^2 \right) \left( \sum_{t=1}^{n} [z_j(t)-\bar{z}_j]^2 \right)}
+    \end{equation}
+    Keterangan:
+    \begin{itemize}
+        \item $r_{ij}(k)$ : penduga korelasi silang antara lokasi ke-$i$ dan ke-$j$ pada lag waktu ke-$k$
+        \item $z_i(t)$ : nilai pengamatan pada lokasi ke-$i$ di waktu $t$
+        \item $\bar{z}_i$ : rata-rata nilai pengamatan pada lokasi ke-$i$
+        \item $n$ : banyaknya data
+    \end{itemize}
+
+    Untuk penentuan pembobot korelasi silang antar lokasi diperoleh sebagai berikut:
+    \begin{equation}\label{swm_korelasi3}
+        w_{ij} = \frac{r_{ij}(k)}{\sum_{j \neq i} |r_{ij}(k)|}
+    \end{equation}
+    Keterangan:
+    \begin{itemize}
+        \item $w_{ij}$ : bobot korelasi silang dari lokasi ke-$j$ terhadap lokasi ke-$i$
+        \item $r_{ij}(k)$ : penduga korelasi silang seperti dijelaskan di atas
+    \end{itemize}
+
+    dan memenuhi $\sum_{i \neq j} |w_{ij}| = 1$. Pembobot korelasi silang ini tidak memerlukan aturan tertentu, seperti ketergantungan jarak dari lokasi.
+\end{enumerate}
+\subsection{Peran SWM dalam Model STARMA}
+Dalam model STARMA, SWM digunakan untuk mengintegrasikan pengaruh spasial antar lokasi ke dalam proses prediksi curah hujan. Setiap variasi bobot akan dimasukkan ke dalam model, lalu hasil peramalannya dibandingkan untuk menentukan pembobotan mana yang paling efektif dalam merepresentasikan hubungan spasio-temporal.
