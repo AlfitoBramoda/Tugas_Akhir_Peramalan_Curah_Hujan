@@ -1,0 +1,240 @@
+\section{Model STARMA \textit{ (Space-Time Autoregressive Moving Average)}}
+\begin{enumerate}
+    \item Identifikasi Orde Model ($p$, $q$, $\lambda$, $\mu$) \\
+    Ini adalah bagian paling menantang dalam membangun model STARMA. Mirip dengan ACF dan PACF di ARIMA, STARMA menggunakan
+    STACF \textit{(Space-Time Autocorrelation Function)}: Mengukur korelasi antara observasi pada lokasi $i$ dan waktu $t$ dengan observasi pada lokasi $j$ dan waktu $t-k$, mempertimbangkan struktur spasial. \\
+    Rumus STACF:
+    \begin{equation}\label{starma_stacf}
+        \hat{\rho}_{10}(s) = 
+        \frac{
+        \sum_{i=1}^{N} \sum_{t=1}^{T-s} L^{(1)}z_i(t) \cdot L^{(0)}z_i(t+s)
+        }{
+        \left[
+        \sum_{i=1}^{N} \sum_{t=1}^{T} \left(L^{(1)}z_i(t)\right)^2 
+        \cdot
+        \sum_{i=1}^{N} \sum_{t=1}^{T} \left(L^{(0)}z_i(t)\right)^2
+        \right]^{1/2}
+        }
+    \end{equation}
+    Keterangan:
+    \begin{itemize}
+        \item $\hat{\rho}_{10}(s)$ : Estimasi koefisien \textit{Space-Time Autocorrelation Function} (STACF) pada lag spasial 1 dan lag temporal $s$
+        \item $N$ : Jumlah total lokasi spasial (misalnya jumlah stasiun, kota, area, dll.)
+        \item $T$ : Jumlah total periode waktu (observasi temporal) untuk setiap lokasi
+        \item $z_i(t)$ : Nilai observasi dari deret waktu pada lokasi ke-$i$ dan waktu ke-$t$
+        \item $L^{(1)}z_i(t)$ : Operator \textit{lag spasial orde 1} (spatial shift operator) yang menunjukkan pengaruh lokasi sekitar terhadap lokasi $i$ pada waktu $t$
+        \item $L^{(0)}z_i(t)$ : Nilai asli dari $z_i(t)$ tanpa pergeseran spasial (orde 0), yaitu nilai pada lokasi itu sendiri
+    \end{itemize}
+
+    STPACF \textit{(Space-Time Partial Autocorrelation Function)}: Mirip dengan PACF tetapi mempertimbangkan dimensi ruang dan waktu. \\
+    Rumus STPACF:
+    \begin{equation}\label{starma_stpacf}
+        \hat{\gamma}_{ho}(s) = \sum_{j=1}^{k} \sum_{l=0}^{\lambda} \hat{\phi}_{jl} \hat{\gamma}_{hl}(s-j)
+    \end{equation}
+    Keterangan:
+    \begin{itemize}
+        \item $\hat{\gamma}_{ho}(s)$: Ini adalah estimasi koefisien Space-Time Partial Autocorrelation Function (STPACF).
+        \item $\sum_{j=1}^{k}$: Ini adalah penjumlahan untuk lag temporal $j$, dari 1 hingga $k$.
+        \item $\sum_{l=0}^{\lambda}$: Ini adalah penjumlahan untuk lag spasial $l$, dari 0 hingga $\lambda$.
+        \item $\hat{\phi}_{jl}$: Ini adalah koefisien model Space-Time Autoregressive (STAR) yang diestimasi.
+        \item $\hat{\gamma}_{hl}(s-j)$: Ini adalah estimasi koefisien STPACF sebelumnya pada lag spasial $l$ dan lag temporal $s-j$.
+    \end{itemize}
+    Identifikasi orde melibatkan penentuan:
+    \begin{itemize}
+        \item Orde \textit{Autoregressive (p)}: Jumlah $lag$ temporal dari komponen AR
+        \item Orde \textit{Moving Average (q)}: Jummlah $lag$ temporal dari komponen MA
+        \item Orde \textit{Spasial Autoregressive} $(\lambda)$: Jumlah $lag$ spasial dari komponen AR. Ini menunjukkan berapa lapis tetangga yang memengaruhi nilai saat ini
+        \item Orde Spasial \textit{Moving Average} $(\mu)$: Jumlah $lag$ spasial dari komponen MA
+    \end{itemize}
+
+    \item Estimasi Parameter \\
+    Setelah orde ($p$, $q$, $\lambda$, $\mu$) dan matriks bobot spasial ditentukan, parameter model STARMA diestimasi. Estimasi parameter STARMA menggunakan Ordinary Least Squares
+    Langkah-langkah estimasi Ordinary Least Squares:
+    \begin{enumerate}[label=\alph*)]
+        \item Membangun model ST-AR (Spatiotemporal Autoregressive)
+        \begin{enumerate}[label=\roman*)]
+            \item Rumus umum
+            \begin{equation}\label{st_ar}
+                \mathbf{Z}_t = \sum_{k=1}^{p} \sum_{l=0}^{\lambda_k} \phi_{kl} W^{l} \mathbf{Z}_{t-k} + \mathbf{e}_t
+            \end{equation}
+            Keterangan:
+            \begin{itemize}
+                \item $\mathbf{Z}_t$: Vektor data variabel dependen di semua lokasi pada waktu $t$.
+                \item $p$: Orde lag temporal (berapa periode waktu ke belakang data mempengaruhi).
+                \item $\lambda_k$: Orde lag spasial untuk lag temporal $k$ (seberapa jauh pengaruh tetangga).
+                \item $\phi_{kl}$: Koefisien (parameter) yang menunjukkan pengaruh variabel pada lag temporal $k$ dan lag spasial $l$.
+                \item $W^{l}$: Matriks bobot spasial orde $l$ ($W^0$ adalah diri sendiri, $W^1$ tetangga terdekat, dst.).
+                \item $\mathbf{Z}_{t-k}$: Vektor data variabel dependen di semua lokasi pada waktu $t-k$.
+                \item $\mathbf{e}_t$: Vektor istilah gangguan (error term) pada waktu $t$.
+            \end{itemize}
+
+            Kemudian dilakukan penurunan terhadap semua parameter, selanjutnya dibentuk matriks dengan memilih
+            \begin{equation}\label{st_ar_matriks}
+                \hat{\boldsymbol{\phi}} =
+                \begin{bmatrix}
+                \phi_{10} \\
+                \phi_{11} \\
+                \phi_{12} \\
+                \vdots \\
+                \phi_{p\lambda}
+                \end{bmatrix}
+                \quad \text{dan} \quad
+                \mathbf{X} = 
+                \left[
+                \mathbf{Z}_{t-1} \quad
+                W \mathbf{Z}_{t-1} \quad
+                W^2 \mathbf{Z}_{t-1} \quad
+                \cdots \quad
+                W^{\lambda} \mathbf{Z}_{t-p}
+                \right]
+            \end{equation}
+
+            \item Estimasi Parameter
+            \begin{equation}\label{st_ar_parameter}
+                \hat{\boldsymbol{\phi}} = \left( \mathbf{X}' \mathbf{X} \right)^{-1} \mathbf{X}' \mathbf{Z}
+            \end{equation}
+            Keterangan:
+            \begin{itemize}
+                \item $\hat{\boldsymbol{\phi}}$: Nilai-nilai koefisien (parameter) yang diestimasi oleh model.
+                \item $\mathbf{X}$: Matriks yang berisi semua data variabel penjelas (independen).
+                \item $\mathbf{X}'$: Transpose dari matriks $\mathbf{X}$.
+                \item $(\mathbf{X}' \mathbf{X})^{-1}$: Kebalikan (invers) dari hasil perkalian matriks $\mathbf{X}'$ dengan $\mathbf{X}$.
+                \item $\mathbf{Z}$: Vektor data variabel yang dijelaskan (dependen).
+            \end{itemize}
+
+            \item Uji Signifikansi \\
+            Dalam uji signifikansi menggunakan uji t
+            \begin{equation}\label{st_ar_uji_signifkansi}
+                t = \frac{(\hat{\phi}_2 + \hat{\phi}_3) - (\phi_2 + \phi_3)}{\text{se}(\hat{\phi}_2 + \hat{\phi}_3)}
+                = \frac{(\hat{\phi}_2 + \hat{\phi}_3) - 1}{\sqrt{\text{var}(\hat{\phi}_2) + \text{var}(\hat{\phi}_3) + 2 \, \text{cov}(\hat{\phi}_2, \hat{\phi}_3)}}
+            \end{equation}
+            Keterangan:
+            \begin{itemize}
+                \item $t$: Nilai statistik uji-$t$ yang dihitung.
+                \item $(\hat{\phi}_2 + \hat{\phi}_3)$: Penjumlahan dari estimasi koefisien untuk variabel kedua ($\hat{\phi}_2$) dan ketiga ($\hat{\phi}_3$) dari model regresi.
+                \item $(\phi_2 + \phi_3)$: Nilai hipotesis dari penjumlahan koefisien yang sebenarnya. Dalam baris kedua rumus, nilai 1 menunjukkan bahwa hipotesis yang diuji adalah apakah $\phi_2 + \phi_3 = 1$.
+                \item $\text{se}(\hat{\phi}_2 + \hat{\phi}_3)$: Standard error dari penjumlahan estimasi koefisien, yang mengukur presisi dari estimasi tersebut.
+                \item $\text{var}(\hat{\phi}_2)$: Variansi dari estimasi koefisien $\hat{\phi}_2$.
+                \item $\text{var}(\hat{\phi}_3)$: Variansi dari estimasi koefisien $\hat{\phi}_3$.
+                \item $\text{cov}(\hat{\phi}_2, \hat{\phi}_3)$: Kovariansi antara estimasi koefisien $\hat{\phi}_2$ dan $\hat{\phi}_3$.
+            \end{itemize}
+
+            Hipotesa Parameter
+            \begin{equation}\label{st_ar_hipotesa0}
+                H_0 : \phi_j = 0 \quad \text{(parameter tidak signifikan)}
+            \end{equation}\label{st_ar_hipotesa1}
+            \begin{equation}
+                H_1 : \phi_j \neq 0 \quad \text{(parameter signifikan)}
+            \end{equation}
+            Pengambilan keputusan
+            \begin{itemize}
+                \item Jika p-value $<$ 0.05 maka tolak $H_0$
+                \item Jika p-value $>$ 0.05 maka gagal tolak $H_0$
+            \end{itemize}
+            Melihat hasil uji dari output regresi yang ada python dimana disitu tercantum nilai p-value.
+            Untuk melihat apakah residual model ST-AR masih menunjukkan pola autokorelatif maka dilakukan uji multivariat box pierce. Jika ternyata masih ada maka itu dianggap model belum selesai dan bisa dilanjut ke ST-MA
+        \end{enumerate}
+
+        \item Membangun ST-MA (Spatiotemporal Moving Average)
+        \begin{enumerate}[label=\roman*)]
+            \item Rumus umum
+            \begin{equation}\label{st_ma}
+                \mathbf{Z}_t = \mathbf{e}_t - \sum_{k=1}^{q} \sum_{l=0}^{\lambda_k} \theta_{kl} W^{l} \mathbf{e}_{t-k}
+            \end{equation}
+            Keterangan:
+            \begin{itemize}
+                \item $\mathbf{Z}_t$: Vektor data variabel dependen di semua lokasi pada waktu $t$.
+                \item $\mathbf{e}_t$: Vektor istilah gangguan (error term) pada waktu $t$. Ini adalah "kejutan" atau error pada waktu saat ini.
+                \item $\sum_{k=1}^{q}$: Penjumlahan untuk orde temporal moving average, di mana $q$ adalah orde MA temporal maksimum.
+                \item $\sum_{l=0}^{\lambda_k}$: Penjumlahan untuk orde spasial moving average, di mana $\lambda_k$ adalah orde spasial maksimum untuk lag temporal $k$.
+                \item $\theta_{kl}$: Koefisien (parameter) moving average spatio-temporal yang akan diestimasi.
+                \item $W^l$: Matriks bobot spasial orde ke-$l$ ($W^0$ adalah diri sendiri, $W^1$ tetangga terdekat, dan seterusnya).
+                \item $\mathbf{e}_{t-k}$: Vektor istilah gangguan (error term) dari waktu $t-k$, yaitu "kejutan" masa lalu dari lokasi itu sendiri dan tetangganya.
+            \end{itemize}
+
+            Kemudian dilakukan penurunan terhadap semua parameter, selanjutnya dibentuk matriks dengan memilih
+            \begin{equation}\label{st_ma_matriks}
+                \hat{\boldsymbol{\theta}} =
+                \begin{bmatrix}
+                \theta_{10} \\
+                \theta_{11} \\
+                \theta_{12} \\
+                \vdots \\
+                \theta_{p\lambda}
+                \end{bmatrix}
+                \quad \text{dan} \quad
+                \hat{\mathbf{e}} = 
+                \left[
+                \mathbf{e}_{t-1} \quad
+                W \mathbf{e}_{t-1} \quad
+                W^2 \mathbf{e}_{t-1} \quad
+                \cdots \quad
+                W^{\lambda} \mathbf{e}_{t-p}
+                \right]
+            \end{equation}
+
+            \item Estimasi parameter
+            \begin{equation}\label{st_ma_parameter}
+                \hat{\boldsymbol{\theta}} = \left( \mathbf{X}' \mathbf{X} \right)^{-1} \mathbf{X}' \mathbf{e}
+            \end{equation}
+            Keterangan:
+            \begin{itemize}
+                \item $\hat{\boldsymbol{\theta}}$: Vektor koefisien yang diestimasi (hasil akhir yang ingin kita cari).
+                \item $\mathbf{X}$: Matriks berisi data variabel penjelas (independen).
+                \item $\mathbf{X}'$: Transpose dari matriks $\mathbf{X}$.
+                \item $(\mathbf{X}' \mathbf{X})^{-1}$: Invers dari hasil perkalian $\mathbf{X}'$ dengan $\mathbf{X}$.
+                \item $\mathbf{e}$: Vektor berisi data variabel yang dijelaskan (dependen).
+            \end{itemize}
+
+            \item Uji signifikansi \\
+            Dalam uji signifikansi menggunakan uji t
+            \begin{equation}\label{st_ma_uji_signifkansi}
+                t = \frac{(\hat{\theta}_2 + \hat{\theta}_3) - (\theta_2 + \theta_3)}{\text{se}(\hat{\theta}_2 + \hat{\theta}_3)}
+                = \frac{(\hat{\theta}_2 + \hat{\theta}_3) - 1}{\sqrt{\text{var}(\hat{\theta}_2) + \text{var}(\hat{\theta}_3) + 2 \, \text{cov}(\hat{\theta}_2, \hat{\theta}_3)}}
+            \end{equation}
+            Keterangan:
+            \begin{itemize}
+                \item $t$: Nilai statistik uji-$t$ yang dihitung.
+                \item $(\hat{\theta}_2 + \hat{\theta}_3)$: Penjumlahan dari estimasi koefisien untuk variabel kedua ($\hat{\theta}_2$) dan ketiga ($\hat{\theta}_3$) dari model regresi.
+                \item $(\theta_2 + \theta_3)$: Nilai hipotesis dari penjumlahan koefisien yang sebenarnya. Dalam baris kedua rumus, nilai 1 menunjukkan bahwa hipotesis yang diuji adalah apakah $\theta_2 + \theta_3 = 1$.
+                \item $\text{se}(\hat{\theta}_2 + \hat{\theta}_3)$: Standard error dari penjumlahan estimasi koefisien, yang mengukur presisi dari estimasi tersebut.
+                \item $\text{var}(\hat{\theta}_2)$: Variansi dari estimasi koefisien $\hat{\theta}_2$.
+                \item $\text{var}(\hat{\theta}_3)$: Variansi dari estimasi koefisien $\hat{\theta}_3$.
+                \item $\text{cov}(\hat{\theta}_2, \hat{\theta}_3)$: Kovariansi antara estimasi koefisien $\hat{\theta}_2$ dan $\hat{\theta}_3$.
+            \end{itemize}
+            Dalam uji signifikansi menggunakan hipotesis
+            \begin{equation}\label{st_ma_hipotesa0}
+                H_0 : \theta_j = 0 \quad \text{(parameter tidak signifikan)}
+            \end{equation}\label{st_ma_hipotesa1}
+            \begin{equation}
+                H_1 : \theta_j \neq 0 \quad \text{(parameter signifikan)}
+            \end{equation}
+            Pengambilan keputusan
+            \begin{itemize}
+                \item Jika p-value $<$ 0.05 maka tolak $H_0$
+                \item Jika p-value $>$ 0.05 maka gagal tolak $H_0$
+            \end{itemize}
+            Melihat hasil uji dari output regresi yang ada python dimana disitu tercantum nilai p-value.
+        \end{enumerate}
+
+        \item Model STARMA \\
+        Model STARMA secara umum dituliskan dalam bentuk matrix sebagai berikut:
+        \begin{equation}\label{starma}
+            Z(t) = \sum_{k=1}^{p} \sum_{l=0}^{L_k} \phi_{kl} W_l Z(t - k) 
+                 + \sum_{k=1}^{q} \sum_{l=0}^{L_k} \theta_{kl} W_l \varepsilon(t - k) 
+                 + \varepsilon(t)
+        \end{equation}
+        Keterangan:
+        \begin{itemize}
+          \item $Z(t)$ : vektor observasi pada waktu ke-$t$ untuk semua lokasi
+          \item $p, q$ : orde \textit{autoregressive} dan \textit{moving average} dalam waktu
+          \item $L_k$ : orde spasial untuk lag waktu ke-$k$ (misalnya tetangga orde ke-1, ke-2, dst.)
+          \item $\phi_{kl}, \theta_{kl}$ : parameter AR dan MA pada lag waktu ke-$k$ dan lag spasial ke-$l$
+          \item $W_l$ : matriks bobot spasial orde ke-$l$
+          \item $\varepsilon(t)$ : vektor galat acak pada waktu ke-$t$, diasumsikan mengikuti distribusi normal identik dan independen (white noise)
+        \end{itemize}
+    \end{enumerate}
+
+    \item Evaluasi Akurasi \\
+    Jika anda membagi data, evaluasi kinerja Peramalan model pada data pengujian menggunakan metriks akurasi seperti RMSE, MAE, MAPE
+\end{enumerate}
