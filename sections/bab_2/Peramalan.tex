@@ -1,0 +1,23 @@
+\section{Peramalan}
+Peramalan deret waktu \textit{(time series foecasting)} merupakan komponen kunci yang digunakan dalam berbagai bidang untuk memprediksi kejadian di masa depan dan mengidentifikasi tren. Metode peramalan terbagi menjadi dua yaitu kualitataif (berbasis opini ahli) dan kuantitatif (berbasis analisis statistik dan matematis), dengan deret waktu sebagai salah satu pendekatan kuantitaif yag umum digunakan karena menganalisis dzta berurutan berdasarkan waktu \citep{petropoulos2021forecasting}. Model-model peramalan telah berkembang secara bertahap seiring waktu. Pada awalnya, metode prediksi deret waktu mengandalkan prosedur statistik murni seperti analisis regresi dan metode ARIMA \citep{putra2019sugar} Metode statistik ini bekerja dengan baik untuk data dengan hubunga linier. Untuk data non linier, model kecerdasan buatan teruatama jaringan saraf telah digunakan \citep{marino2016building}. Baru baru ini , metode hibrida yang menggabungkan metode statistik dengan pendeketan deep learning telah dikembangkan untuk mengahsilkan prediksi yang lebih akurat \citep{jagtap2019rainfall}. Bahkan model konvensional seperti ARIMA sering kali gagal memebrikan prediksi curah hujan yang akurat ketika diterapkan pada wilayah dengan variassi geografis yang kompleks sehingga memerlukan model alternatif. Maka dari itu dalam konteks penelitian ini menggunakan model yang efektif ketikaa berhadapan dengan data spatio temporal. Untuk mengetahui model itu efektif atau tidaknya dalam penelitian ini menggunakan evaluasi MAPE dan RMSE. Berikut adalah rumus umum untuk menghitung MAE, MAPE dan RMSE.
+\begin{equation}\label{mae}
+    \text{MAE} = \frac{1}{n} \sum_{t=1}^{n} \left| y_t - \hat{y}_t \right|
+\end{equation}
+Persamaan~(\ref{mae}) menunjukkan rumus \textit{Mean Absolute Error} (MAE).
+
+\begin{equation}\label{mape}
+    \text{MAPE} = \left( \frac{1}{n} \sum_{t=1}^{n} \left| \frac{y_t - \hat{y}_t}{y_t} \right| \right) \times 100
+\end{equation}
+Persamaan~(\ref{mape}) menunjukkan rumus \textit{Mean Absolute Percentage Error} (MAPE).
+
+\begin{equation}\label{rmse}
+    \text{RMSE} = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (y_t - \hat{y}_t)^2 }
+\end{equation}
+Persamaan~(\ref{rmse}) menunjukkan rumus \textit{Root Mean Square Error} (RMSE).
+Keterangan:
+\begin{itemize}
+  \item $y_t$ : nilai aktual pada waktu ke-$t$
+  \item $\hat{y}_t$ : nilai prediksi pada waktu ke-$t$
+  \item $n$ : jumlah total data atau observasi yang diprediksi
+\end{itemize}
+Nilai-nilai seperti MAE, RMSE, dan MAPE merupakan ukuran tingkat kesalahan prediksi. Semakin rendah nilai-nilai ini, maka semakin akurat model dalam memprediksi data.
