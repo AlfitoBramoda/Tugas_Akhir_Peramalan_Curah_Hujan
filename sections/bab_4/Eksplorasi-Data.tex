@@ -86,9 +86,18 @@ Berdasarkan hasil dekomposi pada gambar \ref{fig:seasonal-decompose-semua-wilaya
         
     \item Komponen Musiman:
     
-        Pola musiman menunjukkan fluktuasi yang berulang secara konsisten setiap tahun, dengan puncak curah hujan umumnya terjadi pada Desember – Februari dan minimum pada Juli – September. Pola ini menggamabrkan dengan jelas siklus tahunan curah hujan di semua wilayah Surabaya yang mengikuti pola iklim monsun tropis.
+        Pola musiman menunjukkan fluktuasi yang berulang secara konsisten setiap tahun, dengan puncak curah hujan umumnya terjadi pada Desember – Februari dan minimum pada Juli – September. Pola ini menggambarkan dengan jelas siklus tahunan curah hujan di semua wilayah Surabaya yang mengikuti pola iklim monsun tropis.
 
     \item Komponen Residual:
 
         Komponen residual menunjukkan penyebaran acak disekitar nol yang menandakan bahwa sebagian besar variasi curah hujan telah berhasil dijelaskan oleh komponen tren dan musiman. Tidak terlihat adanya pola sistematis yang menonjol pada residu, sehingga model dekomposis dianggap cukup baik dalam memisahkan variasi utama pada data
 \end{enumerate}
+
+\subsection{Analisis Korelasi Spatio Temporal}
+Analisis korelasi spasio-temporal dilakukan untuk mengidentifikasi tingkat keterhubungan pola curah hujan antar wilayah Surabaya.
+Nilai korelasi yang ditampilkan pada tabel berikut memberikan gambaran mengenai seberapa kuat kesamaan pola hujan secara ruang dan waktu.
+
+\input{tables/bab_4/Korelasi-Setiap-Wilayah.tex}
+Tabel~\ref{table:korelasi-setiap-wilayah} merupakan tabel yang menunjukkan bahwa kelima wilayah di Surabaya ini memiliki nilai korelasi yang besar antara 0.975 hingga 0.999.
+Korelasi ini menunjukkan hubungan positif yang sangat kuat artinya peningkatan curah hujan di satu wilayah cenderung diikuti oleh peningkatan di wilayah lain pada waktu yang sama.
+Hal ini menandakan bahwa curah hujan di Surabaya bersifat homogen secara spasial karena semua wilayah mengalami kondisi meteorologis yang hampir sama.
