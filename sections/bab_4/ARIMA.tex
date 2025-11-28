@@ -8,8 +8,8 @@ Oleh karena itu, pada tahap ini dilakukan pengujian kestasioneran data curah huj
     \item Kestasioneran terhadap varians
     Kesationeran data curah hujan terhadap ragam dapat dilihat dari transformasi lambda ($\lambda$) yang dihasilkan dari plot BoxCox.
     Jika nilai ($\lambda$) mendekati satu maka dapat disimpulkan bahwa data telah stasioner dan sebaliknya. Untuk membuat plot BoxCox data yang digunakan harus bernilai positif.
-    \input{tables/bab_4/Nilai-Lambda-Semua-Wilayah.tex}
-    Berdasarkan tabel~\ref{table:nilai-lambda-semua-wilayah} nilai $\lambda$ untuk seluruh wilayah berada pada rentang 0.34 - 0.38, yang menunjukkan bahwa data belum stasioner terhadap varians.
+    \input{tables/bab_4/Nilai-Lambda-Semua-Wilayah-ARIMA.tex}
+    Berdasarkan tabel~\ref{table:nilai-lambda-semua-wilayah-arima} nilai $\lambda$ untuk seluruh wilayah berada pada rentang 0.34 - 0.38, yang menunjukkan bahwa data belum stasioner terhadap varians.
     Karena itu, diperlukan transformasi Box-Cox agar varians data lebih stabil dan sesuai dengan asumsi pemodelan time series.
     Transformasi ini membantu meningkatkan kinerja model dengan mengurangi bias akibat varians yang tidak stabil.
     Setelah transformasi diterapkan, stasioneritas mean diperiksa kembali melalui uji ADF dan analisis ACF/PACF.
@@ -21,8 +21,8 @@ Oleh karena itu, pada tahap ini dilakukan pengujian kestasioneran data curah huj
     $H_0$: $\phi \ge 0$ (data tidak stasioner terhadap rata-rata) \\
     $H_1$: $\phi < 0$ (data stasioner terhadap rata-rata) \\
     Hasil pengujian \textit{Augmented Dickey--Fuller Unit Root} untuk masing-masing lokasi terangkum pada tabel di bawah ini.
-    \input{tables/bab_4/Hasil-Uji-ADF.tex}
-    Tabel~\ref{table:hasil-uji-adf} itu menunjukkan bahwa data curah hujan kelima wilayah Surabaya sudah stasioner sepenuhnya.
+    \input{tables/bab_4/Hasil-Uji-ADF-ARIMA.tex}
+    Tabel~\ref{table:hasil-uji-adf-arima} itu menunjukkan bahwa data curah hujan kelima wilayah Surabaya sudah stasioner sepenuhnya.
     Berdasarkan hasil tersebut, dapat dilihat bahwa semua wilayah memiliki nilai p-value $<$ 0.05 yang artinya sudah memenuhi syarat untuk melakukan pemodelan ARIMA.
 
     \item Plot ACF dan PACF \\

@@ -1,0 +1,70 @@
+\begin{table}[H]
+    \centering
+    \scriptsize
+    \caption{Estimasi Parameter}
+    \label{table:estimasi-paramater-starima-inverse}
+    \renewcommand{\arraystretch}{1.25}
+
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+            \hline
+            \multirow{2}{*}{\textbf{Spatial Orde}} &
+            \multirow{2}{*}{\textbf{Model}} &
+            \multirow{2}{*}{\textbf{Statistik}} &
+            \multicolumn{3}{c|}{\textbf{AR Parameter}} &
+            \multicolumn{3}{c|}{\textbf{MA Parameter}} \\ \cline{4-9}
+
+            & & &
+            \multicolumn{1}{c|}{$\phi_{10}$} &
+            \multicolumn{1}{c|}{$\Phi_{20}$} &
+            \multicolumn{1}{c|}{$\Phi_{30}$} &
+            \multicolumn{1}{c|}{$\Theta_{10}$} &
+            \multicolumn{1}{c|}{$\Theta_{20}$} &
+            $\Theta_{30}$ \\ 
+            \hline
+
+            % ===================== LAG 0 ==========================
+            \multirow{12}{*}{Lag 0}
+            & \multirow{4}{*}{1,1,0}
+            & Estimasi & 0.4812 &  &  &  &  &  \\ \cline{3-9}
+            & & SE      & 0.0435 &  &  &  &  &  \\ \cline{3-9}
+            & & t-value & 11.1   &  &  &  &  &  \\ \cline{3-9}
+            & & p-value & $<0.0000000000000002$ *** &  &  &  &  &  \\ \cline{2-9}
+
+            & \multirow{4}{*}{1,1,1}
+            & Estimasi & 0.5747 &  &  & -0.1557 &  &  \\ \cline{3-9}
+            & & SE      & 0.0685 &  &  & 0.0853 &  &  \\ \cline{3-9}
+            & & t-value & 8.39   &  &  & -1.83  &  &  \\ \cline{3-9}
+            & & p-value & 0.0000000000000056 *** & 0.069 &  &  &  &  \\ \cline{2-9}
+
+            & \multirow{4}{*}{1,1,2}
+            & Estimasi & 0.6760 & -0.2765 & -0.1313 &  &  &  \\ \cline{3-9}
+            & & SE      & 0.088  & 0.1082 & 0.076  &  &  &  \\ \cline{3-9}
+            & & t-value & 7.62   & 2.56   & 1.71   &  &  &  \\ \cline{3-9}
+            & & p-value & 0.00000000000014 *** & 0.011 *** & 0.087 &  &  &  \\ 
+            \hline
+
+            % ===================== LAG 1 ==========================
+            \multirow{12}{*}{Lag 1}
+            & \multirow{4}{*}{1,1,0}
+            & Estimasi & 0.4849 &  &  &  &  &  \\ \cline{3-9}
+            & & SE      & 0.0436 &  &  &  &  &  \\ \cline{3-9}
+            & & t-value & 11.1   &  &  &  &  &  \\ \cline{3-9}
+            & & p-value & $<0.0000000000000002$ *** &  &  &  &  & \\ \cline{2-9}
+
+            & \multirow{4}{*}{1,1,1}
+            & Estimasi & 0.5694 &  &  & -0.1423 &  &  \\ \cline{3-9}
+            & & SE      & 0.0682 &  &  & 0.0855 &  &  \\ \cline{3-9}
+            & & t-value & 8.34   &  &  & 1.66  &  &  \\ \cline{3-9}
+            & & p-value & 0.0000000000000078 *** & 0.097 &  &  &  & \\ \cline{2-9}
+
+            & \multirow{4}{*}{1,1,2}
+            & Estimasi & 0.6760 & -0.2792 & -0.1297 &  &  &  \\ \cline{3-9}
+            & & SE      & 0.1114 & 0.1385 & 0.0983 &  &  &  \\ \cline{3-9}
+            & & t-value & 6.07   & -2.02  & -1.32  &  &  &  \\ \cline{3-9}
+            & & p-value & 0.0000000026 *** & 0.044 & 0.187 &  &  & \\ 
+            \hline
+
+        \end{tabular}
+    }
+\end{table}
