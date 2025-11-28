@@ -1,0 +1,38 @@
+\begin{table}[H]
+    \centering
+    \scriptsize
+    \caption{Perbandingan RMSE ARIMA dan STARIMA per Wilayah}
+    \label{table:perbandingan-rmse-arima-starima}
+    \renewcommand{\arraystretch}{1.25}
+
+    \begin{tabular}{l l c}
+        \toprule
+        \textbf{Wilayah} & \textbf{Model} & \textbf{RMSE} \\
+        \midrule
+
+        \multirow{2}{*}{Barat}
+            & ARIMA(1,1,0) x (1,1,0,12)    & 4.541 \\
+            & STARIMA(1,1,1,12)        & 1.653 \\
+        \midrule
+
+        \multirow{2}{*}{Selatan}
+            & ARIMA(1,1,0) x (1,1,0,12)    & 4.691 \\
+            & STARIMA(1,1,1,12)        & 2.005 \\
+        \midrule
+
+        \multirow{2}{*}{Tengah}
+            & ARIMA(1,1,0) x (1,1,0,12)    & 4.553 \\
+            & STARIMA(1,1,1,12)        & 2.119 \\
+        \midrule
+
+        \multirow{2}{*}{Timur}
+            & ARIMA(1,1,0) x (1,1,0,12)    & 4.596 \\
+            & STARIMA(1,1,1,12)        & 1.407 \\
+        \midrule
+
+        \multirow{2}{*}{Utara}
+            & ARIMA(1,1,0) x (1,1,0,12)    & 3.341 \\
+            & STARIMA(1,1,1,12)        & 1.680 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
