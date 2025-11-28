@@ -1,0 +1,12 @@
+\section{Kesimpulan}
+Berdasarkan hasil analisis, didapatkan kesimpulan bahwa kelima wilayah memiliki karakteristik hujan yang relatif serupa baik dari nilai rata-rata maupun pola persebaran statistik.
+Curah hujan tahunan memperlihatkan pola musiman kuat dengan puncak hujan pada Desember hingga Februari dan kondisi minimum pada Juli hingga September.
+Curah hujan kelima wilayah ini juga memiliki korelasi spasial yang sangat tinggi (0.975 - 0.999) sehingga dinamika hujan antar wilayah bergerak hampir serentak.
+
+Hasil analisis jika menggunakan ARIMA sudah mampu untuk menggambarkan pola musiman tahunan akan tetapi kinerjanya masih kurang responsif terhadap fluktuasi ekstrim hujan terbukti dengan tingginya RMSE yang dihasilkan.
+Keterbatasan ini muncul karena  ARIMA hanya menggunakan informasi temporal tanpa mempertimbangkan interaksi antarwilayah.
+Sehingga diperlukan STARIMA yang diuji menggunakan tiga jenis bobot spasial (Bobot Searagm, Bobot Invers Jarak, Bobot Lokasi Korelasi Silang).
+Dimana hasil evaluasi RMSE menunjukkan peningkatan akurasi signifikan dibandingkan dengan ARIMA.
+
+Hasil forecasting konsisten menunjukkan STARIMA lebih baik dalam menangkap puncak musiman, lebih stabil pada periode penurunan hujan, lebih sedikit error dan lebih responsif terhadap pola spasial-temporal.
+Model STARIMA(1,1,1) dengan bobot seragam menghasilkan error paling rendah dan paling konsisten di seluruh wilayah, sehingga menjadi model paling optimal untuk Surabaya.
