@@ -1,0 +1,69 @@
+\begin{table}[H]
+    \centering
+    \caption{Estimasi Parameter ARIMA}
+    \label{table:estimasi-parameter-arima}
+    \renewcommand{\arraystretch}{1.3}
+
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \multirow{3}{*}{\textbf{Wilayah}} &
+        \multirow{3}{*}{\textbf{Model}} &
+        \multirow{3}{*}{\textbf{Statistik}} &
+        \multicolumn{3}{c|}{\textbf{AR Parameter}} &
+        \multicolumn{3}{c|}{\textbf{MA Parameter}} \\
+        \cline{4-9}
+
+        & & &
+        \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+        \textbf{Seasonal} &
+        \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+        \textbf{Seasonal} \\
+        \cline{4-9}
+
+        & & &
+        \textbf{AR 1} & \textbf{AR 2} & \textbf{AR} &
+        \textbf{MA 1} & \textbf{MA 2} & \textbf{MA} \\
+        \hline
+
+        % ================= BARAT ======================
+        \multirow{4}{*}{Barat}
+        & \multirow{4}{*}{(1,1,0) × (0,1,0)\textsubscript{12}}
+        & Estimasi & -0.3800 &  &  &  &  &  \\ \cline{3-9}
+        &  & SE       & 0.112  &  &  &  &  &  \\ \cline{3-9}
+        &  & t-value  & -3.403 &  &  &  &  &  \\ \cline{3-9}
+        &  & p-value  & 0.001  &  &  &  &  &  \\ \hline
+
+        % ================= SELATAN ======================
+        \multirow{4}{*}{Selatan}
+        & \multirow{4}{*}{(1,1,0) × (0,1,0)\textsubscript{12}}
+        & Estimasi & -0.412 &  &  &  &  &  \\ \cline{3-9}
+        &  & SE       & 0.109 &  &  &  &  &  \\ \cline{3-9}
+        &  & t-value  & -3.825 &  &  &  &  &  \\ \cline{3-9}
+        &  & p-value  & 0.000  &  &  &  &  &  \\ \hline
+
+        % ================= TENGAH ======================
+        \multirow{4}{*}{Tengah}
+        & \multirow{4}{*}{(1,1,0) × (1,1,0)\textsubscript{12}}
+        & Estimasi & -0.3575 & -0.4898 &  &  &  &  \\ \cline{3-9}
+        &  & SE       & 0.137  & 0.116  &  &  &  &  \\ \cline{3-9}
+        &  & t-value  & -2.608 & -4.210 &  &  &  &  \\ \cline{3-9}
+        &  & p-value  & 0.009  & 0.000  &  &  &  &  \\ \hline
+
+        % ================= TIMUR ======================
+        \multirow{4}{*}{Timur}
+        & \multirow{4}{*}{(1,1,0) × (0,1,0)\textsubscript{12}}
+        & Estimasi & -0.4077 &  &  &  &  &  \\ \cline{3-9}
+        &  & SE       & 0.097  &  &  &  &  &  \\ \cline{3-9}
+        &  & t-value  & -0.4206 &  &  &  &  &  \\ \cline{3-9}
+        &  & p-value  & 0.000 &  &  &  &  &  \\ \hline
+
+        % ================= UTARA ======================
+        \multirow{4}{*}{Utara}
+        & \multirow{4}{*}{(1,1,0) × (1,1,0)\textsubscript{12}}
+        & Estimasi & -0.3738 &  & -0.0567 &  &  &  \\ \cline{3-9}
+        &  & SE       & 0.117  &  & 0.013  &  &  &  \\ \cline{3-9}
+        &  & t-value  & -3.205 &  & -4.478 &  &  &  \\ \cline{3-9}
+        &  & p-value  & 0.001 &  & 0.000  &  &  &  \\ \hline
+
+    \end{tabular}
+\end{table}
