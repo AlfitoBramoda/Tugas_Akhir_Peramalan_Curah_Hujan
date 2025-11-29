@@ -1,242 +1,345 @@
 \begin{enumerate}[label=\alph*.]
     \item Tanpa Transformasi
+        \tiny
+        \begin{longtable}{|c|c|c|c|c|c|c|c|c|}
+            \hline
+            \multirow{3}{*}{\centering\textbf{Model}} &
+            \multirow{3}{*}{\centering\textbf{Statistik}} &
+            \multicolumn{4}{c|}{\textbf{AR Parameter}} &
+            \multicolumn{3}{c|}{\textbf{MA Parameter}} \\ \cline{3-9}
+
+            & &
+            \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+            \multicolumn{2}{c|}{\textbf{Seasonal}} &
+            \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+            \textbf{Seasonal} \\ \cline{3-9}
+
+            & &
+            \textbf{AR1} & \textbf{AR2} &
+            \textbf{AR12} & \textbf{AR24} &
+            \textbf{MA1} & \textbf{MA2} &
+            \textbf{MA} \\ \hline
+            \endfirsthead
+
+            % ================= HEADER REPEAT =====================
+            \hline
+            \multirow{3}{*}{\centering\textbf{Model}} &
+            \multirow{3}{*}{\centering\textbf{Statistik}} &
+            \multicolumn{4}{c|}{\textbf{AR Parameter}} &
+            \multicolumn{3}{c|}{\textbf{MA Parameter}} \\ \cline{3-9}
+
+            & &
+            \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+            \multicolumn{2}{c|}{\textbf{Seasonal}} &
+            \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+            \textbf{Seasonal} \\ \cline{3-9}
+
+            & &
+            \textbf{AR1} & \textbf{AR2} &
+            \textbf{AR12} & \textbf{AR24} &
+            \textbf{MA1} & \textbf{MA2} &
+            \textbf{MA} \\ \hline
+            \endhead
+
+            \hline
+            \endfoot
+
+            \hline
+            \endlastfoot
+
+            % ====== DATA MODEL DI SINI ======
+
+            \hline
+            % =================  (0,1,0) × (0,1,0)12  =================
+            \multirow{4}{*}{$(0,1,0)\times(0,1,0)_{12}$}
+            & Estimasi & {} & {} & {} & {} & {} & {} & {} \\ \cline{2-9}
+            & SE       & {} & {} & {} & {} & {} & {} & {}\\ \cline{2-9}
+            & t-value  &  {}   & {} & {} & {} & {} & {} & {} \\ \cline{2-9}
+            & p-value  & {} & {} & {} & {} & {} & {} & {} \\ \hline
+
+            % =================  (0,1,0) × (0,1,1)12  =================
+            \multirow{4}{*}{$(0,1,0)\times(0,1,1)_{12}$}
+            & Estimasi & {} & {} & {} & {} & {} & {} & -1.000 \\ \cline{2-9}
+            & SE       & {} & {} & {} & {} & {} & {} & 2650.585\\ \cline{2-9}
+            & t-value  &  {}   & {} & {} & {} & {} & {} & -0.000 \\ \cline{2-9}
+            & p-value  & {} & {} & {} & {} & {} & {} & 1.000 \\ \hline
+
+            % =================  (0,1,0) × (1,1,0)12  =================
+            \multirow{4}{*}{$(0,1,0)\times(1,1,0)_{12}$}
+            & Estimasi & {} & {} & -0.5941 & {} & {} & {} & {} \\ \cline{2-9}
+            & SE       & {} & {} & 0.106 & {} & {} & {} & {}\\ \cline{2-9}
+            & t-value  & {} & {} & -5.629 & {} & {} & {} & {}\\ \cline{2-9}
+            & p-value  & {} & {} & 0.000 & {} & {} & {} & {}\\ \hline
+
+            % =================  (0,1,0) × (1,1,1)12  =================
+            \multirow{4}{*}{$(0,1,0)\times(1,1,1)_{12}$}
+            & Estimasi & {} & {} & -0.3730 & {} & {} & {} & -1.000\\ \cline{2-9}
+            & SE       & {} & {} & 0.112 & {} & {} & {} & 2960.058\\ \cline{2-9}
+            & t-value  & {} & {} & -3.318 & {}   & {}   & {} & -0.000\\ \cline{2-9}
+            & p-value  & {} & {} & 0.001 & {} & {} & {} & 1.000\\ \hline
+
+            % =================  (0,1,1) × (0,1,1)12  =================
+            \multirow{4}{*}{$(0,1,1)\times(0,1,1)_{12}$}
+            & Estimasi & {} & {} & {} & {} & -1.0426 & {} & -1.0000 \\ \cline{2-9}
+            & SE       & {} & {} & {} & {} & 0.081 & {} & 3555.542\\ \cline{2-9}
+            & t-value  & {} & {} & {} & {} & -12.841 & {} & -0.000\\ \cline{2-9}
+            & p-value  & {} & {} & {} & {} & 0.000 & {} & 1.000\\ \hline
+
+            % =================  (0,1,1) × (1,1,0)12  =================
+            \multirow{4}{*}{$(0,1,1)\times(1,1,0)_{12}$}
+            & Estimasi & {} & {} & -0.5326 & {}  & -0.9723 & {} & {}\\ \cline{2-9}
+            & SE       & {} & {} & 0.106 & {} & 0.041 & {} & {}\\ \cline{2-9}
+            & t-value  & {} & {} & -5.043 & {} & -23.588 & {} & {}\\ \cline{2-9}
+            & p-value  & {} & {} & 0.000 & {} & 0.000 & {} & {} \\ \hline
+
+            % =================  (0,1,1) × (1,1,1)12  =================
+            \multirow{4}{*}{$(0,1,1)\times(1,1,1)_{12}$}
+            & Estimasi & {} & {} & -0.3230 & {} & -0.9053 & {} & -0.7419 \\ \cline{2-9}
+            & SE       & {} & {} & 0.127   & {} & 0.063 & {} & 0.159\\ \cline{2-9}
+            & t-value  & {} & {} & -2.551  & {} & -14.471 & {} & -4.660\\ \cline{2-9}
+            & p-value  & {} & {} & 0.011   & {} & 0.000 & {} & 0.000 \\ \hline
+
+            % =================  (1,1,0) × (0,1,0)12  =================
+            \multirow{4}{*}{$(1,1,0)\times(0,1,0)_{12}$}
+            & Estimasi & -0.3577  & {} & {} & {} & {} & {} & {} \\ \cline{2-9}
+            & SE       & 0.138  & {} & {} & {} & {} & {} & {} \\ \cline{2-9}
+            & t-value  & -2.597   & {} & {} & {} & {} & {} & {}\\ \cline{2-9}
+            & p-value  & 0.009 & {} & {} & {} & {} & {} & {} \\ \hline
+
+            % =================  (1,1,0) × (0,1,1)12  =================
+            \multirow{4}{*}{$(1,1,0)\times(0,1,1)_{12}$}
+            & Estimasi & -0.2971  & {} & {} & {} & {} & {} & -1.000 \\ \cline{2-9}
+            & SE       & 0.205  & {} & {} & {} & {} & {} & 9.3e+04\\ \cline{2-9}
+            & t-value  & -1.451   & {} & {} & {} & {} & {} & -1.08e-05\\ \cline{2-9}
+            & p-value  & 0.147 & {} & {} & {} & {} & {} & 1.000\\ \hline
+
+            % =================  (1,1,0) × (1,1,0)12  =================
+            \multirow{4}{*}{$(1,1,0)\times(1,1,0)_{12}$}
+            & Estimasi & -0.3252  & {} & -0.5564 & {} & {} & {} & {}\\ \cline{2-9}
+            & SE       & 0.157  & {} & 0.117 & {} & {} & {} & {}\\ \cline{2-9}
+            & t-value  & -2.075   & {} & -4.760 & {} & {} & {}& {}\\ \cline{2-9}
+            & p-value  & 0.038 & {} & 0.000 & {} & {} & {} & {}\\ \hline
+
+            % =================  (1,1,0) × (1,1,1)12  =================
+            \multirow{4}{*}{$(1,1,0)\times(1,1,1)_{12}$}
+            & Estimasi & -0.3100  & {} & -0.3506 & {} & {} & {} & -1.0000 \\ \cline{2-9}
+            & SE       & 0.167    & {} & 0.119 & {} & {} & {} & 1219.234\\ \cline{2-9}
+            & t-value  & -1.861   & {} & -2.959 & {} & {} & {} & -0.001\\ \cline{2-9}
+            & p-value  & 0.063    & {} &  0.003 & {} & {} & {} & 0.999\\ \hline
+
+            % =================  (1,1,1) × (0,1,0)12  =================
+            \multirow{4}{*}{$(1,1,1)\times(0,1,0)_{12}$}
+            & Estimasi & 0.2310  & {} & {} & {} & -1.0000 & {} & {}\\ \cline{2-9}
+            & SE       & 0.161 & {} & {} & {} & 313.227 & {} & {}\\ \cline{2-9}
+            & t-value  & 1.439   & {} & {} & {} & -0.003 & {}& {}\\ \cline{2-9}
+            & p-value  & 0.150 & {} & {} & {} & 0.997 & {} & {}\\ \hline
+
+            % =================  (1,1,1) × (0,1,1)12  =================
+            \multirow{4}{*}{$(1,1,1)\times(0,1,1)_{12}$}
+            & Estimasi & 0.2506  & {} & {} & {} & -1.0000 & {} & -1.0002\\ \cline{2-9}
+            & SE       & 0.205 & {} & {} & {} & 2707.534 & {} & 225.164\\ \cline{2-9}
+            & t-value  & 1.222  & {} & {} & {} & -0.0000 & {}& -0.004\\ \cline{2-9}
+            & p-value  & 0.222 & {} & {} & {} & 1.000 & {} & 0.996\\ \hline
+
+            % =================  (1,1,1) × (1,1,0)12  =================
+            \multirow{4}{*}{$(1,1,1)\times(1,1,0)_{12}$}
+            & Estimasi & 0.2086  & {} & -0.5256 & {} & -1.0000 & {} & {}\\ \cline{2-9}
+            & SE       & 0.149 & {} & 0.126 & {} & 11.364 & {} & {}\\ \cline{2-9}
+            & t-value  & 1.402  & {} & -4.174 & {} & -0.009 & {}& {}\\ \cline{2-9}
+            & p-value  & 0.161 & {} & 0.000 & {} & 0.993 & {} & {}\\ \hline
+
+            % =================  (1,1,1) × (1,1,1)12  =================
+            \multirow{4}{*}{$(1,1,1)\times(1,1,1)_{12}$}
+            & Estimasi & 0.2515  & {} & -0.3543 & {} & -0.9438 & {} & -0.7445\\ \cline{2-9}
+            & SE       & 0.165 & {} & 0.132 & {} & 0.080 & {} & 0.170\\ \cline{2-9}
+            & t-value  & 1.521  & {} & -2.685 & {} & -11.850 & {}& -4.373\\ \cline{2-9}
+            & p-value  & 0.128 & {} & 0.007 & {} & 0.000 & {} & 0.000\\ \hline
+
+            % =================  (0,1,1) × (0,1,0)12  =================
+            \multirow{4}{*}{$(0,1,1)\times(0,1,0)_{12}$}
+            & Estimasi & {} & {} & {} & {} & -1.0000 & {} & {}\\ \cline{2-9}
+            & SE       & {} & {} & {} & {} & 163.626 & {} & {}\\ \cline{2-9}
+            & t-value  & {} & {} & {} & {} & -0.006 & {}& {}\\ \cline{2-9}
+            & p-value  & {} & {} & {} & {} & 0.995 & {} & {}\\ \hline
+
+            % =================  (1,1,0) × (2,1,0)12  =================
+            \multirow{4}{*}{$(1,1,0)\times(2,1,0)_{12}$}
+            & Estimasi & -0.2886 & {} & -0.8174 & -0.6466 & {} & {} & {}\\ \cline{2-9}
+            & SE       & 0.180 & {} & 0.105 & 0.089 & {} & {} & {}\\ \cline{2-9}
+            & t-value  & -1.605 & {} & -7.804 & -7.228 & {} & {}& {}\\ \cline{2-9}
+            & p-value  & 0.108 & {} & 0.000 & 0.000 & {} & {} & {}\\ \hline
+        \end{longtable}
+        \normalsize
     
     \item Transformasi
-    
+        \tiny
+        \begin{longtable}{|c|c|c|c|c|c|c|c|c|}
+            \hline
+            \multirow{3}{*}{\centering\textbf{Model}} &
+            \multirow{3}{*}{\centering\textbf{Statistik}} &
+            \multicolumn{4}{c|}{\textbf{AR Parameter}} &
+            \multicolumn{3}{c|}{\textbf{MA Parameter}} \\ \cline{3-9}
+
+            & &
+            \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+            \multicolumn{2}{c|}{\textbf{Seasonal}} &
+            \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+            \textbf{Seasonal} \\ \cline{3-9}
+
+            & &
+            \textbf{AR1} & \textbf{AR2} &
+            \textbf{AR12} & \textbf{AR24} &
+            \textbf{MA1} & \textbf{MA2} &
+            \textbf{MA} \\ \hline
+            \endfirsthead
+
+            % ================= HEADER REPEAT =====================
+            \hline
+            \multirow{3}{*}{\centering\textbf{Model}} &
+            \multirow{3}{*}{\centering\textbf{Statistik}} &
+            \multicolumn{4}{c|}{\textbf{AR Parameter}} &
+            \multicolumn{3}{c|}{\textbf{MA Parameter}} \\ \cline{3-9}
+
+            & &
+            \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+            \multicolumn{2}{c|}{\textbf{Seasonal}} &
+            \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+            \textbf{Seasonal} \\ \cline{3-9}
+
+            & &
+            \textbf{AR1} & \textbf{AR2} &
+            \textbf{AR12} & \textbf{AR24} &
+            \textbf{MA1} & \textbf{MA2} &
+            \textbf{MA} \\ \hline
+            \endhead
+
+            \hline
+            \endfoot
+
+            \hline
+            \endlastfoot
+
+            % ====== DATA MODEL DI SINI ======
+
+            \hline
+            % =================  (0,1,0) × (0,1,0)12  =================
+            \multirow{4}{*}{$(0,1,0)\times(0,1,0)_{12}$}
+            & Estimasi & {} & {} & {} & {} & {} & {} & {} \\ \cline{2-9}
+            & SE       & {} & {} & {} & {} & {} & {} & {}\\ \cline{2-9}
+            & t-value  &  {}   & {} & {} & {} & {} & {} & {} \\ \cline{2-9}
+            & p-value  & {} & {} & {} & {} & {} & {} & {} \\ \hline
+
+            % =================  (0,1,0) × (0,1,1)12  =================
+            \multirow{4}{*}{$(0,1,0)\times(0,1,1)_{12}$}
+            & Estimasi & {} & {} & {} & {} & {} & {} & -1.000 \\ \cline{2-9}
+            & SE       & {} & {} & {} & {} & {} & {} & 1.1e+04\\ \cline{2-9}
+            & t-value  &  {}   & {} & {} & {} & {} & {} & -9.13e-05 \\ \cline{2-9}
+            & p-value  & {} & {} & {} & {} & {} & {} & 1.000 \\ \hline
+
+            % =================  (0,1,0) × (1,1,0)12  =================
+            \multirow{4}{*}{$(0,1,0)\times(1,1,0)_{12}$}
+            & Estimasi & {} & {} & -0.5153 & {} & {} & {} & {} \\ \cline{2-9}
+            & SE       & {} & {} & 0.118 & {} & {} & {} & {}\\ \cline{2-9}
+            & t-value  & {} & {} & -4.361 & {} & {} & {} & {}\\ \cline{2-9}
+            & p-value  & {} & {} & 0.000 & {} & {} & {} & {}\\ \hline
+
+            % =================  (0,1,0) × (1,1,1)12  =================
+            \multirow{4}{*}{$(0,1,0)\times(1,1,1)_{12}$}
+            & Estimasi & {} & {} & -0.3874 & {} & {} & {} & -1.000\\ \cline{2-9}
+            & SE       & {} & {} & 0.178 & {} & {} & {} & 9791.651\\ \cline{2-9}
+            & t-value  & {} & {} & -2.178 & {}   & {}   & {} & -0.000\\ \cline{2-9}
+            & p-value  & {} & {} & 0.029 & {} & {} & {} & 1.000\\ \hline
+
+            % =================  (0,1,1) × (0,1,1)12  =================
+            \multirow{4}{*}{$(0,1,1)\times(0,1,1)_{12}$}
+            & Estimasi & {} & {} & {} & {} & -0.7296 & {} & -1.0000 \\ \cline{2-9}
+            & SE       & {} & {} & {} & {} & 0.077 & {} & 5120.166\\ \cline{2-9}
+            & t-value  & {} & {} & {} & {} & -9.511 & {} & -0.000\\ \cline{2-9}
+            & p-value  & {} & {} & {} & {} & 0.000 & {} & 1.000\\ \hline
+
+            % =================  (0,1,1) × (1,1,0)12  =================
+            \multirow{4}{*}{$(0,1,1)\times(1,1,0)_{12}$}
+            & Estimasi & {} & {} & -0.4808 & {}  & 1.2301 & {} & {}\\ \cline{2-9}
+            & SE       & {} & {} & 0.106 & {} & 0.098 & {} & {}\\ \cline{2-9}
+            & t-value  & {} & {} & -4.532 & {} & -12.530 & {} & {}\\ \cline{2-9}
+            & p-value  & {} & {} & 0.000 & {} & 0.000 & {} & {} \\ \hline
+
+            % =================  (0,1,1) × (1,1,1)12  =================
+            \multirow{4}{*}{$(0,1,1)\times(1,1,1)_{12}$}
+            & Estimasi & {} & {} & -0.3622 & {} & -0.7711 & {} & -1.0000 \\ \cline{2-9}
+            & SE       & {} & {} & 0.142   & {} & 0.075 & {} & 3846.865\\ \cline{2-9}
+            & t-value  & {} & {} & -2.547  & {} & -10.244 & {} & -0.000\\ \cline{2-9}
+            & p-value  & {} & {} & 0.011   & {} & 0.000 & {} & 1.000 \\ \hline
+
+            % =================  (1,1,0) × (0,1,0)12  =================
+            \multirow{4}{*}{$(1,1,0)\times(0,1,0)_{12}$}
+            & Estimasi & -0.3653  & {} & {} & {} & {} & {} & {} \\ \cline{2-9}
+            & SE       & 0.112  & {} & {} & {} & {} & {} & {} \\ \cline{2-9}
+            & t-value  & -0.3017   & {} & {} & {} & {} & {} & {}\\ \cline{2-9}
+            & p-value  & 0.001 & {} & {} & {} & {} & {} & {} \\ \hline
+
+            % =================  (1,1,0) × (0,1,1)12  =================
+            \multirow{4}{*}{$(1,1,0)\times(0,1,1)_{12}$}
+            & Estimasi & -0.3653  & {} & {} & {} & {} & {} & -1.000 \\ \cline{2-9}
+            & SE       & 0.112  & {} & {} & {} & {} & {} & 2.92e+04\\ \cline{2-9}
+            & t-value  & -0.3017   & {} & {} & {} & {} & {} & -3.43e-05\\ \cline{2-9}
+            & p-value  & 0.001 & {} & {} & {} & {} & {} & 1.000\\ \hline
+
+            % =================  (1,1,0) × (1,1,0)12  =================
+            \multirow{4}{*}{$(1,1,0)\times(1,1,0)_{12}$}
+            & Estimasi & -0.3153  & {} & -0.4639 & {} & {} & {} & {}\\ \cline{2-9}
+            & SE       & 0.136  & {} & 0.122 & {} & {} & {} & {}\\ \cline{2-9}
+            & t-value  & -2.312   & {} & -3.799 & {} & {} & {}& {}\\ \cline{2-9}
+            & p-value  & 0.021 & {} & 0.000 & {} & {} & {} & {}\\ \hline
+
+            % =================  (1,1,0) × (1,1,1)12  =================
+            \multirow{4}{*}{$(1,1,0)\times(1,1,1)_{12}$}
+            & Estimasi & -0.2845  & {} & -0.3604 & {} & {} & {} & -1.0000 \\ \cline{2-9}
+            & SE       & 0.140    & {} & 0.186 & {} & {} & {} & 3120.954\\ \cline{2-9}
+            & t-value  & -2.029   & {} & -1.943 & {} & {} & {} & -0.000\\ \cline{2-9}
+            & p-value  & 0.042    & {} &  0.052 & {} & {} & {} & 1.000\\ \hline
+
+            % =================  (1,1,1) × (0,1,0)12  =================
+            \multirow{4}{*}{$(1,1,1)\times(0,1,0)_{12}$}
+            & Estimasi & 0.4566  & {} & {} & {} & -1.0000 & {} & {}\\ \cline{2-9}
+            & SE       & 0.123 & {} & {} & {} & 241.395 & {} & {}\\ \cline{2-9}
+            & t-value  & 3.727   & {} & {} & {} & -0.004 & {}& {}\\ \cline{2-9}
+            & p-value  & 0.000 & {} & {} & {} & 0.997 & {} & {}\\ \hline
+
+            % =================  (1,1,1) × (0,1,1)12  =================
+            \multirow{4}{*}{$(1,1,1)\times(0,1,1)_{12}$}
+            & Estimasi & 0.2524  & {} & {} & {} & -0.8407 & {} & -1.0000\\ \cline{2-9}
+            & SE       & 0.175 & {} & {} & {} & 0.078 & {} &4029. 152\\ \cline{2-9}
+            & t-value  & 1.444  & {} & {} & {} & -10.754 & {}& -0.000\\ \cline{2-9}
+            & p-value  & 0.149 & {} & {} & {} & 0.000 & {} & 1.000\\ \hline
+
+            % =================  (1,1,1) × (1,1,0)12  =================
+            \multirow{4}{*}{$(1,1,1)\times(1,1,0)_{12}$}
+            & Estimasi & 0.3528  & {} & -0.4678 & {} & -1.0000 & {} & {}\\ \cline{2-9}
+            & SE       & 0.140 & {} & 0.105 & {} & 179.254 & {} & {}\\ \cline{2-9}
+            & t-value  & 2.526  & {} & -4.462 & {} & -0.006 & {}& {}\\ \cline{2-9}
+            & p-value  & 0.012 & {} & 0.000 & {} & 0.996 & {} & {}\\ \hline
+
+            % =================  (1,1,1) × (1,1,1)12  =================
+            \multirow{4}{*}{$(1,1,1)\times(1,1,1)_{12}$}
+            & Estimasi & 0.3173  & {} & -0.3688 & {} & -0.9131 & {} & -1.0000\\ \cline{2-9}
+            & SE       & 0.199 & {} & 0.150 & {} & 0.084 & {} & 3084.778\\ \cline{2-9}
+            & t-value  & 1.598  & {} & -2.457 & {} & -10.810 & {}& -0.000\\ \cline{2-9}
+            & p-value  & 0.110 & {} & 0.014 & {} & 0.000 & {} & 1.0000\\ \hline
+
+            % =================  (0,1,1) × (0,1,0)12  =================
+            \multirow{4}{*}{$(0,1,1)\times(0,1,0)_{12}$}
+            & Estimasi & {} & {} & {} & {} & -0.5622 & {} & {}\\ \cline{2-9}
+            & SE       & {} & {} & {} & {} & 0.097 & {} & {}\\ \cline{2-9}
+            & t-value  & {} & {} & {} & {} & -5.824 & {}& {}\\ \cline{2-9}
+            & p-value  & {} & {} & {} & {} & 0.000 & {} & {}\\ \hline
+
+            % =================  (1,1,0) × (2,1,0)12  =================
+            \multirow{4}{*}{$(1,1,0)\times(2,1,0)_{12}$}
+            & Estimasi & -0.2605 & {} & -0.7918 & {} & {} & {} & {}\\ \cline{2-9}
+            & SE       & 0.154 & {} & 0.178 & 0.158 & {} & {} & {}\\ \cline{2-9}
+            & t-value  & -1.697 & {} & -4.437 & -3.338 & {} & {}& {}\\ \cline{2-9}
+            & p-value  & 0.090 & {} & 0.000 & 0.001 & {} & {} & {}\\ \hline
+        \end{longtable}
+        \normalsize
 \end{enumerate}
-\tiny
-\begin{longtable}{|c|c|c|c|c|c|c|c|c|}
-    \hline
-    \multirow{3}{*}{\textbf{Model}} &
-    \multirow{3}{*}{\textbf{Statistik}} &
-    \multicolumn{3}{c|}{\textbf{AR Parameter}} &
-    \multicolumn{3}{c|}{\textbf{MA Parameter}} &
-    \multirow{3}{*}{\textbf{RMSE}} \\ 
-    \cline{3-8}
-
-    & & 
-    \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
-    \textbf{Seasonal} &
-    \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
-    \textbf{Seasonal} &
-    \\
-    \cline{3-8}
-
-    & & 
-    \textbf{AR1} & \textbf{AR2} & \textbf{AR} &
-    \textbf{MA1} & \textbf{MA2} & \textbf{MA} &
-    \\
-    \hline
-    \endfirsthead
-
-    % =================== HEADER REPEAT =====================
-    \hline
-    \multirow{3}{*}{\textbf{Model}} &
-    \multirow{3}{*}{\textbf{Statistik}} &
-    \multicolumn{3}{c|}{\textbf{AR Parameter}} &
-    \multicolumn{3}{c|}{\textbf{MA Parameter}} &
-    \multirow{3}{*}{\textbf{RMSE}} \\ 
-    \cline{3-8}
-
-    & & 
-    \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
-    \textbf{Seasonal} &
-    \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
-    \textbf{Seasonal} &
-    \\
-    \cline{3-8}
-
-    & & 
-    \textbf{AR1} & \textbf{AR2} & \textbf{AR} &
-    \textbf{MA1} & \textbf{MA2} & \textbf{MA} &
-    \\
-    \hline
-    \endhead
-
-    \hline
-    \endfoot
-
-    \hline
-    \endlastfoot
-
-    % ===========================
-    % ====== ISI DATA DI SINI ===
-    % ===========================
-
-    % ================== MODEL 1 ==================
-    \multirow{4}{*}{\centering (0,1,0) × (0,1,0)\textsubscript{12}}
-    & Estimasi &  &  &  &  &  &  & 
-    \multirow{4}{*}{\centering 11.843} \\ \cline{2-8}
-
-    & SE       &  &  &  &  &  &  & \\ \cline{2-8}
-
-    & t-value  &  &  &  &  &  &  & \\ \cline{2-8}
-
-    & p-value  &  &  &  &  &  &  & \\ \hline
-
-    % ================== MODEL 2 ==================
-    \multirow{4}{*}{\centering (0,1,0) × (0,1,1)\textsubscript{12}}
-    & Estimasi &  &  &  &  &  & -1.0000 &
-    \multirow{4}{*}{\centering 6.646} \\ \cline{2-8}
-
-    & SE       &  &  &  &  &  & 6725.345 & \\ \cline{2-8}
-
-    & t-value  &  &  &  &  &  & -0.000   & \\ \cline{2-8}
-
-    & p-value  &  &  &   &  & & 1.000    & \\ \hline
-
-    % ================== MODEL 3 ==================
-    \multirow{4}{*}{\centering (0,1,0) × (1,1,0)\textsubscript{12}}
-    & Estimasi &  &  &  -0.5767&  &  &  &
-    \multirow{4}{*}{\centering 10.046} \\ \cline{2-8}
-
-    & SE       &  &  & 0.115  &  &  &  & \\ \cline{2-8}
-
-    & t-value  &  & & -5.022  &  &  &  & \\ \cline{2-8}
-
-    & p-value  &  &  & 0.000  &  &  &  & \\ \hline
-
-    % ================== MODEL 4 ==================
-    \multirow{4}{*}{\centering (0,1,0) × (1,1,1)\textsubscript{12}}
-    & Estimasi &  &  & -0.432 &  &  & -1.0000 &
-    \multirow{4}{*}{\centering 7.956} \\ \cline{2-8}
-
-    & SE       &  &  & 0.157  &  &  & 1940.398 & \\ \cline{2-8}
-
-    & t-value  &  &  & -2.796 &  &  & -0.001   & \\ \cline{2-8}
-
-    & p-value  &  &  & 0.005  &  &  & 1.000 & \\ \hline
-
-    % ================== MODEL 5 ==================
-    \multirow{4}{*}{\centering (0,1,1) × (0,1,1)\textsubscript{12}}
-    & Estimasi &  &  &  & -0.7692 &  & -1.0000 &
-    \multirow{4}{*}{\centering 7.110} \\ \cline{2-8}
-
-    & SE       &  &  &  & 0.060  &  & 477.420 & \\ \cline{2-8}
-
-    & t-value  &  &  &  & -11.291 &  & -0.000  & \\ \cline{2-8}
-
-    & p-value  &  &  &  & 0.000   &  & 1.000   &\\ \hline
-
-    % =============== MODEL 6 ==================
-    \multirow{4}{*}{\centering (0,1,1) × (1,1,0)\textsubscript{12}}
-    & Estimasi &  &  & -0.5193 & -1.1738 &  &  &
-    \multirow{4}{*}{\centering 7.011} \\ \cline{2-8}
-
-    & SE       &  &  & 0.102  & 0.079  &  &  &\\ \cline{2-8}
-
-    & t-value  &  &  & -5.100 & -14.789 & &  &\\ \cline{2-8}
-
-    & p-value  &  &  & 0.000  & 0.000  &  &  & \\ \hline
-
-    % =============== MODEL 7 ==================
-    \multirow{4}{*}{\centering (0,1,1) × (1,1,1)\textsubscript{12}}
-    & Estimasi &  &  & -0.4024 & -0.055 &  & -1.0000 &
-    \multirow{4}{*}{\centering 6.998} \\ \cline{2-8}
-
-    & SE       &  &  & 0.138 & 0.069 &  & 4414.061 & \\ \cline{2-8}
-
-    & t-value  &  &  & -2.924 & -11.754 &  & -0.000 & \\ \cline{2-8}
-
-    & p-value  &  &  & 0.003 & 0.000 &  & 1.000 & \\ \hline
-
-    % =============== MODEL 8 ==================
-    \multirow{4}{*}{\centering (1,1,0) × (0,1,0)\textsubscript{12}}
-    & Estimasi & -0.412 &  &  &  &  &  &
-    \multirow{4}{*}{\centering 4.474} \\ \cline{2-8}
-
-    & SE       & 0.109 &  &  &  &  &  & \\ \cline{2-8}
-
-    & t-value  & -3.825 &  &  &  &  &  & \\ \cline{2-8}
-
-    & p-value  & 0.000 &  &  &  &  &  & \\ \hline
-
-    % =============== MODEL 9 ==================
-    \multirow{4}{*}{\centering (1,1,0) × (0,1,1)\textsubscript{12}}
-    & Estimasi & -0.3663 &  &  &  &  & -1.0000 &
-    \multirow{4}{*}{\centering 5.021} \\ \cline{2-8}
-
-    & SE       & 0.133 &  &  &  &  & 3411.225 & \\ \cline{2-8}
-
-    & t-value  & -2.745 &  &  &  &  & -0.000 & \\ \cline{2-8}
-
-    & p-value  & 0.006 &  &  &  &  & 1.000 & \\ \hline
-
-    % =============== MODEL 10 ==================
-    \multirow{4}{*}{\centering (1,1,0) × (1,1,0)\textsubscript{12}}
-    & Estimasi & -0.3552 &  & -0.5195 &  &  &  &
-    \multirow{4}{*}{\centering 4.691} \\ \cline{2-8}
-
-    & SE       & 0.142 &  & 0.117 &  &  &  & \\ \cline{2-8}
-
-    & t-value  & -2.495 &  & -4.433 &  &  &  & \\ \cline{2-8}
-
-    & p-value  & 0.013 &  & 0.000 &  &  &  & \\ \hline
-
-    % =============== MODEL 11 ==================
-    \multirow{4}{*}{\centering (1,1,0) × (1,1,1)\textsubscript{12}}
-    & Estimasi & -0.3327 &  & -0.4031 &  &  & -1.0000 &
-    \multirow{4}{*}{\centering 6.342} \\ \cline{2-8}
-
-    & SE       & 0.130  &  & 0.163  &  &  & 4761.162 & \\ \cline{2-8}
-
-    & t-value  & -2.418  &  & -2.480 &  &  & -0.000 & \\ \cline{2-8}
-
-    & p-value  & 0.016   &  & 0.013  &  &  & 1.000 & \\ \hline
-
-    % =============== MODEL 12 ==================
-    \multirow{4}{*}{\centering (1,1,1) × (0,1,0)\textsubscript{12}}
-    & Estimasi & 0.343 &  &  & -1.0000 &  &  &
-    \multirow{4}{*}{\centering 5.039} \\ \cline{2-8}
-
-    & SE       & 0.124 &  &  & 403.15 &  &  & \\ \cline{2-8}
-
-    & t-value  & 3.103 &  &  & -0.002 &  &  & \\ \cline{2-8}
-
-    & p-value  & 0.002 &  &  & 0.998 &  &  & \\ \hline
-
-    % =============== MODEL 13 ==================
-    \multirow{4}{*}{\centering (1,1,1) × (0,1,1)\textsubscript{12}}
-    & Estimasi & 0.1584 &  &  & -0.8311 &  & -1.0000 &
-    \multirow{4}{*}{\centering 7.018} \\ \cline{2-8}
-
-    & SE       & 0.167 &  &  & 0.074 &  & 4721.260 & \\ \cline{2-8}
-
-    & t-value  & 0.946 &  &  & -11.211 &  & -0.000 & \\ \cline{2-8}
-
-    & p-value  & 0.344 &  &  & 0.000 &  & 1.000 & \\ \hline
-
-    % =============== MODEL 14 ==================
-    \multirow{4}{*}{\centering (1,1,1) × (1,1,0)\textsubscript{12}}
-    & Estimasi & 0.2966 &  & -0.5199 & -1.0000 &  &  &
-    \multirow{4}{*}{\centering 6.246} \\ \cline{2-8}
-
-    & SE       & 0.131 &  & 0.099 & 87.873 &  &  & \\ \cline{2-8}
-
-    & t-value  & 2.273 &  & -5.255 & -0.011 &  &  & \\ \cline{2-8}
-
-    & p-value  & 0.023 &  & 0.000 & 0.991 &  &  & \\ \hline
-
-    % =============== MODEL 15 ==================
-    \multirow{4}{*}{\centering (1,1,1) × (1,1,1)\textsubscript{12}}
-    & Estimasi & 0.2457 &  & -0.4124 & -0.9014 &  & -1.0000 &
-    \multirow{4}{*}{\centering 6.736} \\ \cline{2-8}
-
-    & SE       & 0.200 &  & 0.142 & 0.083 &  & 4880.733 & \\ \cline{2-8}
-
-    & t-value  & 1.225 &  & -2.901 & -10.905 &  & -0.000 &  \\ \cline{2-8}
-
-    & p-value  & 0.220 &  & 0.004 & 0.000 &  & 1.000 & \\ \hline
-
-    % =============== MODEL 16 ==================
-    \multirow{4}{*}{\centering (0,1,1) × (0,1,0)\textsubscript{12}}
-    & Estimasi &  &  &  & -0.6401 &  &  &
-    \multirow{4}{*}{\centering 5.939} \\ \cline{2-8}
-
-    & SE       &  &  &  & 0.086 &  &  & \\ \cline{2-8}
-
-    & t-value  &  &  &  & -7.401 &  &  & \\ \cline{2-8}
-
-    & p-value  &  &  &  & 0.000 &  &  & \\ \hline
-\end{longtable}
-\normalsize
