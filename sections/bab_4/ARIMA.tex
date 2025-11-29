@@ -134,8 +134,8 @@ Secara keseluruhan, model tidak cukup responsif terhadap ekstrem musiman, mengha
     \caption{Hasil Forecasting Wilayah Utara}
     \label{fig:hasil-forecasting-utara}
 \end{figure}
-Berdasarkan Gambar~\ref{fig:hasil-forecasting-utara} model SARIMA $(1,1,0) \times (1,1,0)_{12}$ untuk wilayah Utara menghasilkan pola prediksi yang lebih halus dibandingkan fluktuasi aktual yang sangat ekstrem.
+Berdasarkan Gambar~\ref{fig:hasil-forecasting-utara} model SARIMA $(1,1,0) \times (0,1,0)_{12}$ untuk wilayah Utara menghasilkan pola prediksi yang lebih halus dibandingkan fluktuasi aktual yang sangat ekstrem.
 Pada awal tahun, model masih mampu mengikuti arah kenaikan dan penurunan, meskipun consistently meng-underestimate puncak hujan dan tidak sedalam aktual saat menurun.
 Menjelang Mei, model sempat sangat mendekati nilai aktual, tetapi memasuki musim kemarau (Juni - Oktober), performa model menurun drastis, beberapa kali bergerak berlawanan arah, sering memberikan overestimation besar terutama di Agustus, dan gagal mencapai nilai minimum aktual.
 Pada bulan - bulan menjelang akhir tahun, model kembali mengikuti arah kenaikan tetapi masih berbeda skala, termasuk sedikit overestimate pada puncak Desember.
-Secara keseluruhan, model tidak cukup responsif terhadap perubahan tajam, menghasilkan prediksi yang cenderung terlalu halus, dan memiliki error yang masih tinggi RMSE (3.341) sehingga kurang representatif untuk menggambarkan dinamika curah hujan wilayah Utara.
+Secara keseluruhan, model tidak cukup responsif terhadap perubahan tajam, menghasilkan prediksi yang cenderung terlalu halus, dan memiliki error yang masih tinggi RMSE (3.353) sehingga kurang representatif untuk menggambarkan dinamika curah hujan wilayah Utara.
