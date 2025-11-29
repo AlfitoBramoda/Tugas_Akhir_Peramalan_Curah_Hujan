@@ -1,0 +1,137 @@
+\tiny
+\begin{longtable}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \multirow{3}{*}{\textbf{Model}} &
+    \multirow{3}{*}{\textbf{Statistik}} &
+    \multicolumn{3}{c|}{\textbf{AR Parameter}} &
+    \multicolumn{3}{c|}{\textbf{MA Parameter}} &
+    \multirow{3}{*}{\textbf{RMSE}} \\ 
+    \cline{3-8}
+
+    & & 
+    \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+    \textbf{Seasonal} &
+    \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+    \textbf{Seasonal} &
+    \\
+    \cline{3-8}
+
+    & & 
+    \textbf{AR1} & \textbf{AR2} & \textbf{AR} &
+    \textbf{MA1} & \textbf{MA2} & \textbf{MA} &
+    \\
+    \hline
+    \endfirsthead
+
+    % =================== HEADER REPEAT =====================
+    \hline
+    \multirow{3}{*}{\textbf{Model}} &
+    \multirow{3}{*}{\textbf{Statistik}} &
+    \multicolumn{3}{c|}{\textbf{AR Parameter}} &
+    \multicolumn{3}{c|}{\textbf{MA Parameter}} &
+    \multirow{3}{*}{\textbf{RMSE}} \\ 
+    \cline{3-8}
+
+    & & 
+    \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+    \textbf{Seasonal} &
+    \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+    \textbf{Seasonal} &
+    \\
+    \cline{3-8}
+
+    & & 
+    \textbf{AR1} & \textbf{AR2} & \textbf{AR} &
+    \textbf{MA1} & \textbf{MA2} & \textbf{MA} &
+    \\
+    \hline
+    \endhead
+
+    \hline
+    \endfoot
+
+    \hline
+    \endlastfoot
+
+    % ===========================
+    % ====== ISI DATA DI SINI ===
+    % ===========================
+
+    % ===================== MODEL 1 ======================
+    \multirow{4}{*}{\centering (0,1,0) × (0,1,0)\textsubscript{12}} 
+    & Estimasi &  &  &  &  &  &  & 
+    \multirow{4}{*}{\centering 5.156} \\ \cline{2-8}
+
+    & SE       &  &  &  &  &  &  &  \\ \cline{2-8}
+
+    & t-value  &  &  &  &  &  &  &  \\ \cline{2-8}
+
+    & p-value  &  &  &  &  &  &  &  \\ \hline
+
+    % ===================== MODEL 2 ======================
+    \multirow{4}{*}{\centering (0,1,0) × (0,1,1)\textsubscript{12}} 
+    & Estimasi &  &  &  &  &  & -1.0000 & 
+    \multirow{4}{*}{\centering 4.944} \\ \cline{2-8}
+
+    & SE       &  &  &  &  &  & 1.54e+04 &  \\ \cline{2-8}
+
+    & t-value  &  &  &  &  &  & -6.5e-0 &  \\ \cline{2-8}
+
+    & p-value  &  &  &  &  &  & 1.000 &  \\ \hline
+
+    % ===================== MODEL 3 ======================
+    \multirow{4}{*}{\centering (0,1,0) × (1,1,0)\textsubscript{12}}
+    & Estimasi &  &  & -0.5332 &  &  &  & 
+    \multirow{4}{*}{\centering 6.224} \\ \cline{2-8}
+
+    & SE       &  &  & 0.117 &  &  &  &  \\ \cline{2-8}
+
+    & t-value  &  &  & -4.552 &  &  &  &  \\ \cline{2-8}
+
+    & p-value  &  &  & 0.000 &  &  &  &  \\ \hline
+
+    % ===================== MODEL 4 ======================
+    \multirow{4}{*}{\centering (0,1,1) × (1,1,1)\textsubscript{12}}
+    & Estimasi &  &  & -0.3972 &  &  & -1.0000 & 
+    \multirow{4}{*}{\centering 6.216} \\ \cline{2-8}
+
+    & SE       &  &  & 0.175 &  &  & 3947.041 &  \\ \cline{2-8}
+
+    & t-value  &  &  & -2.273 &  &  & -0.000 &  \\ \cline{2-8}
+
+    & p-value  &  &  & 0.023 &   &  & 1.000 &  \\ \hline
+
+    % ===================== MODEL 5 ======================
+    \multirow{4}{*}{\centering (0,1,1) × (0,1,1)\textsubscript{12}}
+    & Estimasi &  &  &  & -0.7275 &  & -1.0000 &
+    \multirow{4}{*}{\centering 7.046} \\ \cline{2-8}
+
+    & SE       & &  &  & 0.078  &  & 4878.768 & \\ \cline{2-8}
+
+    & t-value  &  &  & & -9.333 &  & -0.000 & \\ \cline{2-8}
+
+    & p-value  & &  &  & 0.000  &  & 1.000  & \\ \hline
+
+    % ===================== MODEL 6 ======================
+    \multirow{4}{*}{\centering (0,1,1) × (1,1,0)\textsubscript{12}}
+    & Estimasi &  &  & -0.4895 & -1.2368 &  &  &
+    \multirow{4}{*}{\centering 6.975} \\ \cline{2-8}
+
+    & SE       &  &  & 0.106  & 0.102  &  &  & \\ \cline{2-8}
+
+    & t-value  &  &  & -4.636 & -12.782 &  &  & \\ \cline{2-8}
+
+    & p-value  &  &  & 0.000  & 0.000 &  &  & \\ \hline
+
+    % ===================== MODEL 7 ======================
+    \multirow{4}{*}{\centering (0,1,1) × (1,1,1)\textsubscript{12}}
+    & Estimasi &   &  & -0.3644 & -0.7686 &  & -1.0000 &
+    \multirow{4}{*}{\centering 6.948} \\ \cline{2-8}
+
+    & SE       &  &  & 0.144  & 0.076 &  & 3443.042 & \\ \cline{2-8}
+
+    & t-value  &  &  & -2.539 & -10.081 &  & -0.000 & \\ \cline{2-8}
+
+    & p-value  &  &  & 0.011  & 0.000 &  & 1.000 & \\ \hline
+\end{longtable}
+\normalsize
