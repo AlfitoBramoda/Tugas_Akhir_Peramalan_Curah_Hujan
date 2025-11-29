@@ -58,7 +58,7 @@ Penggunaan ketiga bobot ini dilakukan untuk mendapatkan model STARIMA terbaik de
     Berikut adalah plot STACF dan STPACF:
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.2/slag-0-stacf.png}
+        \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.2/slag-0.png}
         \caption{STACF dan STPACF SLAG 0}
         \label{fig:slag-0-uniform}
     \end{figure}
@@ -76,8 +76,8 @@ Penggunaan ketiga bobot ini dilakukan untuk mendapatkan model STARIMA terbaik de
     Secara keseluruhan, kombinasi pola pada STACF dan STPACF mendukung pemilihan model dengan struktur STARIMA(3,1,2), tergantung pada kekuatan korelasi spasial dan kestabilan residual yang akan dievaluasi pada tahap estimasi berikutnya.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.2/slag-1-stacf.png}
-        \caption{STACF dan STPACF SLAG 0}
+        \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.2/slag-1.png}
+        \caption{STACF dan STPACF SLAG 1}
         \label{fig:slag-1-uniform}
     \end{figure}
     Gambar~\ref{fig:slag-1-uniform} menunjukkan hasil analisis Spatio-Temporal Autocorrelation Function (STACF) dan Spatio-Temporal Partial Autocorrelation Function (STPACF) menggunakan bobot seragam.
@@ -99,7 +99,7 @@ Penggunaan ketiga bobot ini dilakukan untuk mendapatkan model STARIMA terbaik de
     Berdasarkan keseluruhan pola signifikansi, konsistensi, dan stabilitas parameter, model STARIMA (1,1,0) menjadi konfigurasi yang paling unggul untuk bobot seragam.
 
     \item Model terbaik \\
-    Untuk memilih model spasial terbaik dalam penelitian ini menggunakan evaluasi Root Mean Squared Error (RMSE) untuk membandingkan kinerja peramalan dari model - model STARIMA. Berdasarkan hasil pada lampiran (TODO), berikut adalah tabel nya
+    Untuk memilih model spasial terbaik dalam penelitian ini menggunakan evaluasi Root Mean Squared Error (RMSE) untuk membandingkan kinerja peramalan dari model - model STARIMA. Berdasarkan hasil pada lampiran (TODO:), berikut adalah tabel nya
     \input{tables/bab_4/Hasil-Model-Fitting-STARIMA-Uniform.tex}
     Berdasarkan Tabel~\ref{table:hasil-model-fitting-starima-uniform}, terlihat bahwa setiap konfigurasi model STARIMA menghasilkan nilai RMSE yang berbeda untuk masing-masing wilayah.
     Secara umum, nilai RMSE seluruh model berada pada kisaran 1.40 - 2.12, menunjukkan bahwa performa model cukup stabil di seluruh wilayah Surabaya.
@@ -199,13 +199,13 @@ Berikut merupakan matriks bobot lokasi invers jarak:
     Berikut adalah plot STACF dan STPACF:
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.3/slag-0-stacf.png}
+        \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.3/slag-0.png}
         \caption{STACF dan STPACF SLAG 0}
         \label{fig:slag-0-inverse}
-    \end{figure} %TODO: Tidak ada mention gambar
-    Pada kondisi slag 0 dengan bobot invers jarak didapatkan nilai STACF pada lag ke-1 hingga lag ke-3 menunjukkan autokorelasi positif yang cukup kuat dan signifikan, melewati batas kepercayaan 95\%.
+    \end{figure}
+    Berdasarkan Gambar~\ref{fig:slag-0-inverse} pada kondisi slag 0 dengan bobot invers jarak didapatkan nilai STACF pada lag ke-1 hingga lag ke-3 menunjukkan autokorelasi positif yang cukup kuat dan signifikan, melewati batas kepercayaan 95\%.
     Hal ini menunjukkan bahwa curah hujan periode sekarang memiliki hubungan erat dengan periode satu hingga tiga bulan sebelumnya.
-    Setelah lag ke-5 nilai autokorelasi berfluktuasi di sekitar nol , kemudian mengalami pola negatif yang semakin kuat setelah lag ke-25 hingga lag ke-40.
+    Setelah lag ke-5 nilai autokorelasi berfluktuasi di sekitar nol, kemudian mengalami pola negatif yang semakin kuat setelah lag ke-25 hingga lag ke-40.
     Pola ini menunjukkan adanya pergeseran siklus temporal musiman. \\
     Sedangkan pada nilai STPACF, menunjukkan puncak signifikan pada lag ke-1 dengan sekitar 0,4 menandakan adanya pengaruh langsung yang kuat dari periode satu bulan sebelumnya terhadap periode saat ini.
     Beberapa nilai STPACF pada lag ke-6, lag ke-12 dan lag ke-18 masih melampaui batas kepercayaan.
@@ -213,16 +213,16 @@ Berikut merupakan matriks bobot lokasi invers jarak:
     Setelah lag ke-25, pola STPACF berfluktuasi di sekitar nol dan cenderung melemah, menunjukkan keterkaitan temporal langsung mulai hilang dan sebagian besar variasi sudah dapat dijelaskan oleh lag awal.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.3/slag-1-stacf.png}
-        \caption{STACF dan STPACF SLAG 0}
+        \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.3/slag-1.png}
+        \caption{STACF dan STPACF SLAG 1}
         \label{fig:slag-1-inverse}
     \end{figure}
-    Pada kondisi slag 1 dengan bobot invers jarak didapatkan nilai STACF pada lag 1 hingga  lag  3 menunjukkan autokorelasi positif yang signifikan dengan beberapa nilai berada di batas kepercayaan 95\%.
+    pada kondisi slag 1 dengan bobot invers jarak didapatkan nilai STACF pada lag 1 hingga  lag  3 menunjukkan autokorelasi positif yang signifikan dengan beberapa nilai berada di batas kepercayaan 95\%.
     Hal ini menunjukkan bahwa  curah hujan di suatu wilayah sangat dipengaruhi oleh curah hujan di wilayah lain yang berdekatan pada waktu sebelumnya.
     Setelah lag ke-5, nilai autokorelasi mulai berfluktuasi di sekitar nol dan kemudian menurun tajam menjadi negatif pada lag di atas 25, menunjukkan bahwa pengaruh spasial antar wilayah berkurang secara bertahap dan berubah arah menjadi berlawanan fase akibat siklus musiman. \\
     Sedangkan pada nilai STPACF, lag 1 masih menunjukkan pengaruh langsung yang kuat antara wilayah dan tetangga terdekatnya.
     Beberapa nilai signifikan juga muncul pada lag ke-10, lag ke-20 dan lag ke-28 yang dapat menunjukkan reasonasiu temporal tambahan akibat kesamaan pola curah hujan antar wilayah yang memiliki jarak spasial tertentu namun masih berada dalam radius pengaruh spasial model.
-    Setelah lag ke-25 , nilai STPACF berfluktuasi di sekitar nol dan tidak lagi signifikan, menunjukkan bahwa pengaruh langsung antar wilayah berkurang secara substansi dan mayoritas ketergantungan spasio temporal telah dijelaskan oleh lag awal.
+    Setelah lag ke-25, nilai STPACF berfluktuasi di sekitar nol dan tidak lagi signifikan, menunjukkan bahwa pengaruh langsung antar wilayah berkurang secara substansi dan mayoritas ketergantungan spasio temporal telah dijelaskan oleh lag awal.
     \item Estimasi Parameter \\
     Parameter yang diestimasi dari model yang telah diidentifikasi (STARIMA (1,1,0), STARIMA (1,1,1), dan STARIMA (1,1,2)) menggunakan metode Maximum Likelihood, disajikan dalam Tabel~\ref{table:estimasi-paramater-starima-inverse}, bersama dengan standar error, nilai t, dan nilai p masing-masing:
     \input{tables/bab_4/Estimasi-Parameter-STARIMA-Inverse.tex}
@@ -318,7 +318,7 @@ Berikut merupakan matriks bobot lokasi normalisasi korelasi silang:
     Berikut adalah plot STACF dan STPACF:
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.4/slag-0-stacf.png}
+        \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.4/slag-0.png}
         \caption{STACF dan STPACF SLAG 0}
         \label{fig:slag-0-cross}
     \end{figure}
@@ -327,7 +327,27 @@ Berikut merupakan matriks bobot lokasi normalisasi korelasi silang:
     Yang berarti nilai curah hujan pada waktu tertentu masih dipengaruhi oleh nilai-nilai curah hujan pada periode sebelumnya.
     Setelah lag ke-5 nilai autokorelasi mulai menurun dan berfluktuasi di sekitar nol dengan beberapa lag menunjukkan nilai negatif signifikan terutama setelah lag ke-25.
     Pola ini menunjukkan bahwa pengaruh temporal menurun seiring bertambahnya jeda waktu dan kemungkinan terdapat pola musiman pada data curah hujan. \\
-    
+    Sedangkan nilai STPACF pada slag 0, nilai autokorelasi parsial yang signifikan hanya muncul pada beberapa lag awal (khusunya lag ke-1 dan lag ke-13) yang menunjukkan bahwa komponen AR pada model kemungkinan kecil, dengan dominasi efek pada lag pendek.
+    Setelah itu, nilai STPACF berfluktuasi di sekitar nol dan tidak menunjukkan pola signifikan yang teratur.
+    Hal ini menunjukkan bahwa setelah mempertimbangkan pengaruh lag terdekat, hubungan antar waktu berikut menjadi relatif lemah.
+    Secara keseluruhan pola STACF dan STPACF dengan bobot korelasi silang slag 0 menunjukkan bahwa data curah hujan memiliki struktur ketergantungan temporal jangka pendek dengan efek spasial musiman (karena lag spasial = 0).
+    Oleh karena itu, model STARIMA yang sesuai untuk kondisi ini kemungkinan akan memiliki order AR rendah, dengan komponen spasial yang lebih menonjol pada lag > 0.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.4/slag-1.png}
+        \caption{STACF dan STPACF SLAG 1}
+        \label{fig:slag-1-cross}
+    \end{figure}
+    Gambar~\ref{fig:slag-1-cross} merupakan hasil STACF pada slag 1 dengan pembobotan korelasi silang.
+    Pola autokorelasi pada beberapa temporal lag awal (khusunya lag ke-1 hingga lag ke-3) memiliki nilai positif yang cukup tinggi dan melampaui batas kepercayaan 95\%.
+    Hal ini menunjukkan bahwa terdapat keterkaitan kuat antar wilayah yang berdekatan secara spasial dalam waktu yang berdekatan.
+    Setelah lag 5, nilai autokorelasi mulai menurun dan berganti menjadi negatif secara konsisten setelah lag ke-20, menandakan adanya pola musiman terbalik atau perubahan fase curah hujan antara periode.
+    Pola negatif yang stabil hingga lag ke-40 menunjukkan bahwa pengaruh spasial antar wilayah cenderung bersifat jangka pendek dan melemah seiring meningkatnya jarak waktu.
+    Sedangkan nilai STPACF pada slag 1 nilai autokorelasi parsial yang tinggi pada lag ke-1 menunjukkan bahwa hubungan AR dan spasial pada lag pendek sangat dominan.
+    Di mana curah hujan di suatu wilayah dipengaruhi secara signifikan oleh curah hujan pada wilayah sekitar pada periode sebelumnya.
+    Setelah lag ke-5, sebagian besar nilai STACF berfluktuasi di sekitar nol dengan hanya beberapa lonjakan kecil yang signifikan menunjukkan bahwa hubungan spatio temporal selanjutnya relatif lemah.
+    Secara keseluruhan pola STACF  dan STPACF dengan pembobotan korelasi silang slag 1 menunjukkan adanya keterkaitan spasial yang nyata antarwilayah berdekatan dalam waktu singkat dengan pengaruh yang semakin menurun pada periode lebih panjang.
+    Hal ini memperkuat indikasi bahwa model STARIMA yang digunakan perlu mempertimbangkan komponen spasial autoregressive dengan lag pendek (Slag 1) untuk menangkap dinamika curah hujan secara lebih akurat.
     \item Estimasi Parameter \\
     Parameter yang diestimasi dari model yang telah diidentifikasi (STARIMA (1,1,0), STARIMA (1,1,1), dan STARIMA (1,1,2)) menggunakan metode Maximum Likelihood, disajikan dalam Tabel~\ref{table:estimasi-paramater-starima-cross}, bersama dengan standar error, nilai t, dan nilai p masing-masing:
     \input{tables/bab_4/Estimasi-Parameter-STARIMA-Cross.tex}
