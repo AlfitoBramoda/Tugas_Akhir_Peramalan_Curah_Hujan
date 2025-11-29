@@ -1,0 +1,236 @@
+\tiny
+\begin{longtable}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \multirow{3}{*}{\textbf{Model}} &
+    \multirow{3}{*}{\textbf{Statistik}} &
+    \multicolumn{3}{c|}{\textbf{AR Parameter}} &
+    \multicolumn{3}{c|}{\textbf{MA Parameter}} &
+    \multirow{3}{*}{\textbf{RMSE}} \\ 
+    \cline{3-8}
+
+    & & 
+    \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+    \textbf{Seasonal} &
+    \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+    \textbf{Seasonal} &
+    \\
+    \cline{3-8}
+
+    & & 
+    \textbf{AR1} & \textbf{AR2} & \textbf{AR} &
+    \textbf{MA1} & \textbf{MA2} & \textbf{MA} &
+    \\
+    \hline
+    \endfirsthead
+
+    % =================== HEADER REPEAT =====================
+    \hline
+    \multirow{3}{*}{\textbf{Model}} &
+    \multirow{3}{*}{\textbf{Statistik}} &
+    \multicolumn{3}{c|}{\textbf{AR Parameter}} &
+    \multicolumn{3}{c|}{\textbf{MA Parameter}} &
+    \multirow{3}{*}{\textbf{RMSE}} \\ 
+    \cline{3-8}
+
+    & & 
+    \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+    \textbf{Seasonal} &
+    \multicolumn{2}{c|}{\textbf{Non Seasonal}} &
+    \textbf{Seasonal} &
+    \\
+    \cline{3-8}
+
+    & & 
+    \textbf{AR1} & \textbf{AR2} & \textbf{AR} &
+    \textbf{MA1} & \textbf{MA2} & \textbf{MA} &
+    \\
+    \hline
+    \endhead
+
+    \hline
+    \endfoot
+
+    \hline
+    \endlastfoot
+
+    % ===========================
+    % ====== ISI DATA DI SINI ===
+    % ===========================
+
+    % ================== MODEL 1 ==================
+    \multirow{4}{*}{\centering (0,1,0) × (0,1,0)\textsubscript{12}}
+    & Estimasi &  &  &  &  &  &  & 
+    \multirow{4}{*}{\centering 11.843} \\ \cline{2-8}
+
+    & SE       &  &  &  &  &  &  & \\ \cline{2-8}
+
+    & t-value  &  &  &  &  &  &  & \\ \cline{2-8}
+
+    & p-value  &  &  &  &  &  &  & \\ \hline
+
+    % ================== MODEL 2 ==================
+    \multirow{4}{*}{\centering (0,1,0) × (0,1,1)\textsubscript{12}}
+    & Estimasi &  &  &  &  &  & -1.0000 &
+    \multirow{4}{*}{\centering 6.646} \\ \cline{2-8}
+
+    & SE       &  &  &  &  &  & 6725.345 & \\ \cline{2-8}
+
+    & t-value  &  &  &  &  &  & -0.000   & \\ \cline{2-8}
+
+    & p-value  &  &  &   &  & & 1.000    & \\ \hline
+
+    % ================== MODEL 3 ==================
+    \multirow{4}{*}{\centering (0,1,0) × (1,1,0)\textsubscript{12}}
+    & Estimasi &  &  &  -0.5767&  &  &  &
+    \multirow{4}{*}{\centering 10.046} \\ \cline{2-8}
+
+    & SE       &  &  & 0.115  &  &  &  & \\ \cline{2-8}
+
+    & t-value  &  & & -5.022  &  &  &  & \\ \cline{2-8}
+
+    & p-value  &  &  & 0.000  &  &  &  & \\ \hline
+
+    % ================== MODEL 4 ==================
+    \multirow{4}{*}{\centering (0,1,0) × (1,1,1)\textsubscript{12}}
+    & Estimasi &  &  & -0.432 &  &  & -1.0000 &
+    \multirow{4}{*}{\centering 7.956} \\ \cline{2-8}
+
+    & SE       &  &  & 0.157  &  &  & 1940.398 & \\ \cline{2-8}
+
+    & t-value  &  &  & -2.796 &  &  & -0.001   & \\ \cline{2-8}
+
+    & p-value  &  &  & 0.005  &  &  & 1.000 & \\ \hline
+
+    % ================== MODEL 5 ==================
+    \multirow{4}{*}{\centering (0,1,1) × (0,1,1)\textsubscript{12}}
+    & Estimasi &  &  &  & -0.7692 &  & -1.0000 &
+    \multirow{4}{*}{\centering 7.110} \\ \cline{2-8}
+
+    & SE       &  &  &  & 0.060  &  & 477.420 & \\ \cline{2-8}
+
+    & t-value  &  &  &  & -11.291 &  & -0.000  & \\ \cline{2-8}
+
+    & p-value  &  &  &  & 0.000   &  & 1.000   &\\ \hline
+
+    % =============== MODEL 6 ==================
+    \multirow{4}{*}{\centering (0,1,1) × (1,1,0)\textsubscript{12}}
+    & Estimasi &  &  & -0.5193 & -1.1738 &  &  &
+    \multirow{4}{*}{\centering 7.011} \\ \cline{2-8}
+
+    & SE       &  &  & 0.102  & 0.079  &  &  &\\ \cline{2-8}
+
+    & t-value  &  &  & -5.100 & -14.789 & &  &\\ \cline{2-8}
+
+    & p-value  &  &  & 0.000  & 0.000  &  &  & \\ \hline
+
+    % =============== MODEL 7 ==================
+    \multirow{4}{*}{\centering (0,1,1) × (1,1,1)\textsubscript{12}}
+    & Estimasi &  &  & -0.4024 & -0.055 &  & -1.0000 &
+    \multirow{4}{*}{\centering 6.998} \\ \cline{2-8}
+
+    & SE       &  &  & 0.138 & 0.069 &  & 4414.061 & \\ \cline{2-8}
+
+    & t-value  &  &  & -2.924 & -11.754 &  & -0.000 & \\ \cline{2-8}
+
+    & p-value  &  &  & 0.003 & 0.000 &  & 1.000 & \\ \hline
+
+    % =============== MODEL 8 ==================
+    \multirow{4}{*}{\centering (1,1,0) × (0,1,0)\textsubscript{12}}
+    & Estimasi & -0.412 &  &  &  &  &  &
+    \multirow{4}{*}{\centering 4.474} \\ \cline{2-8}
+
+    & SE       & 0.109 &  &  &  &  &  & \\ \cline{2-8}
+
+    & t-value  & -3.825 &  &  &  &  &  & \\ \cline{2-8}
+
+    & p-value  & 0.000 &  &  &  &  &  & \\ \hline
+
+    % =============== MODEL 9 ==================
+    \multirow{4}{*}{\centering (1,1,0) × (0,1,1)\textsubscript{12}}
+    & Estimasi & -0.3663 &  &  &  &  & -1.0000 &
+    \multirow{4}{*}{\centering 5.021} \\ \cline{2-8}
+
+    & SE       & 0.133 &  &  &  &  & 3411.225 & \\ \cline{2-8}
+
+    & t-value  & -2.745 &  &  &  &  & -0.000 & \\ \cline{2-8}
+
+    & p-value  & 0.006 &  &  &  &  & 1.000 & \\ \hline
+
+    % =============== MODEL 10 ==================
+    \multirow{4}{*}{\centering (1,1,0) × (1,1,0)\textsubscript{12}}
+    & Estimasi & -0.3552 &  & -0.5195 &  &  &  &
+    \multirow{4}{*}{\centering 4.691} \\ \cline{2-8}
+
+    & SE       & 0.142 &  & 0.117 &  &  &  & \\ \cline{2-8}
+
+    & t-value  & -2.495 &  & -4.433 &  &  &  & \\ \cline{2-8}
+
+    & p-value  & 0.013 &  & 0.000 &  &  &  & \\ \hline
+
+    % =============== MODEL 11 ==================
+    \multirow{4}{*}{\centering (1,1,0) × (1,1,1)\textsubscript{12}}
+    & Estimasi & -0.3327 &  & -0.4031 &  &  & -1.0000 &
+    \multirow{4}{*}{\centering 6.342} \\ \cline{2-8}
+
+    & SE       & 0.130  &  & 0.163  &  &  & 4761.162 & \\ \cline{2-8}
+
+    & t-value  & -2.418  &  & -2.480 &  &  & -0.000 & \\ \cline{2-8}
+
+    & p-value  & 0.016   &  & 0.013  &  &  & 1.000 & \\ \hline
+
+    % =============== MODEL 12 ==================
+    \multirow{4}{*}{\centering (1,1,1) \\ × \\ (0,1,0)\textsubscript{12}}
+    & Estimasi & 0.343 &  &  & -1.0000 &  &  &
+    \multirow{4}{*}{\centering 5.039} \\ \cline{2-8}
+
+    & SE       & 0.124 &  &  & 403.15 &  &  & \\ \cline{2-8}
+
+    & t-value  & 3.103 &  &  & -0.002 &  &  & \\ \cline{2-8}
+
+    & p-value  & 0.002 &  &  & 0.998 &  &  & \\ \hline
+
+    % =============== MODEL 13 ==================
+    \multirow{4}{*}{\centering (1,1,1) \\ × \\ (0,1,1)\textsubscript{12}}
+    & Estimasi & 0.1584 &  &  & -0.8311 &  & -1.0000 &
+    \multirow{4}{*}{\centering 7.018} \\ \cline{2-8}
+
+    & SE       & 0.167 &  &  & 0.074 &  & 4721.260 & \\ \cline{2-8}
+
+    & t-value  & 0.946 &  &  & -11.211 &  & -0.000 & \\ \cline{2-8}
+
+    & p-value  & 0.344 &  &  & 0.000 &  & 1.000 & \\ \hline
+
+    % =============== MODEL 14 ==================
+    \multirow{4}{*}{\centering (1,1,1) \\ × \\ (1,1,0)\textsubscript{12}}
+    & Estimasi & 0.2966 &  & -0.5199 & -1.0000 &  &  &
+    \multirow{4}{*}{\centering 6.246} \\ \cline{2-8}
+
+    & SE       & 0.131 &  & 0.099 & 87.873 &  &  & \\ \cline{2-8}
+
+    & t-value  & 2.273 &  & -5.255 & -0.011 &  &  & \\ \cline{2-8}
+
+    & p-value  & 0.023 &  & 0.000 & 0.991 &  &  & \\ \hline
+
+    % =============== MODEL 15 ==================
+    \multirow{4}{*}{\centering (1,1,1) \\ × \\ (1,1,1)\textsubscript{12}}
+    & Estimasi & 0.2457 &  & -0.4124 & -0.9014 &  & -1.0000 &
+    \multirow{4}{*}{\centering 6.736} \\ \cline{2-8}
+
+    & SE       & 0.200 &  & 0.142 & 0.083 &  & 4880.733 & \\ \cline{2-8}
+
+    & t-value  & 1.225 &  & -2.901 & -10.905 &  & -0.000 &  \\ \cline{2-8}
+
+    & p-value  & 0.220 &  & 0.004 & 0.000 &  & 1.000 & \\ \hline
+
+    % =============== MODEL 16 ==================
+    \multirow{4}{*}{\centering (0,1,1) \\ × \\ (0,1,0)\textsubscript{12}}
+    & Estimasi &  &  &  & -0.6401 &  &  &
+    \multirow{4}{*}{\centering 5.939} \\ \cline{2-8}
+
+    & SE       &  &  &  & 0.086 &  &  & \\ \cline{2-8}
+
+    & t-value  &  &  &  & -7.401 &  &  & \\ \cline{2-8}
+
+    & p-value  &  &  &  & 0.000 &  &  & \\ \hline
+\end{longtable}
+\normalsize
