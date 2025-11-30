@@ -51,7 +51,6 @@ Penggunaan ketiga bobot ini dilakukan untuk mendapatkan model STARIMA terbaik de
     \end{pmatrix}
 \end{equation}
 \begin{enumerate}[label=\Alph*.]
-    %TODO: Masih belum selesai
     \item Identifikasi \\
     Setelah mendapatkan bobot, melakukan perhitungan STACF seperti pada Rumus~\ref{starma_stacf} dan STPACF seperti pada Rumus~\ref{starma_stpacf}.
     Perhitungan Perthitungan STACF dan STPACF ini digunakan untuk menentukan orde $p$, $q$ nya karena data nya sudah di differencing.
@@ -99,7 +98,7 @@ Penggunaan ketiga bobot ini dilakukan untuk mendapatkan model STARIMA terbaik de
     Berdasarkan keseluruhan pola signifikansi, konsistensi, dan stabilitas parameter, model STARIMA (1,1,0) menjadi konfigurasi yang paling unggul untuk bobot seragam.
 
     \item Model terbaik \\
-    Untuk memilih model spasial terbaik dalam penelitian ini menggunakan evaluasi Root Mean Squared Error (RMSE) untuk membandingkan kinerja peramalan dari model - model STARIMA. Berdasarkan hasil pada lampiran (TODO:), berikut adalah tabel nya
+    Untuk memilih model spasial terbaik dalam penelitian ini menggunakan evaluasi Root Mean Squared Error (RMSE) untuk membandingkan kinerja peramalan dari model - model STARIMA. Berdasarkan hasil pada Lampiran~\ref{lampiran:rmse-uniform}, berikut adalah tabel nya
     \input{tables/bab_4/Hasil-Model-Fitting-STARIMA-Uniform.tex}
     Berdasarkan Tabel~\ref{table:hasil-model-fitting-starima-uniform}, terlihat bahwa setiap konfigurasi model STARIMA menghasilkan nilai RMSE yang berbeda untuk masing-masing wilayah.
     Secara umum, nilai RMSE seluruh model berada pada kisaran 1.40 - 2.12, menunjukkan bahwa performa model cukup stabil di seluruh wilayah Surabaya.
@@ -192,7 +191,6 @@ Berikut merupakan matriks bobot lokasi invers jarak:
     \end{pmatrix}
 \end{equation}
 \begin{enumerate}[label=\Alph*.]
-    % TODO: Belum Selesai
     \item Identifikasi \\
     Setelah mendapatkan bobot, melakukan perhitungan STACF seperti pada Rumus~\ref{starma_stacf} dan STPACF seperti pada Rumus~\ref{starma_stpacf}.
     Perhitungan Perthitungan STACF dan STPACF ini digunakan untuk menentukan orde $p$, $q$ nya karena data nya sudah di differencing.
@@ -228,8 +226,11 @@ Berikut merupakan matriks bobot lokasi invers jarak:
     \input{tables/bab_4/Estimasi-Parameter-STARIMA-Inverse.tex}
 
     \item Model Terbaik \\
-    Untuk memilih model spasial terbaik dalam penelitian ini menggunakan evaluasi Root Mean Squared Error (RMSE) untuk membandingkan kinerja peramalan dari model-model STARIMA. Berdasarkan hasil pada lampiran (TODO:no terserah),  berikut adalah tabel nya:
-    \input{tables/bab_4/Hasil-Model-Fitting-STARIMA-Inverse.tex} %TODO: Penjelasan setelah gambar ini
+    Untuk memilih model spasial terbaik dalam penelitian ini menggunakan evaluasi Root Mean Squared Error (RMSE) untuk membandingkan kinerja peramalan dari model-model STARIMA. Berdasarkan hasil pada Lampiran~\ref{lampiran:rmse-inverse},  berikut adalah tabel nya:
+    \input{tables/bab_4/Hasil-Model-Fitting-STARIMA-Inverse.tex}
+    Berdasarkan hasil Tabel~\ref{table:hasil-model-fitting-starima-inverse} diatas model STARIMA $(1,1,1)_{1}$ menunjukkan kinerja paling optimal secara agregat dengan nilai RMSE rata-rata 1.7734,yang merupakan nilai terendah dibandingkan tiga model lainnya.
+    Hal ini menegaskan bahwa kombinasi komponen autoregressive dan moving average baik pada lag spasial maupun temporal mampu menangkap dinamika curah hujan secara lebih presisi di seluruh wilayah pengamatan.
+    Model ini secara konsisten memberikan performa yang lebih stabil lintas wilayah, sehingga direkomendasikan sebagai konfigurasi STARIMA terbaik untuk implementasi dalam penelitian ini.
 
     \item Hasil Forecasting STARIMA
     Berikut adalah hasil forecasting menggunakan model STARIMA$(1,1,2)_{1}$ dengan bobot invers jarak:
@@ -311,7 +312,6 @@ Berikut merupakan matriks bobot lokasi normalisasi korelasi silang:
     \end{pmatrix}
 \end{equation}
 \begin{enumerate}[label=\Alph*.]
-    % TODO: Belum Selesai
     \item Identifikasi \\
     Setelah mendapatkan bobot, melakukan perhitungan STACF seperti pada Rumus~\ref{starma_stacf} dan STPACF seperti pada Rumus~\ref{starma_stpacf}.
     Perhitungan Perthitungan STACF dan STPACF ini digunakan untuk menentukan orde $p$, $q$ nya karena data nya sudah di differencing.
@@ -357,7 +357,7 @@ Berikut merupakan matriks bobot lokasi normalisasi korelasi silang:
 
     \item Model Terbaik \\
     Untuk memilih model spasial terbaik dalam penelitian ini menggunakan evaluasi Root Mean Squared Error (RMSE) untuk membandingkan kinerja peramalan dari model-model STARIMA.
-    Berdasarkan hasil pada lampiran (TODO:no terserah),  berikut adalah tabel nya:
+    Berdasarkan hasil pada Lampiran~\ref{lampiran:rmse-cross},  berikut adalah tabel nya:
     \input{tables/bab_4/Hasil-Model-Fitting-STARIMA-Cross.tex}
     Berdasarkan hasil Tabel~\ref{table:hasil-model-fitting-starima-cross} di atas model STARIMA $(1,1,1)_{1}$ menunjukkan kinerja paling optimal secara agregat dengan nilai RMSE rata-rata 1.773, yang merupakan nilai terendah dibandingkan tiga model lainnya.
     Hal ini menegaskan bahwa kombinasi komponen autoregressive dan moving average baik pada lag spasial maupun temporal mampu menangkap dinamika curah hujan secara lebih presisi di seluruh wilayah pengamatan.
