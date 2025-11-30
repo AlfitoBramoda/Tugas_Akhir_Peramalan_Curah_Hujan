@@ -6,7 +6,7 @@ Data yang tidak stasioner dapat menyebabkan estimasi parameter model menjadi bia
 Oleh karena itu, pada tahap ini dilakukan pengujian kestasioneran data curah hujan di kelima wilayah Kota Surabaya guna menentukan apakah proses differencing diperlukan untuk menjadikan data stasioner secara statistik.
 \begin{enumerate}[label=\alph*.]
     \item Kestasioneran terhadap varians
-    Kesationeran data curah hujan terhadap ragam dapat dilihat dari transformasi lambda ($\lambda$) yang dihasilkan dari plot BoxCox.
+    Kesationeran data curah hujan terhadap varians dapat dilihat dari transformasi lambda ($\lambda$) yang dihasilkan dari plot BoxCox.
     Jika nilai ($\lambda$) mendekati satu maka dapat disimpulkan bahwa data telah stasioner dan sebaliknya. Untuk membuat plot BoxCox data yang digunakan harus bernilai positif.
     \input{tables/bab_4/Nilai-Lambda-Semua-Wilayah-ARIMA.tex}
     Berdasarkan tabel~\ref{table:nilai-lambda-semua-wilayah-arima} nilai $\lambda$ untuk seluruh wilayah berada pada rentang 0.34 - 0.38, yang menunjukkan bahwa data belum stasioner terhadap varians.
@@ -16,7 +16,7 @@ Oleh karena itu, pada tahap ini dilakukan pengujian kestasioneran data curah huj
     Jika pola tren atau musiman masih terlihat, maka perlu dilakukan differencing agar data benar - benar stasioner sebelum proses pemodelan.
 
     \item Kestasioneran terhadap rata - rata \\
-    Setelah data stasioner terhadap ragam, selanjutnya dilakukan pengujian kestasioneran terhadap rata - rata.
+    Setelah data stasioner terhadap varians, selanjutnya dilakukan pengujian kestasioneran terhadap rata - rata.
     Pengujian ini dapat dilakukan dengan Menggunakan \textit{Augmented Dickey-Fuller Unit Root Test}, berikut adalah hipotesisnya: \\
     $H_0$: $\phi \ge 0$ (data tidak stasioner terhadap rata-rata) \\
     $H_1$: $\phi < 0$ (data stasioner terhadap rata-rata) \\
@@ -47,7 +47,7 @@ Oleh karena itu, pada tahap ini dilakukan pengujian kestasioneran data curah huj
         \label{fig:plot-acf-pacf-sesudah}
     \end{figure}
     Berdasarkan Gambar~\ref{fig:plot-acf-pacf-sesudah} setelah dilakukan transformasi BoxCox dan differencing musiman, pola ACF dan PACF mengalami perubahan signifikan.
-    ACF menunjukkan penurunan cepat di sekitar lag ke-1 hingga lag ke-3 dan kemudian berfluktuasi di sekitar nol, sedangkan PACF menampilkan cut-off yang jelas setelah lag pertama.
+    ACF menunjukkan penurunan cepat di sekitar lag ke-1 hingga lag ke-2 dan kemudian berfluktuasi di sekitar nol, sedangkan PACF menampilkan cut-off yang jelas setelah lag pertama.
     Kondisi ini menandakan bahwa proses transformasi dan differencing berhasil menghilangkan tren dan menjadikan data stasioner dalam mean dan varians.
     Untuk plot ACF dan PACF lainnya dapat dilihat di Lampiran~\ref{lampiran:plot-acf-pacf}
 
