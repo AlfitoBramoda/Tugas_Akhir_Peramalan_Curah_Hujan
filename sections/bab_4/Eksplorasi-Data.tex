@@ -3,7 +3,6 @@
 Sebelum melakukan proses pemodelan dengan metode ARIMA dan STARIMA, langkah pertama yang dilakukan adalah melakukan eksplorasi data yaitu dengan statistika deskriptif. Tujuannya untuk memahami karakteristik dasar data seperti tren, musiman, serta variabilitas yang terjadi. Melalui analisa deskriptif, diperoleh gambaran umum mengenai perilaku data yang akan dimodelkan.
 
 \input{tables/bab_4/Statistik-Deskriptif.tex}
-
 Tabel~\ref{table:statistik_deskriptif} menyajikan hasil analisis statistika deskriptif curah hujan pada lima wilayah Kota Surabaya, yaitu Barat, Selatan, Tengah, Timur, dan Utara. Berdasarkan tabel tersebut, jumlah data pengamatan pada masing-masing wilayah adalah 120 observasi, yang menunjukkan bahwa seluruh wilayah memiliki panjang deret waktu yang sama sepanjang periode penelitian.
 
 Secara umum, nilai rata-rata (mean) curah hujan di kelima wilayah berkisar antara 5,20 hingga 5,92 mm, yang menunjukkan bahwa intensitas curah hujan harian di Kota Surabaya relatif seragam antar wilayah. Wilayah Tengah (5,92 mm) memiliki rata-rata curah hujan tertinggi, diikuti oleh Selatan (5,92 mm) dan Barat (5,84 mm), sedangkan wilayah Timur (5,21 mm) mencatat rata-rata terendah.
@@ -25,7 +24,7 @@ Data yang digunakan adalah data curah hujan hasil dari pengamatan satelit NASA P
     \caption{Pola Curah Hujan Wilayah Barat}
     \label{fig:pola-curah-hujan-barat}
 \end{figure}
-Curah hujan harian di Wilayah Barat selama periode 2015–2024 memperlihatkan pola musiman yang sangat jelas, dengan peningkatan intensitas hujan yang konsisten terjadi pada bulan Desember hingga Maret serta kondisi curah hujan rendah hingga mendekati nol pada bulan Juni hingga September. Puncak hujan tahunan umumnya berada pada kisaran 12–18 mm/hari, disertai beberapa kejadian ekstrem yang mencapai lebih dari 20 mm/hari pada tahun-tahun seperti 2017, 2020, 2022, dan 2024. Dengan struktur musiman yang kuat dan variabilitas yang cukup signifikan, deret waktu pada wilayah ini sangat mendukung penerapan model STARIMA dalam mempelajari hubungan spasial-temporal serta memprediksi curah hujan dengan lebih akurat.
+Curah hujan bulanan di Wilayah Barat selama periode 2015 - 2024 memperlihatkan pola musiman yang sangat jelas, dengan peningkatan intensitas hujan yang konsisten terjadi pada bulan Desember hingga Maret serta kondisi curah hujan rendah hingga mendekati nol pada bulan Juni hingga September. Puncak hujan tahunan umumnya berada pada kisaran 12–18 mm/hari, disertai beberapa kejadian ekstrem yang mencapai lebih dari 20 mm/hari pada tahun-tahun seperti 2017, 2020, 2022, dan 2024. Dengan struktur musiman yang kuat dan variabilitas yang cukup signifikan, deret waktu pada wilayah ini sangat mendukung penerapan model STARIMA dalam mempelajari hubungan spasial-temporal serta memprediksi curah hujan dengan lebih akurat.
 
 \begin{figure}[H]
     \centering
@@ -33,7 +32,7 @@ Curah hujan harian di Wilayah Barat selama periode 2015–2024 memperlihatkan po
     \caption{Pola Curah Hujan Wilayah Selatan}
     \label{fig:pola-curah-hujan-selatan}
 \end{figure}
-Curah hujan harian di Wilayah Selatan selama periode 2015–2024 menunjukkan pola musiman yang sangat konsisten, ditandai dengan peningkatan intensitas hujan pada bulan Desember hingga Maret dan kondisi hampir tanpa hujan pada periode Juni hingga September. Puncak hujan tahunan umumnya berada pada kisaran 12–18 mm/hari, dengan beberapa kejadian ekstrem yang melebihi 20 mm/hari terutama pada awal 2016, 2021, dan 2024. Variabilitas intra-tahunan yang cukup tinggi serta fluktuasi intensitas yang tajam menggambarkan dinamika atmosfer yang aktif di wilayah ini, sekaligus menegaskan adanya komponen musiman yang kuat dan berulang. Pola temporal yang terstruktur ini mendukung penerapan model deret waktu spasial-temporal seperti STARIMA untuk memodelkan dan memprediksi curah hujan secara lebih akurat.
+Curah hujan bulanan di Wilayah Selatan selama periode 2015 - 2024 menunjukkan pola musiman yang sangat konsisten, ditandai dengan peningkatan intensitas hujan pada bulan Desember hingga Maret dan kondisi hampir tanpa hujan pada periode Juni hingga September. Puncak hujan tahunan umumnya berada pada kisaran 12–18 mm/hari, dengan beberapa kejadian ekstrem yang melebihi 20 mm/hari terutama pada awal 2016, 2021, dan 2024. Variabilitas intra-tahunan yang cukup tinggi serta fluktuasi intensitas yang tajam menggambarkan dinamika atmosfer yang aktif di wilayah ini, sekaligus menegaskan adanya komponen musiman yang kuat dan berulang. Pola temporal yang terstruktur ini mendukung penerapan model deret waktu spasial-temporal seperti STARIMA untuk memodelkan dan memprediksi curah hujan secara lebih akurat.
 
 \begin{figure}[H]
     \centering
@@ -41,7 +40,7 @@ Curah hujan harian di Wilayah Selatan selama periode 2015–2024 menunjukkan pol
     \caption{Pola Curah Hujan Wilayah Tengah}
     \label{fig:pola-curah-hujan-tengah}
 \end{figure}
-Curah hujan harian di Wilayah Tengah selama periode 2015–2024 menunjukkan pola musiman yang sangat jelas, dengan intensitas hujan meningkat secara konsisten pada Desember hingga Maret dan menurun drastis pada Juni hingga September. Variabilitas intra-tahunan tampak cukup tinggi, ditandai dengan fluktuasi tajam antara kondisi tanpa hujan hingga puncak 10–15 mm/hari, serta beberapa kejadian ekstrem seperti pada awal 2024 yang mencapai lebih dari 25 mm/hari. Pola yang stabil dan berulang ini mencerminkan dinamika monsun yang kuat serta pengaruh faktor atmosfer regional yang membentuk variasi hujan tahunan. Struktur temporal yang konsisten tersebut mendukung penerapan model STARIMA dalam memodelkan dan memprediksi curah hujan berbasis hubungan spasial-temporal antar wilayah di Surabaya.
+Curah hujan bulanan di Wilayah Tengah selama periode 2015 - 2024 menunjukkan pola musiman yang sangat jelas, dengan intensitas hujan meningkat secara konsisten pada Desember hingga Maret dan menurun drastis pada Juni hingga September. Variabilitas intra-tahunan tampak cukup tinggi, ditandai dengan fluktuasi tajam antara kondisi tanpa hujan hingga puncak 10–15 mm/hari, serta beberapa kejadian ekstrem seperti pada awal 2024 yang mencapai lebih dari 25 mm/hari. Pola yang stabil dan berulang ini mencerminkan dinamika monsun yang kuat serta pengaruh faktor atmosfer regional yang membentuk variasi hujan tahunan. Struktur temporal yang konsisten tersebut mendukung penerapan model STARIMA dalam memodelkan dan memprediksi curah hujan berbasis hubungan spasial-temporal antar wilayah di Surabaya.
 
 \begin{figure}[H]
     \centering
@@ -49,7 +48,7 @@ Curah hujan harian di Wilayah Tengah selama periode 2015–2024 menunjukkan pola
     \caption{Pola Curah Hujan Wilayah Timur}
     \label{fig:pola-curah-hujan-timur}
 \end{figure}
-Curah hujan harian di Wilayah Timur selama periode 2015–2024 memperlihatkan pola musiman yang konsisten, dengan intensitas hujan meningkat pada bulan Desember hingga Maret dan menurun drastis mendekati nol pada periode Juni hingga September. Puncak hujan tahunan berada pada kisaran 10–15 mm/hari, dengan beberapa kejadian ekstrem yang melampaui nilai tersebut, seperti pada awal tahun 2021, 2022, dan 2024. Fluktuasi intra-tahunan yang tajam dan variasi antar tahun menunjukkan dinamika atmosfer yang aktif di wilayah ini, dipengaruhi oleh siklus monsun dan fenomena cuaca regional. Pola temporal yang berulang dan stabil ini menunjukkan bahwa wilayah Timur memiliki struktur deret waktu yang kuat untuk dimodelkan melalui pendekatan STARIMA dalam analisis spasial-temporal curah hujan.
+Curah hujan bulanan di Wilayah Timur selama periode 2015 - 2024 memperlihatkan pola musiman yang konsisten, dengan intensitas hujan meningkat pada bulan Desember hingga Maret dan menurun drastis mendekati nol pada periode Juni hingga September. Puncak hujan tahunan berada pada kisaran 10–15 mm/hari, dengan beberapa kejadian ekstrem yang melampaui nilai tersebut, seperti pada awal tahun 2021, 2022, dan 2024. Fluktuasi intra-tahunan yang tajam dan variasi antar tahun menunjukkan dinamika atmosfer yang aktif di wilayah ini, dipengaruhi oleh siklus monsun dan fenomena cuaca regional. Pola temporal yang berulang dan stabil ini menunjukkan bahwa wilayah Timur memiliki struktur deret waktu yang kuat untuk dimodelkan melalui pendekatan STARIMA dalam analisis spasial-temporal curah hujan.
 
 \begin{figure}[H]
     \centering
@@ -57,7 +56,7 @@ Curah hujan harian di Wilayah Timur selama periode 2015–2024 memperlihatkan po
     \caption{Pola Curah Hujan Wilayah Utara}
     \label{fig:pola-curah-hujan-utara}
 \end{figure}
-Curah hujan harian di Wilayah Utara selama periode 2015–2024 menunjukkan pola musiman yang sangat konsisten, dengan peningkatan intensitas pada bulan Desember hingga Maret dan curah hujan yang hampir nol pada periode Juni hingga September. Puncak hujan tahunan berada pada kisaran 10–15 mm/hari, disertai beberapa kejadian ekstrem yang melebihi 20 mm/hari, terutama pada awal tahun 2020, 2022, dan 2024. Fluktuasi yang tajam antar musim menggambarkan dinamika atmosfer regional yang aktif dan dipengaruhi oleh siklus monsun serta fenomena cuaca skala besar seperti MJO dan ENSO. Pola temporal yang stabil dan berulang ini menunjukkan bahwa Wilayah Utara memiliki struktur deret waktu yang kuat dan cocok dimodelkan menggunakan pendekatan STARIMA untuk analisis dan peramalan spasial-temporal curah hujan.
+Curah hujan bulanan di Wilayah Utara selama periode 2015 - 2024 menunjukkan pola musiman yang sangat konsisten, dengan peningkatan intensitas pada bulan Desember hingga Maret dan curah hujan yang hampir nol pada periode Juni hingga September. Puncak hujan tahunan berada pada kisaran 10–15 mm/hari, disertai beberapa kejadian ekstrem yang melebihi 20 mm/hari, terutama pada awal tahun 2020, 2022, dan 2024. Fluktuasi yang tajam antar musim menggambarkan dinamika atmosfer regional yang aktif dan dipengaruhi oleh siklus monsun serta fenomena cuaca skala besar seperti MJO dan ENSO. Pola temporal yang stabil dan berulang ini menunjukkan bahwa Wilayah Utara memiliki struktur deret waktu yang kuat dan cocok dimodelkan menggunakan pendekatan STARIMA untuk analisis dan peramalan spasial-temporal curah hujan.
 
 \subsection{Karakteristik dengan BoxPlot}
 Sebelum masuk ke analisis lebih lanjut, diperlukan pemahaman mengenai pola dasar distribusi curah hujan di setiap wilayah. Oleh karena itu, boxplot digunakan untuk menampilkan gambaran awal mengenai sebaran dan karakteristik data curah hujan bulanan.

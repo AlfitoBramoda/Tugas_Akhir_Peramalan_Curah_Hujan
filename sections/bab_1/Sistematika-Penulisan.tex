@@ -2,9 +2,45 @@
 Berikut adalah gambaran singkat mengenai uraian secara singkat lingkup isi dari setiap Bab yang ada di dalam Buku Tugas Akhir ini:
 \begin{enumerate}
     \item \textbf{Pendahuluan} \\
-    Bab ini membahas mengenai latar belakang yang menjadi dasar dilaksanakannya penelitian, khususnya terkait pentingnya pemodelan curah hujan di wilayah Surabaya yang memiliki dinamika iklim tropis basah dan rawan terhadap bencana hidrometeorologi. Dalam bagian ini juga dijelaskan permasalahan utama yang ingin diselesaikan melalui penelitian, dirumuskan dalam bentuk pertanyaan penelitian. Selanjutnya, bab ini menguraikan tujuan yang ingin dicapai, batasan serta asumsi penelitian yang digunakan untuk memperjelas ruang lingkup studi. Manfaat teoritis dan praktis dari penelitian juga dijelaskan, diikuti oleh rincian rencana kegiatan dan jadwal pelaksanaan penelitian yang disusun secara kronologis. 
+    Bab ini menjelaskan latar belakang pentingnya peramalan curah hujan di Surabaya sebagai kota metropolitan yang rawan banjir dan dipengaruhi dinamika iklim tropis basah.
+    Bab ini menyoriti kompleksitas curah hujan yang dipengaruhi oleh factor spasial dan temporal, sehingga model time series biasas seperti ARIMA kurang memadai. 
+    Dijelaskan juga perkembangan model spasio-temporal seperti STARIMA yang dapat menangkap ketergantungan antar lokasi dan antar waktu.
+    Berdasarkan fenomena dan studi terdahulu, dirumuskan tiga masalah utama pola spasio temporal curah hujan, efektif pembobotan  SWM, serta hasil peramalan.
+    Bab ini juga memuat tujuan penelitian, batasan data NASA (2015 hingga 2024), asumsi, manfaat penelitian, serta rencana dan jadwal kegiatan penelitian.
     \item \textbf{Kajian Pustaka} \\
-    Bab ini berisi uraian mengenai teori-teori dan konsep dasar yang relevan dengan peramalan curah hujan berbasis \textit{spasio-temporal}. Penelitian-penelitian terdahulu yang mendukung landasan ilmiah penelitian ini juga dipaparkan secara mendalam. Teori mengenai metode peramalan, model ARIMA, serta pengembangan model STARMA dibahas untuk memberikan pemahaman metodologis yang kuat. Selain itu, bab ini juga menjelaskan konsep \textit{Spatial Weight Matrix} dengan berbagai pendekatan seperti bobot seragam, inverse jarak, dan korelasi silang. Seluruh teori ini menjadi fondasi dalam membangun dan mengembangkan model prediksi yang diusulkan dalam penelitian.
-    \item \textbf{Metodologi} \\ Bab ini menjelaskan metode penelitian yang digunakan untuk mencapai tujuan yang telah ditetapkan. Pertama-tama dijelaskan alur umum proses penelitian dalam bentuk diagram. Selanjutnya, dijabarkan sumber data yang digunakan, yaitu data curah hujan harian berbasis satelit dari NASA, serta cara akuisisi dan karakteristiknya. Tahapan pra-pemrosesan data seperti pembersihan, pengujian stasionaritas, dan normalisasi dijelaskan untuk memastikan data layak digunakan dalam pemodelan spasio-temporal. Kemudian dilakukan analisis eksploratif untuk memahami distribusi curah hujan dari sisi spasial dan temporal. Langkah selanjutnya dibentuklah \textit{Spatial Weight Matrix} dengan tiga pembobotan sebagai komponen penting dalam model STARMA. Setelah itu, dilakukan pembangunan model \textit{baseline} ARIMA, dilanjutkan dengan pembangunan model utama STARMA yang mengintegrasikan berbagai jenis pembobotan spasial. Terakhir, dilakukan validasi dan evaluasi model menggunakan metrik MAE, RMSE, dan MAPE serta analisis perbandingan hasil prediksi antar variasi model.
-    
+    Bab ini berisi teori dan penelitiam terdahulu yang relevan dengan pemodelan curah hujan spasio temporal.
+    Disajikan berbagai studi menggunakan ARIMA, STARMA, model hibrida, fuzzy STARMA, dan pembobotan spasial adaptif.
+    Bab ini menjelaskan konsep dasar peramalan, jenis metode, RMSE sebagai evaluasi, serta kestasioneran data dengan uji ADF.
+    Selanjutnya dibahas teori ARIMA, identifikasi orde dengan ACF/PACF, estimasi parameter, dan diagnostik model.
+    Bagian inti menjelaskan model STARMA: struktur matematisnya, STACF/STPACF untuk identifikasi orde spasial-temporal, estimasi parameter AR dan MA, uji signifikansi, serta peran penting Spatial Weight Matrix.
+    Jenis pembobotan SWM (seragam, invers jarak, korelasi silang) dijelaskan lengkap sebagai dasar model utama.
+    \item \textbf{Metodologi} \\ 
+    Bab ini menyajikan langkah-langkah penelitian secara sistematis.
+    Dimulai dengan alur metode penelitian, kemudian dijelaskan sumber data curah hujan satelit NASA POWER untuk lima wilayah Surabaya tahun 2015–2024.
+    Tahapan pra-pemrosesan mencakup pembersihan data, transformasi Box-Cox, dan differencing.
+    Analisis eksploratif mencakup visualisasi pola spasial dan temporal. Setelah itu dilakukan uji kestasioneran, pembentukan tiga jenis Spatial Weight Matrix, serta pembangunan model baseline ARIMA.
+    Setelah ARIMA, dibangun model STARMA dengan tiga jenis bobot: seragam, invers jarak, dan korelasi silang.
+    Bab ini ditutup dengan penjelasan teknik evaluasi menggunakan RMSE serta tujuan akhir peramalan.
+    \item \textbf{Hasil dan Pembahasan} \\
+    Bab ini menyajikan hasil implementasi seluruh langkah penelitian.
+    Pertama dilakukan eksplorasi data curah hujan untuk lima wilayah Surabaya, termasuk statistik deskriptif, pola musiman, dan korelasi antar wilayah.
+    Selanjutnya hasil ARIMA ditampilkan: uji stasioner, estimasi parameter, fitting model, dan grafik peramalan untuk tiap wilayah. \\
+    Bagian terbesar membahas STARMA. Setiap jenis bobot (seragam, invers jarak, korelasi silang) dianalisis dari:
+    \begin{enumerate}[label=\alph*.]
+        \item Hasil Stationeritas
+        \item Hasil STACF dan STPACF
+        \item Estimasi parameter
+        \item Fitting model
+        \item Grafik hasil peramalan tiap wilayah
+    \end{enumerate}
+    Setiap bobot dibandingkan performanya.
+    Bab ini menunjukkan bahwa pembobotan tertentu memberikan RMSE paling rendah dan model STARMA lebih unggul dibanding ARIMA.
+    \item \textbf{Kesimpulan dan Saran} \\
+    Bab ini merangkum temuan utama penelitian:
+    \begin{enumerate}[label=\alph*.]
+        \item Pola curah hujan di Surabaya memiliki variasi spasio-temporal kuat.
+        \item Pembobotan spasial memengaruhi performa STARMA secara signifikan.
+        \item Model STARMA tertentu menghasilkan prediksi terbaik berdasarkan RMSE.
+    \end{enumerate}
+    Saran diberikan untuk pengembangan selanjutnya, seperti penggunaan resolusi data lebih tinggi, model hybrid, atau pembobotan spasial adaptif untuk meningkatkan akurasi.
 \end{enumerate}
