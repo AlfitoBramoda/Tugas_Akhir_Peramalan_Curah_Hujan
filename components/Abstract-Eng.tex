@@ -1,8 +1,18 @@
 \chapter*{\textit{Abstract}}
-
-Rainfall is one of the key meteorological parameters that influences various sectors such as agriculture, infrastructure, and disaster mitigation. In metropolitan cities like Surabaya, accurate rainfall prediction is crucial to support urban planning and reduce the risk of hydrometeorological disasters. However, rainfall patterns are complex, as they are simultaneously influenced by spatial and temporal factors. Therefore, a modeling approach that considers both time series aspects and the interrelationship between geographical locations is required.
-This study aims to develop a daily rainfall prediction model using a spatio-temporal approach, taking into account the spatial and temporal patterns of rainfall across regions. The model employed is the STARMA (Space-Time Autoregressive Moving Average) model. Three weighting schemes are compared in this study: uniform weights, distance-based weights, and cross-correlation-based weights. The STARMA model with adaptive weighting is expected to serve as a foundation for the development of early warning systems as well as for more targeted climate change mitigation and adaptation policies. Rainfall data were obtained from NASA POWER satellite imagery for the Surabaya region covering the years 2015 - 2024.
-  
+Rainfall is a critical meteorological parameter that influences multiple strategic sectors, including agriculture, infrastructure, and disaster mitigation. 
+In metropolitan areas such as Surabaya, accurate rainfall forecasting is essential to enable proactive urban planning and to reduce exposure to hydrometeorological risks. 
+Nevertheless, rainfall patterns exhibit inherent complexity due to the simultaneous interaction of spatial and temporal dynamics. 
+Consequently, a modeling framework that integrates both time-series behavior and spatial interdependencies across geographical regions is required.
+This study develops a monthly rainfall forecasting model using a spatio-temporal approach that captures rainfall variability across five sub-regions of Surabaya. 
+The methodological backbone of the research is the STARMA (Space-Time Autoregressive Moving Average) model. 
+Three spatial weighting schemes—uniform weights, inverse-distance weights, and cross-correlation-based weights—are evaluated to identify the configuration that best represents spatial dependencies. 
+Data were sourced from NASA POWER satellite observations for the period 2015 - 2024. \\
+The analytical workflow encompasses data preprocessing (including BoxCox transformation and seasonal differencing), spatio-temporal pattern exploration, stationarity diagnostics, construction of Spatial Weight Matrices, development of benchmark ARIMA models, and performance evaluation using RMSE. 
+The empirical results reveal pronounced seasonal characteristics and strong spatial correlations among Surabaya's sub-regions. \\
+The best overall model is identified as STARMA (1,1,1) with spatial lag 1, achieving an average RMSE of 1.728 under the uniform weighting scheme—outperforming all other STARMA variants. 
+Comparative analysis further shows that STARMA delivers substantially lower RMSE values compared to ARIMA across all regions; for instance, in the East region, RMSE decreases from 4.596 (ARIMA) to 1.407 (STARMA). \\
+These findings underscore that incorporating spatial and temporal dimensions through STARMA significantly enhances rainfall forecasting accuracy. 
+This modeling paradigm demonstrates strong potential to support early warning system development and to inform climate adaptation and hydrometeorological risk-mitigation strategies in Surabaya.
 \vspace{0.5 cm}
 \begin{flushleft}
 {\textbf{Keywords:} Rainfall Prediction,  Spatial Weight Matrix, STARMA, Surabaya.}

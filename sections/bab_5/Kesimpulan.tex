@@ -1,12 +1,9 @@
 \section{Kesimpulan}
-Berdasarkan hasil analisis, didapatkan kesimpulan bahwa kelima wilayah memiliki karakteristik hujan yang relatif serupa baik dari nilai rata-rata maupun pola persebaran statistik.
-Curah hujan tahunan memperlihatkan pola musiman kuat dengan puncak hujan pada Desember hingga Februari dan kondisi minimum pada Juli hingga September.
-Curah hujan kelima wilayah ini juga memiliki korelasi spasial yang sangat tinggi (0.975 - 0.999) sehingga dinamika hujan antar wilayah bergerak hampir serentak.
-
-Hasil analisis jika menggunakan ARIMA sudah mampu untuk menggambarkan pola musiman tahunan akan tetapi kinerjanya masih kurang responsif terhadap fluktuasi ekstrim hujan terbukti dengan tingginya RMSE yang dihasilkan.
-Keterbatasan ini muncul karena  ARIMA hanya menggunakan informasi temporal tanpa mempertimbangkan interaksi antarwilayah.
-Sehingga diperlukan STARIMA yang diuji menggunakan tiga jenis bobot spasial (Bobot Searagm, Bobot Invers Jarak, Bobot Lokasi Korelasi Silang).
-Dimana hasil evaluasi RMSE menunjukkan peningkatan akurasi signifikan dibandingkan dengan ARIMA.
-
-Hasil forecasting konsisten menunjukkan STARIMA lebih baik dalam menangkap puncak musiman, lebih stabil pada periode penurunan hujan, lebih sedikit error dan lebih responsif terhadap pola spasial-temporal.
-Model STARIMA(1,1,1) dengan bobot seragam menghasilkan error paling rendah dan paling konsisten di seluruh wilayah, sehingga menjadi model paling optimal untuk Surabaya.
+Berdasarkan hasil analisis, dapat disimpulkan bahwa kelima wilayah di Surabaya memiliki karakteristik curah hujan yang relatif serupa, baik dari nilai rata-rata maupun pola persebaran statistiknya.
+Curah hujan menunjukkan pola musiman yang kuat dengan puncak hujan pada bulan Desember hingga Februari, serta kondisi minimum pada bulan Juli hingga September.
+Kelima wilayah juga memiliki korelasi spasial yang sangat tinggi (0,975–0,999), sehingga dinamika hujan antarwilayah bergerak hampir serentak.
+Model ARIMA mampu menggambarkan pola musiman tahunan, namun kinerjanya kurang responsif terhadap fluktuasi hujan ekstrem, tercermin dari nilai RMSE yang lebih tinggi karena ARIMA hanya memanfaatkan informasi temporal tanpa mempertimbangkan interaksi spasial antarwilayah.
+Untuk mengatasi keterbatasan tersebut digunakan model STARIMA dengan tiga jenis pembobotan spasial, yaitu bobot seragam, bobot invers jarak, dan bobot korelasi silang.
+Hasil evaluasi RMSE menunjukkan adanya peningkatan akurasi yang signifikan dibandingkan ARIMA.
+Hasil peramalan secara konsisten memperlihatkan bahwa STARIMA lebih mampu menangkap puncak musiman, lebih stabil pada periode penurunan hujan, menghasilkan error lebih kecil, serta lebih responsif terhadap pola spasial-temporal.
+Dari seluruh model yang diuji, STARIMA(1,1,1) dengan bobot seragam merupakan model paling optimal karena memberikan error paling rendah dan performa paling konsisten di seluruh wilayah.
