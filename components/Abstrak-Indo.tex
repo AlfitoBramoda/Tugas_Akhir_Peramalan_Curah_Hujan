@@ -1,18 +1,12 @@
 \chapter*{ABSTRAK}
-Curah hujan merupakan salah satu parameter meteorologis penting yang memengaruhi berbagai sektor, seperti pertanian, infrastruktur, dan mitigasi bencana. 
-Di kota metropolitan seperti Surabaya, prediksi curah hujan yang akurat sangat diperlukan untuk mendukung perencanaan kota dan pengurangan risiko bencana hidrometeorologi. 
-Namun, karakteristik curah hujan bersifat kompleks karena dipengaruhi oleh faktor ruang (spasial) dan waktu (temporal) secara bersamaan. 
-Oleh karena itu, diperlukan pendekatan pemodelan yang tidak hanya mempertimbangkan aspek deret waktu, tetapi juga keterkaitan antar lokasi geografis. 
-Penelitian ini bertujuan untuk membangun model prediksi curah hujan bulanan menggunakan pendekatan spasio-temporal, dengan mempertimbangkan keterkaitan pola curah hujan antar wilayah dan waktu. 
-Model yang digunakan adalah STARMA (Space-Time Autoregressive Moving Average). 
-Tiga skema pembobotan dibandingkan dalam penelitian ini, yaitu bobot seragam, bobot berdasarkan jarak, dan bobot berbasis korelasi silang. 
-Model STARMA dengan pembobotan adaptif ini diharapkan dapat menjadi dasar dalam pengembangan sistem peringatan dini serta kebijakan mitigasi dan adaptasi terhadap perubahan iklim secara lebih tepat sasaran. 
-Data curah hujan diperoleh dari citra satelit NASA POWER untuk wilayah Surabaya selama tahun 2015 - 2024. \\
-Proses penelitian meliputi pra-pemrosesan data (transformasi BoxCox dan differencing), analisis pola spasio-temporal, pengujian kestasioneran, pembentukan Spatial Weight Matrix, pembangunan model ARIMA sebagai pembanding, serta evaluasi performa menggunakan RMSE.
-Hasil menunjukkan bahwa pola curah hujan Surabaya bersifat musiman dan memiliki korelasi spasial sangat kuat antar wilayah. \\
-Model terbaik secara agregat adalah STARMA (1,1,1) dengan lag spasial 1, yang menghasilkan RMSE rata-rata 1.728 dengan bobot seragam, menjadi yang terendah dibandingkan model STARMA lainnya.
-Selain itu, hasil perbandingan ARIMA dan STARMA menunjukkan bahwa STARMA memberikan RMSE jauh lebih kecil pada seluruh wilayah, misalnya wilayah Timur turun dari 4.596 (ARIMA) menjadi 1.407 (STARMA). \\
-Penelitian ini menegaskan bahwa integrasi dimensi ruang dan waktu melalui STARMA mampu meningkatkan akurasi prediksi curah hujan secara signifikan dan berpotensi mendukung sistem peringatan dini serta kebijakan mitigasi hidrometeorologi di Surabaya.
+Curah hujan memiliki peran penting bagi berbagai sektor seperti pertanian, infrastruktur, dan pengelolaan risiko bencana, sehingga prediksi yang akurat menjadi kebutuhan utama terutama di kota besar seperti Surabaya yang rentan terhadap banjir dan genangan.
+Mengingat curah hujan dipengaruhi oleh variasi ruang dan waktu secara simultan, penelitian ini menerapkan model spasio-temporal STARMA untuk memprediksi curah hujan bulanan dengan mempertimbangkan keterkaitan dinamis antarwilayah.
+Data yang digunakan berasal dari citra satelit NASA POWER periode 2015 - 2024.
+Tahapan penelitian meliputi pra-pemrosesan data melalui transformasi BoxCox dan differencing, analisis pola spasio-temporal, uji stasioneritas, penyusunan Spatial Weight Matrix menggunakan tiga skema bobot (seragam, invers jarak, dan korelasi silang), pembangunan model ARIMA sebagai model pembanding, serta evaluasi performa menggunakan RMSE.
+Hasil penelitian menunjukkan adanya pola musiman yang konsisten serta korelasi spasial yang kuat antarwilayah Surabaya, mencerminkan bahwa informasi ruang tidak dapat diabaikan dalam peramalan.
+Model terbaik diperoleh pada STARMA(1,1,1) dengan lag spasial 1 dan bobot terbaiknya yaitu bobot seragam, yang menghasilkan RMSE rata-rata 1.728 lebih rendah dibandingkan model STARMA lain maupun ARIMA.
+Misalnya di wilayah Timur, RMSE turun signifikan dari 4.596 (ARIMA) menjadi 1.407 (STARMA).
+Temuan ini menegaskan bahwa integrasi aspek ruang dan waktu melalui STARMA mampu meningkatkan akurasi prediksi curah hujan dan berpotensi mendukung sistem peringatan dini serta mitigasi bencana hidrometeorologi di Surabaya.
 \vspace{0.5 cm}
 \begin{flushleft}
 {\textbf{Kata Kunci:} Prediksi Curah Hujan, Spatial Weight Matrix, STARMA, Surabaya.}
