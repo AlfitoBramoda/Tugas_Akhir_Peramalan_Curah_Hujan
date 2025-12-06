@@ -1,52 +1,5 @@
 \section{Model STARMA \textit{ (Space-Time Autoregressive Moving Average)}}
 \begin{enumerate}
-    \item Identifikasi Orde Model ($p$, $q$, $\lambda$, $\mu$) \\
-    Ini adalah bagian paling menantang dalam membangun model STARMA. Mirip dengan ACF dan PACF di ARIMA, STARMA menggunakan
-    STACF \textit{(Space-Time Autocorrelation Function)}: Mengukur korelasi antara observasi pada lokasi $i$ dan waktu $t$ dengan observasi pada lokasi $j$ dan waktu $t-k$, mempertimbangkan struktur spasial. \\
-    Rumus STACF:
-    \begin{equation}\label{starma_stacf}
-        \hat{\rho}_{10}(s) = 
-        \frac{
-        \sum_{i=1}^{N} \sum_{t=1}^{T-s} L^{(1)}z_i(t) \cdot L^{(0)}z_i(t+s)
-        }{
-        \left[
-        \sum_{i=1}^{N} \sum_{t=1}^{T} \left(L^{(1)}z_i(t)\right)^2 
-        \cdot
-        \sum_{i=1}^{N} \sum_{t=1}^{T} \left(L^{(0)}z_i(t)\right)^2
-        \right]^{1/2}
-        }
-    \end{equation}
-    Keterangan:
-    \begin{itemize}
-        \item $\hat{\rho}_{10}(s)$ : Estimasi koefisien \textit{Space-Time Autocorrelation Function} (STACF) pada lag spasial 1 dan lag temporal $s$
-        \item $N$ : Jumlah total lokasi spasial (misalnya jumlah stasiun, kota, area, dll.)
-        \item $T$ : Jumlah total periode waktu (observasi temporal) untuk setiap lokasi
-        \item $z_i(t)$ : Nilai observasi dari deret waktu pada lokasi ke-$i$ dan waktu ke-$t$
-        \item $L^{(1)}z_i(t)$ : Operator \textit{lag spasial orde 1} (spatial shift operator) yang menunjukkan pengaruh lokasi sekitar terhadap lokasi $i$ pada waktu $t$
-        \item $L^{(0)}z_i(t)$ : Nilai asli dari $z_i(t)$ tanpa pergeseran spasial (orde 0), yaitu nilai pada lokasi itu sendiri
-    \end{itemize}
-
-    STPACF \textit{(Space-Time Partial Autocorrelation Function)}: Mirip dengan PACF tetapi mempertimbangkan dimensi ruang dan waktu. \\
-    Rumus STPACF:
-    \begin{equation}\label{starma_stpacf}
-        \hat{\gamma}_{ho}(s) = \sum_{j=1}^{k} \sum_{l=0}^{\lambda} \hat{\phi}_{jl} \hat{\gamma}_{hl}(s-j)
-    \end{equation}
-    Keterangan:
-    \begin{itemize}
-        \item $\hat{\gamma}_{ho}(s)$: Ini adalah estimasi koefisien Space-Time Partial Autocorrelation Function (STPACF).
-        \item $\sum_{j=1}^{k}$: Ini adalah penjumlahan untuk lag temporal $j$, dari 1 hingga $k$.
-        \item $\sum_{l=0}^{\lambda}$: Ini adalah penjumlahan untuk lag spasial $l$, dari 0 hingga $\lambda$.
-        \item $\hat{\phi}_{jl}$: Ini adalah koefisien model Space-Time Autoregressive (STAR) yang diestimasi.
-        \item $\hat{\gamma}_{hl}(s-j)$: Ini adalah estimasi koefisien STPACF sebelumnya pada lag spasial $l$ dan lag temporal $s-j$.
-    \end{itemize}
-    Identifikasi orde melibatkan penentuan:
-    \begin{itemize}
-        \item Orde \textit{Autoregressive (p)}: Jumlah $lag$ temporal dari komponen AR
-        \item Orde \textit{Moving Average (q)}: Jummlah $lag$ temporal dari komponen MA
-        \item Orde \textit{Spasial Autoregressive} $(\lambda)$: Jumlah $lag$ spasial dari komponen AR. Ini menunjukkan berapa lapis tetangga yang memengaruhi nilai saat ini
-        \item Orde Spasial \textit{Moving Average} $(\mu)$: Jumlah $lag$ spasial dari komponen MA
-    \end{itemize}
-
     \item Estimasi Parameter \\
     Setelah orde ($p$, $q$, $\lambda$, $\mu$) dan matriks bobot spasial ditentukan, parameter model STARMA diestimasi. Estimasi parameter STARMA menggunakan Maximum Likelihood Estimation
     Langkah-langkah estimasi Maximum Likelihood Estimation:

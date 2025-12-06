@@ -63,7 +63,7 @@ Oleh karena itu, pada tahap ini dilakukan pengujian kestasioneran data curah huj
 \subsection{Estimasi Parameter}
 Parameter yang diestimasi dari model yang telah diidentifikasi menggunakan metode Maximum Likelihood, disajikan dalam table dibawah ini, bersama dengan standar error, nilai $t$, dan nilai $p$ masing - masing:
 \input{tables/bab_4/Estimasi-Parameter-Arima.tex}
-Berdasarkan Tabel~\ref{table:estimasi-parameter-arima} tersebut, dapat dilihat bahwa setiap wilayah memiliki model terbaik yang sama, yaitu SARIMA $(1,1,0) \times (1,1,0)_{12}$, dan seluruh parameter yang terbentuk pada masing - masing model menunjukkan nilai p-value $<$ 0.05, yang berarti seluruh parameter AR non-seasonal dan AR musiman signifikan secara statistik.
+Berdasarkan Tabel~\ref{table:estimasi-parameter-arima} dapat dilihat bahwa model terbaik SARIMA, yaitu $(1,1,0) \times (0,1,0)_{12}$ dan $(1,1,0) \times (1,1,0)_{12}$ yang masing-masing menunjukkan nilai p-value <0.05, yang berarti seluruh parametre AR non seasonal dan seasonal signifikan secara statistik.
 Hal ini menegaskan bahwa komponen autoregressive, baik pada bagian non-musiman maupun musiman, memberikan kontribusi nyata dalam menjelaskan pola curah hujan bulanan di tiap wilayah.
 Selain itu, hasil diagnostik checking juga menunjukkan bahwa residual dari seluruh model telah memenuhi asumsi white noise, yang berarti tidak terdapat autokorelasi tersisa pada residual dan model sudah mampu menangkap pola yang ada pada data.
 Dengan demikian, model SARIMA yang diperoleh dapat dikatakan telah lolos uji kelayakan dan valid digunakan untuk proses peramalan pada masing - masing wilayah.
