@@ -56,26 +56,34 @@ Oleh karena itu, pada tahap ini dilakukan pengujian kestasioneran data curah huj
     Evaluasi dilakukan dengan membandingkan nilai Root Mean Squared Error (RMSE) antara model yang dibangun tanpa transformasi BoxCox dan model yang menerapkan transformasi tersebut.
     Perbandingan kuantitatif atas seluruh konfigurasi model disajikan pada tabel dibawah ini
     \input{tables/bab_4/Perbandingan-RMSE.tex}
-    Berdasarkan Tabel~\ref{table:perbandingan-rmse} yang merupakan evaluasi kinerja berbagai konfigurasi model SARIMA untuk masing - masing wilayah dengan membandingkan nilai RMSE sebelum dan sesudah penerapan transformasi BoxCox.
-    Hasilnya menunjukkan bahwa hampir seluruh wilayah mengalami penurunan RMSE yang signifikan setelah transformasi diterapkan, mengindikasikan bahwa BoxCox mampu menstabilkan varians, meningkatkan kualitas pemodelan, dan menghasilkan performa prediksi yang lebih akurat dibandingkan model tanpa transformasi.
+    Berdasarkan Tabel~\ref{table:perbandingan-rmse} hasil perbandingan model SARIMA dengan dan tanpa transformasi pada lima wilayah pengamatan, dapat disimpulkan bahwa penerapan transformasi tidak selalu memberikan peningkatan akurasi pemodelan.
+    Pada wilayah Barat, Timur, dan Utara, model tanpa transformasi justru menghasilkan nilai error yang lebih rendah, menunjukkan bahwa varians data pada wilayah tersebut sudah relatif stabil sehingga transformasi tidak diperlukan.
+    Pada wilayah Selatan, perbedaan performa antara kedua pendekatan sangat kecil sehingga pengaruh transformasi dapat dikatakan minimal.
+    Sementara itu, wilayah Tengah menjadi satu-satunya wilayah di mana transformasi memberikan peningkatan akurasi yang lebih jelas, mengindikasikan adanya variabilitas data yang lebih tinggi sehingga stabilisasi varians melalui transformasi menjadi bermanfaat.
+    Secara keseluruhan, hasil ini menunjukkan bahwa efektivitas transformasi sangat bergantung pada karakteristik statistik masing-masing wilayah, sehingga penerapannya tidak dapat digeneralisasi dan perlu disesuaikan dengan kondisi data.
 \end{enumerate}
 
 \subsection{Estimasi Parameter}
 Parameter yang diestimasi dari model yang telah diidentifikasi menggunakan metode Maximum Likelihood, disajikan dalam table dibawah ini, bersama dengan standar error, nilai $t$, dan nilai $p$ masing - masing:
 \input{tables/bab_4/Estimasi-Parameter-Arima.tex}
-Berdasarkan Tabel~\ref{table:estimasi-parameter-arima} dapat dilihat bahwa model terbaik SARIMA, yaitu $(1,1,0) \times (0,1,0)_{12}$ dan $(1,1,0) \times (1,1,0)_{12}$ yang masing-masing menunjukkan nilai p-value <0.05, yang berarti seluruh parametre AR non seasonal dan seasonal signifikan secara statistik.
-Hal ini menegaskan bahwa komponen autoregressive, baik pada bagian non-musiman maupun musiman, memberikan kontribusi nyata dalam menjelaskan pola curah hujan bulanan di tiap wilayah.
-Selain itu, hasil diagnostik checking juga menunjukkan bahwa residual dari seluruh model telah memenuhi asumsi white noise, yang berarti tidak terdapat autokorelasi tersisa pada residual dan model sudah mampu menangkap pola yang ada pada data.
-Dengan demikian, model SARIMA yang diperoleh dapat dikatakan telah lolos uji kelayakan dan valid digunakan untuk proses peramalan pada masing - masing wilayah.
+Berdasarkan Tabel~\ref{table:estimasi-parameter-arima} dapat dilihat bahwa model ARIMA terbaik yang digunakan pada seluruh wilayah adalah ARIMA $(1,0,0) \times (0,1,0)_{12}$, di mana parameter yang signifikan secara statistik hanyalah komponen AR non-musiman.
+Hal ini ditunjukkan oleh nilai p-value < 0.05 pada seluruh wilayah, sehingga parameter AR(1) terbukti memberikan kontribusi nyata dalam menjelaskan pola curah hujan bulanan.
+Nilai koefisien yang positif pada setiap wilayah juga menegaskan adanya hubungan autoregresif yang kuat antara curah hujan bulan ini dan bulan sebelumnya.
+Selain itu, nilai standard error yang relatif kecil serta t-value yang tinggi pada seluruh wilayah menunjukkan bahwa estimasi parameter bersifat stabil dan dapat dipercaya.
+Hasil diagnostik juga menunjukkan bahwa residual model telah memenuhi karakteristik white noise, sehingga tidak terdapat autokorelasi yang tersisa dan pola dalam data telah berhasil ditangkap oleh model.
+Dengan demikian, model ARIMA yang diperoleh dapat dinyatakan layak dan valid untuk digunakan dalam proses peramalan curah hujan pada masing-masing wilayah.
 
 \subsection{Model Fitting}
 Berdasarkan hasil analisis ACF dan PACF pada kelima wilayah terlihat bahwa pola autokorelasi menurun secara bertahap setelah lag ke-1 dan PACF menunjukkan cut-off pada lag pertama, baik untuk komponen non musiman maupun musiman.
 Pola tersebut mengindikasikan keberadaan komponen agresif (AR) dan moving average (MA) pada lag pertama, serta adanyam pengaruh musiman dengan periode tahunan (seasonal periode = 12).
 Oleh karena itu, model yang sesuai untuk menggambarkan karakteristik data curah hujan diseluruh wilayah Kota Surabaya adalah sebagai berikut:
 \input{tables/bab_4/Hasil-Model-Fitting-ARIMA.tex}
-Dari Tabel~\ref{table:hasil-model-fitting-arima} tersebut diketahui bahwa kelima wilayah menunjukkan model terbaik yang sama, yaitu SARIMA $(1,1,0) \times (1,1,0)_{12}$ dan $(1,1,0) \times (0,1,0)_{12}$, berdasarkan pola ACF dan PACF yang konsisten menunjukkan cut-off pada lag pertama serta adanya komponen musiman dengan periode 12 bulan.
-Meskipun model yang terpilih sama untuk sleuruh wilayah, nilai RMSE berbeda-beda, yang menunjukkan bahwa tingkat akurasi model bervariasi sesuai karakteristik curah hujan tiap wilayah.
-Wilayah Timur memiliki performa terbaik dengan RMSE terendah (3.185), sedangkan wilayah Tengah memiliki RMSE tertinggi (4.553), mengindikasikan bahwa ketepatan prediksi pada wilayah tersebut lebih rendah dibanding wilayah lainnya.
+Berdasarkan Tabel~\ref{table:hasil-model-fitting-arima} hasil evaluasi model SARIMA $(1,0,0) \times (0,1,0)_{12}$ pada kelima wilayah, diperoleh nilai RMSE yang bervariasi, mencerminkan tingkat akurasi model dalam memprediksi curah hujan di setiap wilayah.
+Wilayah Tengah menunjukkan performa terbaik dengan nilai RMSE sebesar 4.434, yang mengindikasikan bahwa pola musiman pada wilayah ini relatif stabil dan dapat ditangkap dengan baik oleh model.
+Wilayah Selatan berada pada posisi berikutnya dengan RMSE 4.680, yang berarti model memiliki kemampuan prediksi yang cukup baik meskipun terdapat sedikit ketidakstabilan pola data.
+Wilayah Timur dan Barat memiliki nilai RMSE masing-masing 4.643 dan 5.082 hasil ini menunjukkan bahwa meskipun model dapat menangkap pola musiman, masih terdapat variasi data yang tidak sepenuhnya terakomodasi oleh struktur model yang digunakan.
+Sementara itu, Wilayah Utara memiliki nilai RMSE tertinggi sebesar 5.016, menandakan bahwa pola curah hujan di wilayah tersebut lebih fluktuatif sehingga model kurang optimal dalam melakukan prediksi.
+Secara keseluruhan, variasi nilai RMSE ini mengindikasikan bahwa tingkat keakuratan model sangat dipengaruhi oleh karakteristik pola hujan masing-masing wilayah, dan wilayah dengan pola musiman yang lebih teratur cenderung menghasilkan performa model yang lebih baik.
 
 \subsection{Hasil Forecasting ARIMA}
 Berikut merupakan hasil forecasting ARIMA menggunakan model yang ada pada Tabel~\ref{table:hasil-model-fitting-arima}:
@@ -85,57 +93,49 @@ Berikut merupakan hasil forecasting ARIMA menggunakan model yang ada pada Tabel~
     \caption{Hasil Forecasting Wilayah Barat}
     \label{fig:hasil-forecasting-barat}
 \end{figure}
-Berdasarkan Gambar~\ref{fig:hasil-forecasting-barat} model SARIMA $(1,1,0) \times (0,1,0)_{12}$ pada wilayah Barat menunjukkan kemampuan yang terbatas dalam menangkap dinamika curah hujan.
-Meskipun pada beberapa bulan seperti Januari - Mei serta November - Desember model masih mampu mengikuti arah naik - turun data aktual, prediksi yang dihasilkan cenderung terlalu halus dan memiliki amplitudo yang jauh lebih kecil.
-Hal ini menybabkan underestimation yang kuat pada puncak musim hujan awal tahun dan overestimation pada akhir tahun. Kinerja model semakin buruk pada periode Juni - Oktober, ketika curah hujan aktual berada pada titik minimum.
-Pada periode ini, model tidak hanya memberikan nilai yang jauh lebih tinggi dari aktual, tetap juga sering bergerak berlawanan arah dengan pola sebenarnya.
-Akibatnya, model gagal merepresentasikan karakteristik musim kemarau.
-Secara keseluruhan, tingginya nilai RMSE (3.332) memperlihatkan bahwa model ini kurang responsif terhadap perubahan ekstrem dan tidak cukup akurat untuk menggambarkan pola curah hujan wilayah Barat.
+Berdasarkan Gambar~\ref{fig:hasil-forecasting-barat} hasil peramalan curah hujan wilayah Barat menggunakan model SARIMA $(1,0,0) \times (0,1,0)_{12}$ menunjukkan bahwa model hanya mampu mengikuti pola musiman secara umum, namun belum akurat dalam memprediksi nilai curah hujan, yang ditunjukkan oleh RMSE sebesar 5.082.
+Model cenderung menghasilkan prediksi yang lebih rendah daripada nilai aktual, terutama pada periode puncak hujan seperti Februari, Maret, dan Desember 2024.
+Meskipun pola penurunan pada musim kemarau dapat ditangkap, prediksi tetap berada di bawah nilai aktual sehingga mengindikasikan adanya underestimation.
+Secara keseluruhan, model SARIMA masih kurang mampu menangkap variabilitas curah hujan ekstrem di wilayah Barat, sehingga diperlukan pendekatan pemodelan lain yang lebih mampu merepresentasikan fluktuasi intensitas curah hujan.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.2/hasil-forecast-selatan.png}
     \caption{Hasil Forecasting Wilayah Selatan}
     \label{fig:hasil-forecasting-selatan}
 \end{figure}
-Berdasarkan Gambar~\ref{fig:hasil-forecasting-selatan} model SARIMA $(1,1,0) \times (0,1,0)_{12}$ untuk wilayah Selatan menunjukkan kemampuan yang terbatas dalam menangkap pola naik - turun curah hujan yang sangat fluktuatif sepanjang tahun.
-Pada awal tahun (Januari - Maret), model masih mampu mengikuti arah kenaikan dengan cukup baik meskipun sempat tertinggal di Januari dan Februari.
-Namun, mulai April hingga Mei muncul ketidaktepatan magnitudo, dimana model meng-underestimate penurunan April dan kemudian overestimate kenaikan di Mei.
-Ketidaksesuaian semakin kuat pada periode Juni - Agustus ketika model tidak selaras dengan dinamika musim kemarau, prediksi sering bergerak berlawanan arah dengan aktual dan menunjukkan overestimation besar, terutama pada Agustus.
-Pada September - Oktober, model kembali tidak responsif karena gagal menangkap titik minimum dan arah pergerakan aktual. Meskipun pada November model cukup selaras, Desember kembali menunjukkan overestimate pada puncak hujan.
-Secara keseluruhan, model menghasilkan prediksi yang terlalu halus, kurang mengikuti volatilitas data, serta menghasil error tinggi RMSE (4.474) sehingga kurang representatif untuk kondisi curah hujan wilayah Selatan.
+Berdasarkan Gambar~\ref{fig:hasil-forecasting-selatan} hasil peramalan curah hujan wilayah Selatan menunjukkan bahwa model SARIMA mampu mengikuti pola musiman secara umum, namun akurasinya masih rendah, terlihat dari nilai RMSE sebesar 4.680.
+Model cenderung menghasilkan prediksi yang lebih rendah daripada nilai aktual, terutama pada bulan-bulan dengan curah hujan tinggi seperti Maret, Mei, dan Desember 2024, sehingga terjadi underestimation.
+Pada periode curah hujan rendah, model sedikit lebih stabil, tetapi tetap belum mampu menangkap variasi secara tepat. Secara keseluruhan, model dapat menggambarkan pola dasar musiman, namun belum optimal dalam memodelkan fluktuasi ekstrem, sehingga diperlukan pendekatan model lain yang lebih adaptif untuk meningkatkan kinerja peramalan.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.2/hasil-forecast-tengah.png}
     \caption{Hasil Forecasting Wilayah Tengah}
     \label{fig:hasil-forecasting-tengah}
 \end{figure}
-Berdasarkan Gambar~\ref{fig:hasil-forecasting-tengah} model SARIMA $(1,1,0) \times (1,1,0)_{12}$ untuk wilayah Tengah menunjukkan bahwa prediksi yang dihasilkan cenderung jauh lebih halus dibandingkan pola aktual yang sangat fluktuatif.
-Pada awal tahun (Januari - Maret), model masih mampu mengikuti arah kenaikan meskipun consistently meng-underestimate puncaknya.
-Arah turun - naik hingga Mei juga masih dapat diikuti dengan cukup baik, bahkan Mei menjadi titik paling akurat.
-amun memasuki musim kemarau (Juni - Oktober), performa model menurun drastis, model gagal menangkap penurunan ekstrem, sering bergerak berlawanan arah dengan aktual, dan menghasilkan overestimation sangat besar terutama di Agustus.
-Pada bulan - bulan menjelang akhir tahun, model kembali mengikuti arah perubahan tetapi tetap tidak tepat dalam magnitudo, termasuk underestimation puncak hujan Desember.
-Secara keseluruhan, model tidak cukup responsif terhadap perubahan ekstrem, menghasilkan prediksi yang terlalu halus, serta memiliki tingkat error yang sangat tinggi RMSE (4.553), sehingga kurang representatif untuk menggambarkan dinamika curah hujan wilayah Tengah.
+Berdasarkan Gambar~\ref{fig:hasil-forecasting-tengah} model SARIMA pada wilayah Tengah menghasilkan nilai RMSE 4.434 , yang menunjukkan akurasi prediksi sangat rendah.
+Model cenderung menghasilkan prediksi yang jauh lebih rendah dari data aktual, terutama pada bulan-bulan dengan curah hujan tinggi seperti Februari, Maret, dan Mei 2024, sehingga menunjukkan underestimation yang kuat.
+Pada periode curah hujan rendah, performa model sedikit lebih baik, namun tetap tidak mampu menangkap variasi kecil karena prediksinya cenderung mendekati nilai konstan.
+Secara keseluruhan, model hanya mampu mengikuti pola musiman dasar tetapi tidak cukup sensitif terhadap fluktuasi curah hujan yang ekstrem dan non-linear.
+Hal ini menunjukkan bahwa model SARIMA kurang optimal untuk wilayah ini dan perlu ditingkatkan melalui pendekatan lain yang lebih adaptif yaitu STARIMA.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.2/hasil-forecast-timur.png}
     \caption{Hasil Forecasting Wilayah Timur}
     \label{fig:hasil-forecasting-timur}
 \end{figure}
-Berdasarkan Gambar~\ref{fig:hasil-forecasting-timur} model SARIMA $(1,1,0) \times (0,1,0)_{12}$ untuk wilayah Timur menghasilkan prediksi dengan pola yang jauh lebih halus dibandingkan fluktuasi aktual yang sangat tajam sepanjang tahun.
-Pada awal tahun, model mampu mengikuti arah kenaikan curah hujan, tetapi consistently meng-underestimate besarannya.
-Tren penurunan dan kenaikan hingga Mei juga diikuti dengan cukup baik meskipun amplitudo tetap lebih kecil dari aktual.
-Memasuki musim kemarau, ketidaksesuaian menjadi lebih jelas, model gagal menangkap kenaikan ringan di Juli, bahkan bergerak berlawanan arah pada Agustus dengan memberikan overestimation ekstrem ketika aktual justru menurun.
-Model juga tidak mampu mencapai titik rendah curah hujan di September.
-Menjelang akhir tahun, arah peningkatan kembali diikuti tetapi magnitudo-nya tetap jauh lebih kecil, termasuk underestimation puncak hujan Desember.
-Secara keseluruhan, model tidak cukup responsif terhadap ekstrem musiman, menghasilkan prediksi yang terlalu konservatif, dan memiliki error tinggi RMSE (3.185) sehingga kurang representatif untuk memodelkan pola curah hujan wilayah Timur.
+Berdasarkan Gambar~\ref{fig:hasil-forecasting-timur} model SARIMA pada wilayah Timur menghasilkan RMSE 4.643 , menunjukkan akurasi yang rendah.
+Meskipun model mampu mengikuti pola musiman secara umum, prediksi sering berada jauh di bawah nilai aktual, terutama pada bulan-bulan dengan curah hujan tinggi seperti Februari, Maret, dan Mei 2024.
+Hal ini menunjukkan adanya underestimation dan ketidakmampuan model menangkap fluktuasi curah hujan yang ekstrem.
+Pada periode curah hujan rendah, model tampil sedikit lebih baik, namun tetap belum konsisten dalam mengikuti variasi aktual.
+Secara keseluruhan, model hanya cukup untuk menggambarkan pola dasar, tetapi tidak efektif dalam memodelkan perubahan intensitas curah hujan yang tajam, sehingga perlu pendekatan lain yang lebih adaptif untuk meningkatkan akurasi peramalan.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.2/hasil-forecast-utara.png}
     \caption{Hasil Forecasting Wilayah Utara}
     \label{fig:hasil-forecasting-utara}
 \end{figure}
-Berdasarkan Gambar~\ref{fig:hasil-forecasting-utara} model SARIMA $(1,1,0) \times (0,1,0)_{12}$ untuk wilayah Utara menghasilkan pola prediksi yang lebih halus dibandingkan fluktuasi aktual yang sangat ekstrem.
-Pada awal tahun, model masih mampu mengikuti arah kenaikan dan penurunan, meskipun consistently meng-underestimate puncak hujan dan tidak sedalam aktual saat menurun.
-Menjelang Mei, model sempat sangat mendekati nilai aktual, tetapi memasuki musim kemarau (Juni - Oktober), performa model menurun drastis, beberapa kali bergerak berlawanan arah, sering memberikan overestimation besar terutama di Agustus, dan gagal mencapai nilai minimum aktual.
-Pada bulan - bulan menjelang akhir tahun, model kembali mengikuti arah kenaikan tetapi masih berbeda skala, termasuk sedikit overestimate pada puncak Desember.
-Secara keseluruhan, model tidak cukup responsif terhadap perubahan tajam, menghasilkan prediksi yang cenderung terlalu halus, dan memiliki error yang masih tinggi RMSE (3.353) sehingga kurang representatif untuk menggambarkan dinamika curah hujan wilayah Utara.
+Berdasarkan Gambar~\ref{fig:hasil-forecasting-utara} model SARIMA pada wilayah Utara menghasilkan nilai RMSE 5.016, yang menunjukkan akurasi prediksi sangat rendah.
+Model cenderung menghasilkan prediksi yang jauh lebih rendah dari data aktual, terutama pada bulan-bulan dengan curah hujan tinggi seperti Februari, Maret, dan Mei 2024, sehingga menunjukkan underestimation yang kuat.
+Pada periode curah hujan rendah, performa model sedikit lebih baik, namun tetap tidak mampu menangkap variasi kecil karena prediksinya cenderung mendekati nilai konstan.
+Secara keseluruhan, model hanya mampu mengikuti pola musiman dasar tetapi tidak cukup sensitif terhadap fluktuasi curah hujan yang ekstrem dan non-linear.
+Hal ini menunjukkan bahwa model SARIMA kurang optimal untuk wilayah ini dan perlu ditingkatkan melalui pendekatan lain yang lebih adaptif yaitu STARIMA.
