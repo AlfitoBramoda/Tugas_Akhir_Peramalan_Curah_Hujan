@@ -29,11 +29,12 @@ Berikut ini adalah gambaran singkat mengenai model model dalam metode tersebut.
     Model ARMA menggabungkan kedua komponen yaitu ketergantungan terhadap nilai-nilai masa lalu ($X_{t-1}$, $X_{t-2}$,...,$X_{t-p}$) dan ketergantungan terhadap error sebelumnya ($U_{t}$, $U_{t-1}$,…,$U_{t-q}$).
     \item Model Autoregressive Integrated Moving Average (ARIMA)
     \begin{equation}
-        W_t = \phi_1 W_{t-1} + \cdots + \phi_p W_{t-p}
-            - \theta_1 u_{t-1} - \cdots - \theta_q u_{t-q} + u_t
-        \label{eq:arma_wt}
+        \Phi(B)(1-B)^{d} W_{t} = \theta(B) U_{t}
+        \label{eq:arma}
     \end{equation}
-    Sebagian deret waktu bersifat tiak stasioner terhadap mean, sehingga diperlukan proses differensiasi untuk membuatnya stasioner. 
+    dimana $W_{t}$ adalah diferensiasi pertama dari $X_{t}$, i.e., 
+    $W_{t} = X_{t} - X_{t-1}$.
+    Sebagian deret waktu bersifat tidak stasioner terhadap mean, sehingga diperlukan proses differensiasi untuk membuatnya stasioner. 
     Setelah proses differencing, deret yang telah stasioner dapat dimodelkan menggunakan ARMA, tetapi diperlukan operator differencing sebagai bagian dari model. 
     Ketika tingkat interasi pada sebuat proses menunjukkan berapa kali differencing dilakukan untuk mencapai kestasioneran, model tersebut dinamakana Autoregressive Integrated Moving Average (ARIMA) dengan bentuk umum ARIMA (p,d,q), dimana:
     \begin{itemize}
