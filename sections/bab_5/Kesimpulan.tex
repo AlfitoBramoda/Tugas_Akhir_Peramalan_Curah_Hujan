@@ -2,8 +2,8 @@
 Berdasarkan hasil analisis, dapat disimpulkan bahwa kelima wilayah di Surabaya memiliki karakteristik curah hujan yang relatif serupa, baik dari nilai rata-rata maupun pola persebaran statistiknya.
 Curah hujan menunjukkan pola musiman yang kuat dengan puncak hujan pada bulan Desember hingga Februari, serta kondisi minimum pada bulan Juli hingga September.
 Kelima wilayah juga memiliki korelasi spasial yang sangat tinggi (0,975–0,999), sehingga dinamika hujan antarwilayah bergerak hampir serentak.
-Model ARIMA mampu menggambarkan pola musiman tahunan, namun kinerjanya kurang responsif terhadap fluktuasi hujan ekstrem, tercermin dari nilai RMSE yang lebih tinggi karena ARIMA hanya memanfaatkan informasi temporal tanpa mempertimbangkan interaksi spasial antarwilayah.
+Model SARIMA mampu menggambarkan pola musiman tahunan, namun kinerjanya kurang responsif terhadap fluktuasi hujan ekstrem, tercermin dari nilai RMSE yang lebih tinggi karena SARIMA hanya memanfaatkan informasi temporal tanpa mempertimbangkan interaksi spasial antarwilayah.
 Untuk mengatasi keterbatasan tersebut digunakan model STARIMA dengan tiga jenis pembobotan spasial, yaitu bobot seragam, bobot invers jarak, dan bobot korelasi silang.
-Hasil evaluasi RMSE menunjukkan adanya peningkatan akurasi yang signifikan dibandingkan ARIMA.
+Hasil evaluasi RMSE menunjukkan adanya peningkatan akurasi yang signifikan dibandingkan SARIMA.
 Hasil peramalan secara konsisten memperlihatkan bahwa STARIMA lebih mampu menangkap puncak musiman, lebih stabil pada periode penurunan hujan, menghasilkan error lebih kecil, serta lebih responsif terhadap pola spasial-temporal.
 Dari seluruh model yang diuji, STARIMA(1,1,1) dengan bobot seragam merupakan model paling optimal karena memberikan error paling rendah dan performa paling konsisten di seluruh wilayah.

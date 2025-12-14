@@ -4,7 +4,7 @@ Berikut adalah gambaran singkat mengenai uraian secara singkat lingkup isi dari 
     \item \textbf{Pendahuluan} \\
     Bab ini menjelaskan latar belakang pentingnya peramalan curah hujan di Surabaya sebagai kota metropolitan yang rawan banjir dan dipengaruhi dinamika iklim tropis basah.
     Bab ini menyoriti kompleksitas curah hujan yang dipengaruhi oleh factor spasial dan temporal, sehingga model time series biasas seperti ARIMA kurang memadai. 
-    Dijelaskan juga perkembangan model spasio-temporal seperti STARIMA yang dapat menangkap ketergantungan antar lokasi dan antar waktu.
+    Dijelaskan juga perkembangan model spasio-temporal seperti STARMA yang dapat menangkap ketergantungan antar lokasi dan antar waktu.
     Berdasarkan fenomena dan studi terdahulu, dirumuskan tiga masalah utama pola spasio temporal curah hujan, efektif pembobotan  SWM, serta hasil peramalan.
     Bab ini juga memuat tujuan penelitian, batasan data NASA (2015 hingga 2024), asumsi, manfaat penelitian, serta rencana dan jadwal kegiatan penelitian.
     \item \textbf{Kajian Pustaka} \\
@@ -18,14 +18,14 @@ Berikut adalah gambaran singkat mengenai uraian secara singkat lingkup isi dari 
     Bab ini menyajikan langkah-langkah penelitian secara sistematis.
     Dimulai dengan alur metode penelitian, kemudian dijelaskan sumber data curah hujan satelit NASA POWER untuk lima wilayah Surabaya tahun 2015–2024.
     Tahapan pra-pemrosesan mencakup pembersihan data, transformasi Box-Cox, dan differencing.
-    Analisis eksploratif mencakup visualisasi pola spasial dan temporal. Setelah itu dilakukan uji kestasioneran, pembentukan tiga jenis Spatial Weight Matrix, serta pembangunan model baseline ARIMA.
-    Setelah ARIMA, dibangun model STARMA dengan tiga jenis bobot: seragam, invers jarak, dan korelasi silang.
+    Analisis eksploratif mencakup visualisasi pola spasial dan temporal. Setelah itu dilakukan uji kestasioneran, pembentukan tiga jenis Spatial Weight Matrix, serta pembangunan model baseline SARIMA.
+    Setelah SARIMA, dibangun model STARIMA dengan tiga jenis bobot: seragam, invers jarak, dan korelasi silang.
     Bab ini ditutup dengan penjelasan teknik evaluasi menggunakan RMSE serta tujuan akhir peramalan.
     \item \textbf{Hasil dan Pembahasan} \\
     Bab ini menyajikan hasil implementasi seluruh langkah penelitian.
     Pertama dilakukan eksplorasi data curah hujan untuk lima wilayah Surabaya, termasuk statistik deskriptif, pola musiman, dan korelasi antar wilayah.
-    Selanjutnya hasil ARIMA ditampilkan: uji stasioner, estimasi parameter, fitting model, dan grafik peramalan untuk tiap wilayah. \\
-    Bagian terbesar membahas STARMA. Setiap jenis bobot (seragam, invers jarak, korelasi silang) dianalisis dari:
+    Selanjutnya hasil SARIMA ditampilkan: uji stasioner, estimasi parameter, fitting model, dan grafik peramalan untuk tiap wilayah. \\
+    Bagian terbesar membahas STARIMA. Setiap jenis bobot (seragam, invers jarak, korelasi silang) dianalisis dari:
     \begin{enumerate}[label=\alph*.]
         \item Hasil Stationeritas
         \item Hasil STACF dan STPACF
@@ -34,13 +34,13 @@ Berikut adalah gambaran singkat mengenai uraian secara singkat lingkup isi dari 
         \item Grafik hasil peramalan tiap wilayah
     \end{enumerate}
     Setiap bobot dibandingkan performanya.
-    Bab ini menunjukkan bahwa pembobotan tertentu memberikan RMSE paling rendah dan model STARMA lebih unggul dibanding ARIMA.
+    Bab ini menunjukkan bahwa pembobotan tertentu memberikan RMSE paling rendah dan model STARIMA lebih unggul dibanding SARIMA.
     \item \textbf{Kesimpulan dan Saran} \\
     Bab ini merangkum temuan utama penelitian:
     \begin{enumerate}[label=\alph*.]
         \item Pola curah hujan di Surabaya memiliki variasi spasio-temporal kuat.
-        \item Pembobotan spasial memengaruhi performa STARMA secara signifikan.
-        \item Model STARMA tertentu menghasilkan prediksi terbaik berdasarkan RMSE.
+        \item Pembobotan spasial memengaruhi performa STARIMA secara signifikan.
+        \item Model STARIMA tertentu menghasilkan prediksi terbaik berdasarkan RMSE.
     \end{enumerate}
     Saran diberikan untuk pengembangan selanjutnya, seperti penggunaan resolusi data lebih tinggi, model hybrid, atau pembobotan spasial adaptif untuk meningkatkan akurasi.
 \end{enumerate}

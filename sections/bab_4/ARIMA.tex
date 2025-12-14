@@ -23,13 +23,13 @@ Oleh karena itu, pada tahap ini dilakukan pengujian kestasioneran data curah huj
     Hasil pengujian \textit{Augmented Dickey--Fuller Unit Root} untuk masing-masing lokasi terangkum pada tabel di bawah ini.
     \input{tables/bab_4/Hasil-Uji-ADF-ARIMA.tex}
     Tabel~\ref{table:hasil-uji-adf-arima} itu menunjukkan bahwa data curah hujan kelima wilayah Surabaya sudah stasioner sepenuhnya.
-    Berdasarkan hasil tersebut, dapat dilihat bahwa semua wilayah memiliki nilai p-value $<$ 0.05 yang artinya sudah memenuhi syarat untuk melakukan pemodelan ARIMA.
+    Berdasarkan hasil tersebut, dapat dilihat bahwa semua wilayah memiliki nilai p-value $<$ 0.05 yang artinya sudah memenuhi syarat untuk melakukan pemodelan SARIMA.
 
     \item Plot ACF dan PACF \\
     Setelah dilakukan transformasi Box-Cox untuk menstabilkan varians dan proses differencing orde pertama untuk menghilangkan tren serta menjadikan data stasioner dalam mean, tahap selanjutnya adalah melakukan analisis fungsi autokorelasi (ACF) dan fungsi autokorelasi parsial (PACF).
-    Analisis ini bertujuan untuk mengidentifikasi struktur keterkaitan temporal antar-observasi dalam deret waktu dan menentukan orde awal model ARIMA, yaitu nilai $p$ (autoregressive) dan $q$ (moving average).
+    Analisis ini bertujuan untuk mengidentifikasi struktur keterkaitan temporal antar-observasi dalam deret waktu dan menentukan orde awal model SARIMA, yaitu nilai $p$ (autoregressive) dan $q$ (moving average).
     Plot ACF digunakan untuk mengamati pola korelasi antar lag waktu guna memperkirakan komponen MA, sedangkan plot PACF digunakan untuk mendeteksi lag signifikan yang mewakili komponen AR.
-    Melalui analisis visual terhadap kedua plot tersebut, dapat diperoleh indikasi awal mengenai bentuk model ARIMA yang paling sesuai dengan karakteristik data curah hujan setelah proses transformasi dan differencing dilakukan.
+    Melalui analisis visual terhadap kedua plot tersebut, dapat diperoleh indikasi awal mengenai bentuk model SARIMA yang paling sesuai dengan karakteristik data curah hujan setelah proses transformasi dan differencing dilakukan.
     Berikut merupakan hasil plot ACF dan PACF:
     \begin{figure}[H]
         \centering
@@ -66,12 +66,12 @@ Oleh karena itu, pada tahap ini dilakukan pengujian kestasioneran data curah huj
 \subsection{Estimasi Parameter}
 Parameter yang diestimasi dari model yang telah diidentifikasi menggunakan metode Maximum Likelihood, disajikan dalam table dibawah ini, bersama dengan standar error, nilai $t$, dan nilai $p$ masing - masing:
 \input{tables/bab_4/Estimasi-Parameter-Arima.tex}
-Berdasarkan Tabel~\ref{table:estimasi-parameter-arima} dapat dilihat bahwa model ARIMA terbaik yang digunakan pada seluruh wilayah adalah ARIMA $(1,0,0) \times (0,1,0)_{12}$, di mana parameter yang signifikan secara statistik hanyalah komponen AR non-musiman.
+Berdasarkan Tabel~\ref{table:estimasi-parameter-arima} dapat dilihat bahwa model SARIMA terbaik yang digunakan pada seluruh wilayah adalah SARIMA $(1,0,0) \times (0,1,0)_{12}$, di mana parameter yang signifikan secara statistik hanyalah komponen AR non-musiman.
 Hal ini ditunjukkan oleh nilai p-value < 0.05 pada seluruh wilayah, sehingga parameter AR(1) terbukti memberikan kontribusi nyata dalam menjelaskan pola curah hujan bulanan.
 Nilai koefisien yang positif pada setiap wilayah juga menegaskan adanya hubungan autoregresif yang kuat antara curah hujan bulan ini dan bulan sebelumnya.
 Selain itu, nilai standard error yang relatif kecil serta t-value yang tinggi pada seluruh wilayah menunjukkan bahwa estimasi parameter bersifat stabil dan dapat dipercaya.
 Hasil diagnostik juga menunjukkan bahwa residual model telah memenuhi karakteristik white noise, sehingga tidak terdapat autokorelasi yang tersisa dan pola dalam data telah berhasil ditangkap oleh model.
-Dengan demikian, model ARIMA yang diperoleh dapat dinyatakan layak dan valid untuk digunakan dalam proses peramalan curah hujan pada masing-masing wilayah.
+Dengan demikian, model SARIMA yang diperoleh dapat dinyatakan layak dan valid untuk digunakan dalam proses peramalan curah hujan pada masing-masing wilayah.
 
 \subsection{Model Fitting}
 Berdasarkan hasil analisis ACF dan PACF pada kelima wilayah terlihat bahwa pola autokorelasi menurun secara bertahap setelah lag ke-1 dan PACF menunjukkan cut-off pada lag pertama, baik untuk komponen non musiman maupun musiman.
@@ -85,8 +85,8 @@ Wilayah Timur dan Barat memiliki nilai RMSE masing-masing 4.643 dan 5.082 hasil 
 Sementara itu, Wilayah Utara memiliki nilai RMSE tertinggi sebesar 5.016, menandakan bahwa pola curah hujan di wilayah tersebut lebih fluktuatif sehingga model kurang optimal dalam melakukan prediksi.
 Secara keseluruhan, variasi nilai RMSE ini mengindikasikan bahwa tingkat keakuratan model sangat dipengaruhi oleh karakteristik pola hujan masing-masing wilayah, dan wilayah dengan pola musiman yang lebih teratur cenderung menghasilkan performa model yang lebih baik.
 
-\subsection{Hasil Forecasting ARIMA}
-Berikut merupakan hasil forecasting ARIMA menggunakan model yang ada pada Tabel~\ref{table:hasil-model-fitting-arima}:
+\subsection{Hasil Forecasting SARIMA}
+Berikut merupakan hasil forecasting SARIMA menggunakan model yang ada pada Tabel~\ref{table:hasil-model-fitting-arima}:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.2/hasil-forecast-barat.png}
