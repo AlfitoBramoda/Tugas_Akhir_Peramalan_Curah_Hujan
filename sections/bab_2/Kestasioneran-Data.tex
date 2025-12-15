@@ -1,15 +1,45 @@
 \section{Menguji Kestasioneran Data}
-Kestationeran dalam data deret waktu merupakan salah satu asumsi utama dalam analisis deret waktu. Suatu deret dianggap stasioner apabila nilai rata-rata dan variansinya tidak berubah seiring waktu \citep{ilmi2023gstarima}. Artinya, data tersebut cenderung stabil dan berfluktuasi di sekitar nilai tengah yang tetap. Untuk menilai apakah data stasioner dalam hal rata-rata, dapat dilakukan secara visual dengan membuat plot antara nilai observasi dan waktu. Jika grafik menunjukkan pola fluktuasi yang konsisten di sekitar garis lurus dengan penyebaran yang relatif seragam, maka data dapat dianggap stasioner. Selain pendekatan visual, pengujian kestasioneran rata-rata juga dapat dilakukan menggunakan metode statistik seperti uji \textit{Augmented Dickey-Fuller} (ADF).
-
-\begin{equation}\label{adf}
-    \Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \sum_{i=1}^{p} \delta_i \Delta y_{t-i} + \varepsilon_t
-\end{equation}
-Keterangan:
-\begin{itemize}
-    \item $\Delta y_t$ : Diferensiasi orde pertama, yaitu $y_t - y_{t-1}$, digunakan untuk mengubah data menjadi stasioner.
-    \item $\alpha$ : Konstanta (intersep) dalam model regresi.
-    \item $\beta t$ : Tren waktu (opsional), mencerminkan arah pergerakan jangka panjang dalam data.
-    \item $\gamma y_{t-1}$ : Komponen autoregresif (lag 1), digunakan untuk menguji keberadaan akar unit (unit root).
-    \item $\sum_{i=1}^{p} \delta_i \Delta y_{t-i}$ : Lag dari perubahan $y$ hingga lag ke-$p$, untuk mengatasi autokorelasi serial dalam residual.
-    \item $\varepsilon_t$ : Error term (white noise), mewakili gangguan acak yang tidak berkorelasi satu sama lain.
-\end{itemize}
+Kestationeran dalam data deret waktu merupakan salah satu asumsi utama dalam analisis deret waktu. 
+Suatu deret dianggap stasioner apabila nilai rata-rata dan variansinya tidak berubah seiring waktu \citep{ilmi2023gstarima}. 
+Artinya, data tersebut cenderung stabil dan berfluktuasi di sekitar nilai tengah yang tetap.
+\begin{enumerate}[label=\alph*.]
+    \item Stasioner terhadap varians \\
+        Data dikatakan stasioner terhadap ragam apabila variansnya relatif konstan dari waktu ke waktu dan tidak menunjukkan pola fluktuasi yang signifikan. 
+        Identifikasi kestasioneran terhadap ragam dapat dilakukan menggunakan nilai lambda ($\lambda$). 
+        Apabila nilai parameter transformasi ($\lambda$) bernilai sama atau mendekati satu, maka data dapat dianggap telah stasioner terhadap ragam. 
+        Sebaliknya, apabila nilai $\lambda$ berbeda jauh dari satu, maka data belum stasioner terhadap ragam. 
+        Proses penstasioneran terhadap ragam dapat dilakukan dengan menerapkan transformasi Box–Cox yang dirumuskan sebagai berikut:
+        \begin{equation}
+            T(Z_t) = Z_t^{(\lambda)} = \frac{Z_t^{\lambda} - 1}{\lambda}
+        \end{equation}
+        \textbf{Keterangan:}
+        \begin{itemize}
+            \item $T(Z_t)$ adalah data yang mengalami transformasi,
+            \item $\lambda$ adalah parameter transformasi.
+        \end{itemize}
+        Cara penduga parameter parameter $\lambda$ dilakukan dengan menentukan nilai lambda pada rentang tertentu, nilai $\lambda$ yang biasa digunakan yaitu mendekati 1. 
+        Setiap tingkatan nilai $\lambda$ yang telah ditetapkan dilakukan perhitungan nilai maksimum loglikelihood (lmax) seperti persamaan dibawah ini:
+        \begin{equation}
+            l_{\max}(\lambda) = -\frac{n}{2}\ln \hat{\sigma}_a^2(\lambda) + (\lambda - 1)\sum_{t=1}^{n} \ln Z_t
+        \end{equation}
+        di mana $\hat{\sigma}_a^2$ merupakan nilai dugaan kuadrat tengah galat.
+        Penduga parameter $\lambda$ dikatakan sebagai penduga yang baik apabila nilai maksimum log-likelihood menghasilkan nilai maksimum diantara nilai $\lambda$ yang lain.
+        Nilai $\lambda$ dan bentuk transformasi Boxcox yang sesuai disajikan dalam tabel berikut:
+        \input{tables/bab_2/Stationer-Terhadap-Varians.tex}
+    \item Stasioner terhadap rata-rata \\
+        Untuk menilai apakah data stasioner dalam hal rata-rata, dapat dilakukan secara visual dengan membuat plot antara nilai observasi dan waktu. 
+        Jika grafik menunjukkan pola fluktuasi yang konsisten di sekitar garis lurus dengan penyebaran yang relatif seragam, maka data dapat dianggap stasioner. 
+        Selain pendekatan visual, pengujian kestasioneran rata-rata juga dapat dilakukan menggunakan metode statistik seperti uji \textit{Augmented Dickey-Fuller} (ADF).
+        \begin{equation}\label{adf}
+            \Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \sum_{i=1}^{p} \delta_i \Delta y_{t-i} + \varepsilon_t
+        \end{equation}
+        Keterangan:
+        \begin{itemize}
+            \item $\Delta y_t$ : Diferensiasi orde pertama, yaitu $y_t - y_{t-1}$, digunakan untuk mengubah data menjadi stasioner.
+            \item $\alpha$ : Konstanta (intersep) dalam model regresi.
+            \item $\beta t$ : Tren waktu (opsional), mencerminkan arah pergerakan jangka panjang dalam data.
+            \item $\gamma y_{t-1}$ : Komponen autoregresif (lag 1), digunakan untuk menguji keberadaan akar unit (unit root).
+            \item $\sum_{i=1}^{p} \delta_i \Delta y_{t-i}$ : Lag dari perubahan $y$ hingga lag ke-$p$, untuk mengatasi autokorelasi serial dalam residual.
+            \item $\varepsilon_t$ : Error term (white noise), mewakili gangguan acak yang tidak berkorelasi satu sama lain.
+        \end{itemize}
+\end{enumerate}
