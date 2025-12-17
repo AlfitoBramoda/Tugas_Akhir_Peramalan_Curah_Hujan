@@ -150,7 +150,7 @@ Berikut merupakan matriks bobot lokasi seragam:
     Nilai RMSE sebesar 2,922 menunjukkan tingkat kesalahan menengah, dengan akurasi yang lebih baik dibandingkan Wilayah Tengah, tetapi masih di bawah Wilayah Timur.
 \end{enumerate}
 \subsection{Bobot Invers Jarak}
-Perhitungan bobot lokasi inver jarak menggunakan jarak sebenarnya natar lokasi, perhitungan bobot ini diperoleh dari hasil invers jarak sebenarnya yang kemudian dinormalisasi.
+Perhitungan bobot lokasi invers jarak menggunakan jarak sebenarnya antar lokasi, perhitungan bobot ini diperoleh dari hasil invers jarak sebenarnya yang kemudian dinormalisasi.
 Perhitungan jarak antar wilayah dapat dilakukan sesuai dengan Persamaan~\ref{swm_inverse} yaitu dengan menggunakan posisi longitude dan latitude dari kedua wilayah yang akan dihitung jaraknya.
 Posisi longitude dan latitude yang digunakan berupa jarak terluar atau terjauh dari masing masing wilayah Surabaya.
 Bobot lokasi invers jarak memberikan nilai koefisien yang kecil untuk jarak yang lebih jauh dan sebaliknya.
@@ -177,100 +177,89 @@ Berikut merupakan matriks bobot lokasi invers jarak:
         \caption{STACF dan STPACF SLAG 0}
         \label{fig:slag-0-inverse}
     \end{figure}
-    Berdasarkan Gambar~\ref{fig:slag-0-inverse} pada kondisi slag 0 dengan bobot invers jarak didapatkan nilai STACF pada lag ke-1 hingga lag ke-3 menunjukkan autokorelasi positif yang cukup kuat dan signifikan, melewati batas kepercayaan 95\%.
-    Hal ini menunjukkan bahwa curah hujan periode sekarang memiliki hubungan erat dengan periode satu hingga tiga bulan sebelumnya.
-    Setelah lag ke-5 nilai autokorelasi berfluktuasi di sekitar nol, kemudian mengalami pola negatif yang semakin kuat setelah lag ke-25 hingga lag ke-40.
-    Pola ini menunjukkan adanya pergeseran siklus temporal musiman. \\
-    Sedangkan pada nilai STPACF, menunjukkan puncak signifikan pada lag ke-1 dengan sekitar 0,4 menandakan adanya pengaruh langsung yang kuat dari periode satu bulan sebelumnya terhadap periode saat ini.
-    Beberapa nilai STPACF pada lag ke-6, lag ke-12 dan lag ke-18 masih melampaui batas kepercayaan.
-    Hal ini menunjukkan bahwa komponen musiman yang berulang secara periodik.
-    Setelah lag ke-25, pola STPACF berfluktuasi di sekitar nol dan cenderung melemah, menunjukkan keterkaitan temporal langsung mulai hilang dan sebagian besar variasi sudah dapat dijelaskan oleh lag awal.
+    Gambar~\ref{fig:slag-0-inverse} menunjukkan hasil analisis \textit{Spatio-Temporal Autocorrelation Function} (STACF) dan \textit{Spatio Temporal Partial Autocorrelation Function} (STPACF) menggunakan invers jarak.
+    Plot STACF menunjukkan adanya korelasi temporal jangka pendek serta pola musiman yang kuat pada lag ke-12 dan kelipatannya, yang mengindikasikan keberadaan komponen musiman tahunan.
+    Sementara itu, plot STPACF menampilkan spike signifikan pada lag pertama dan lag musiman, yang mengarah pada keberadaan komponen autoregressive baik pada bagian non-musiman maupun musiman.
+    Berdasarkan pola tersebut, model STARIMA dengan orde rendah pada komponen AR dan MA serta satu komponen musiman tahunan dinilai sesuai untuk memodelkan data.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.3/slag-1.png}
         \caption{STACF dan STPACF SLAG 1}
         \label{fig:slag-1-inverse}
     \end{figure}
-    pada kondisi slag 1 dengan bobot invers jarak didapatkan nilai STACF pada lag 1 hingga  lag  3 menunjukkan autokorelasi positif yang signifikan dengan beberapa nilai berada di batas kepercayaan 95\%.
-    Hal ini menunjukkan bahwa  curah hujan di suatu wilayah sangat dipengaruhi oleh curah hujan di wilayah lain yang berdekatan pada waktu sebelumnya.
-    Setelah lag ke-5, nilai autokorelasi mulai berfluktuasi di sekitar nol dan kemudian menurun tajam menjadi negatif pada lag di atas 25, menunjukkan bahwa pengaruh spasial antar wilayah berkurang secara bertahap dan berubah arah menjadi berlawanan fase akibat siklus musiman. \\
-    Sedangkan pada nilai STPACF, lag 1 masih menunjukkan pengaruh langsung yang kuat antara wilayah dan tetangga terdekatnya.
-    Beberapa nilai signifikan juga muncul pada lag ke-10, lag ke-20 dan lag ke-28 yang dapat menunjukkan reasonasiu temporal tambahan akibat kesamaan pola curah hujan antar wilayah yang memiliki jarak spasial tertentu namun masih berada dalam radius pengaruh spasial model.
-    Setelah lag ke-25, nilai STPACF berfluktuasi di sekitar nol dan tidak lagi signifikan, menunjukkan bahwa pengaruh langsung antar wilayah berkurang secara substansi dan mayoritas ketergantungan spasio temporal telah dijelaskan oleh lag awal.
+    Gambar~\ref{fig:slag-1-inverse} menunjukkan hasil analisis \textit{Spatio Temporal Autocorrelation Function} (STACF) dan \textit{Spatio Temporal Partial Autocorrelation} (STPACF) menggunakan invers jarak.
+    Plot STACF dan STPACF pada pembobot inverse jarak dengan spatial lag 1 menunjukkan pola korelasi yang tidak stabil dan tidak memberikan indikasi orde AR maupun MA yang jelas.
+    Meskipun pola musiman tahunan masih terlihat, penambahan spatial lag 1 cenderung mengaburkan struktur temporal data.
+    Hal ini menyebabkan parameter model STARIMA pada SLAG 1 tidak signifikan secara statistik, sehingga model dengan spatial lag 0 lebih layak digunakan.
     \item Estimasi Parameter \\
-    Parameter yang diestimasi dari model yang telah diidentifikasi (STARIMA (1,1,0), STARIMA (1,1,1), dan STARIMA (1,1,2)) menggunakan metode Maximum Likelihood, disajikan dalam Tabel~\ref{table:estimasi-paramater-starima-inverse}, bersama dengan standar error, nilai t, dan nilai p masing-masing:
+    Parameter yang diestimasi dari model yang telah diidentifikasi yaitu STARIMA $(0,0,1)(1,1,1)_{12}$ dan STARIMA $(0,0,0)(0,1,1_{0})_{12}$ menggunakan metode Maximum Likelihood, disajikan dalam Tabel~\ref{table:estimasi-paramater-starima-inverse}, bersama dengan standar error, nilai $t$, dan nilai $p$ masing-masing:
     \input{tables/bab_4/Estimasi-Parameter-STARIMA-Inverse.tex}
+    Berdasarkan Tabel~\ref{table:estimasi-paramater-starima-inverse} hasil estimasi parameter dari kedua model dari lag spasial 0 dan lag spasial 1 yang di estimasi menggunakan metode Maximum Likelihood.
+    Masing-masing parameter dilaporkan bersama standar error, nilai $t$, dan nilai $p$ untuk menilai signifikansi statistik.
+    Secara umum berdasarkan signifikansi, model STARIMA dengan spatial lag 0 merupakan model terbaik. Model STARIMA $(0,0,1) x (1,1,1)_{12}$ dengan spatial lag 0 memiliki seluruh parameter yang signifikan dan mampu menangkap dinamika temporal jangka pendek serta pola musiman tahunan secara komprehensif.
+    Sebaliknya, model STARIMA $(0,0,0) x (0,1,1_{0})_{12}$ dengan spatial lag 1 hanya menangkap komponen musiman dan menunjukkan struktur yang terlalu sederhana.
+    Oleh karena itu, model dengan spatial lag 0 dinilai lebih layak digunakan sebagai model akhir dalam penelitian ini.
 
     \item Model Terbaik \\
-    Untuk memilih model spasial terbaik dalam penelitian ini menggunakan evaluasi Root Mean Squared Error (RMSE) untuk membandingkan kinerja peramalan dari model-model STARIMA. Berdasarkan hasil pada Lampiran~\ref{lampiran:rmse-inverse},  berikut adalah tabel nya:
+    Untuk memilih model spasial terbaik dalam penelitian ini menggunakan evaluasi \textit{Root Mean Squared Error} (RMSE) untuk membandingkan kinerja peramalan dari model-model STARIMA. 
+    Berdasarkan hasil pada Lampiran~\ref{lampiran:rmse-inverse},  berikut adalah tabel nya:
     \input{tables/bab_4/Hasil-Model-Fitting-STARIMA-Inverse.tex}
-    Berdasarkan hasil Tabel~\ref{table:hasil-model-fitting-starima-inverse} diatas model STARIMA $(1,1,1)_{1}$ menunjukkan kinerja paling optimal secara agregat dengan nilai RMSE rata-rata 1.7734,yang merupakan nilai terendah dibandingkan tiga model lainnya.
-    Hal ini menegaskan bahwa kombinasi komponen autoregressive dan moving average baik pada lag spasial maupun temporal mampu menangkap dinamika curah hujan secara lebih presisi di seluruh wilayah pengamatan.
-    Model ini secara konsisten memberikan performa yang lebih stabil lintas wilayah, sehingga direkomendasikan sebagai konfigurasi STARIMA terbaik untuk implementasi dalam penelitian ini.
+    Berdasarkan Tabel~\ref{table:hasil-model-fitting-starima-inverse}, terlihat bahwa evaluasi nilai RMSE per wilayah, model STARIMA $(0,0,1) x (1,1,1)_{12}$ menunjukkan kinerja yang lebih baik pada sebagian besar wilayah secara individual.
+    Namun, ditinjau dari nilai RMSE rata-rata, model STARIMA $(0,0,0) x (0,1,1_{0})_{12}$ menghasilkan error yang lebih kecil secara keseluruhan.
+    Dengan mempertimbangkan prinsip parsimoni dan kestabilan kinerja global, model STARIMA $(0,0,0) x (0,1,1_{0})_{12}$ dipilih sebagai model terbaik untuk peramalan curah hujan.
 
     \item Hasil Forecasting STARIMA
-    Berikut adalah hasil forecasting menggunakan model STARIMA$(1,1,2)_{1}$ dengan bobot invers jarak:
+    Berikut adalah hasil peramalan curah hujan di berbagai wilayah menggunakan bobot invers jarak:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.3/inverse-hasil-forecast-barat.png}
         \caption{Hasil Peramalan Wilayah Barat}
         \label{fig:starima-inverse-hasil-forecast-barat}
     \end{figure}
-    Gambar~\ref{fig:starima-inverse-hasil-forecast-barat} diatas merupakan hasil forecasting di wilayah Barat  periode Januari 2024 hingga Desember 2024.
-    Secara umum, model mampu mengikuti pola perubahan curah hujan sesuai dengan data aktual dengan cukup baik.
-    Meskipun terdapat beberapa perbedaan antara data aktual dengan hasil forecast, seperti di bulan Maret hingga April 2024  dimana hasil forecast lebih rendah dibandingkan dengan data aktual.
-    Hal ini menunjukkan bahwa model masih memiliki sedikit keterlambatan dalam merespon perubahan ekstrem curah hujan.
-    Lalu curah hujan menunjukkan penurunan pada pertengahan tahun (Sekitar bulan Mei hingga bulan September 2024) dan kembali meningkat di akhir tahun (bulan Oktober hingga bulan Desember 2024)  dapat ditangkap dengan  baik oleh model.
-    Dengan nilai RMSE sebesar 1.653 menunjukkan bahwa error forecasting berada pada kategori rendah  sehingga model dapat dikatakan memiliki akurasi yang cukup baik dalam memprediksi pola curah hujan di wilayah Barat.
+    Berdasarkan Gambar~\ref{fig:starima-inverse-hasil-forecast-barat} grafik menunjukkan bahwa model peramalan di Wilayah Barat memiliki kinerja cukup baik dengan nilai RMSE sebesar 2,753.
+    Model mampu mengikuti pola naik-turun curah hujan secara umum, terutama pada awal periode dan saat curah hujan rendah di pertengahan tahun, di mana selisih antara nilai aktual dan ramalan relatif kecil.
+    Namun, pada periode ekstrem di akhir tahun, model cenderung melakukan overestimate terhadap lonjakan curah hujan, sehingga akurasinya menurun.
+    Secara keseluruhan, model layak digunakan untuk peramalan umum, tetapi masih memiliki keterbatasan dalam memprediksi kejadian curah hujan ekstrem.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.3/inverse-hasil-forecast-selatan.png}
         \caption{Hasil Peramalan Wilayah Selatan}
         \label{fig:starima-inverse-hasil-forecast-selatan}
     \end{figure}
-    Gambar~\ref{fig:starima-inverse-hasil-forecast-selatan} diatas merupakan hasil forecasting di wilayah Selatan periode Januari 2024 hingga Desember 2024.
-    Secara umum, model mampu mengikuti pola perubahan curah hujan sesuai dengan data aktual dengan cukup baik.
-    Meskipun terdapat beberapa perbedaan antara data aktual dengan hasil forecast, seperti di bulan Maret hingga April 2024  dimana hasil forecast lebih rendah dibandingkan dengan data aktual.
-    Hal ini menunjukkan bahwa model masih memiliki sedikit keterlambatan dalam merespon perubahan ekstrim curah hujan.
-    Lalu curah hujan menunjukkan penurunan pada pertengahan tahun (Sekitar bulan Mei hingga bulan September 2024) dan kembali meningkat di akhir tahun (bulan Oktober hingga bulan Desember 2024)  dapat ditangkap dengan  baik oleh model.
-    Dengan nilai RMSE sebesar 2.005 menunjukkan bahwa error forecasting berada pada kategori kecil  sehingga model dapat dikatakan memiliki akurasi yang cukup baik dalam memprediksi pola curah hujan di wilayah Selatan.
+    Berdasarkan Gambar~\ref{fig:starima-inverse-hasil-forecast-selatan} grafik menunjukkan bahwa model peramalan di Wilayah Selatan mampu menangkap pola musiman umum curah hujan dengan cukup baik, terutama pada awal hingga pertengahan periode.
+    Pada kondisi curah hujan rendah hingga sedang, hasil prediksi relatif mendekati data aktual, menandakan kinerja model yang cukup andal.
+    Namun, pada periode ekstrem di akhir tahun, model cenderung melakukan overestimate terhadap lonjakan curah hujan, sehingga meningkatkan nilai kesalahan prediksi.
+    Nilai RMSE sebesar 3,667 menunjukkan bahwa akurasi model di Wilayah Selatan lebih rendah dibandingkan Wilayah Barat, yang mengindikasikan variabilitas curah hujan yang lebih tinggi dan keterbatasan model dalam memprediksi perubahan ekstrem.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.3/inverse-hasil-forecast-tengah.png}
         \caption{Hasil Peramalan Wilayah Tengah}
         \label{fig:starima-inverse-hasil-forecast-tengah}
     \end{figure}
-    Gambar~\ref{fig:starima-inverse-hasil-forecast-tengah} diatas merupakan hasil forecasting di wilayah Tengah periode Januari 2024 hingga Desember 2024.
-    Secara umum, model mampu mengikuti pola perubahan curah hujan sesuai dengan data aktual dengan cukup baik.
-    Meskipun terdapat beberapa perbedaan antara data aktual dengan hasil forecast, seperti di bulan Maret hingga April 2024  dimana hasil forecast lebih rendah dibandingkan dengan data aktual.
-    Hal ini menunjukkan bahwa model masih memiliki sedikit keterlambatan dalam merespon perubahan ekstrim curah hujan.
-    Lalu curah hujan menunjukkan penurunan pada pertengahan tahun (Sekitar bulan Mei hingga bulan September 2024) dan kembali meningkat di akhir tahun (bulan Oktober hingga bulan Desember 2024)  dapat ditangkap dengan  baik oleh model.
-    Dengan nilai RMSE sebesar 2.121 menunjukkan bahwa error forecasting berada pada kategori sedang sehingga model dapat dikatakan memiliki akurasi yang cukup baik dalam memprediksi pola curah hujan di wilayah Tengah.
-    Dengan demikian, model STARIMA dapat dikatakan  memiliki kinerja yang stabil meskipun akurasinya sedikit lebih tinggi daripada wilayah Barat dan Selatan.
+    Berdasarkan Gambar~\ref{fig:starima-inverse-hasil-forecast-tengah} grafik menunjukkan bahwa model peramalan di Wilayah Tengah mampu merepresentasikan pola temporal dan tren umum curah hujan dengan cukup baik, terutama pada awal hingga pertengahan periode.
+    Pada kondisi curah hujan rendah hingga menengah, hasil prediksi relatif mendekati data aktual, menandakan kinerja model yang cukup efektif.
+    Namun, pada periode ekstrem di akhir tahun, model cenderung melakukan overestimate terhadap lonjakan curah hujan, sehingga meningkatkan nilai kesalahan prediksi.
+    Nilai RMSE sebesar 3,662 menunjukkan bahwa meskipun model berhasil menangkap struktur umum data, akurasinya masih terbatas pada kejadian curah hujan tinggi.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.3/inverse-hasil-forecast-timur.png}
         \caption{Hasil Peramalan Wilayah Timur}
         \label{fig:starima-inverse-hasil-forecast-timur}
     \end{figure}
-    Gambar~\ref{fig:starima-inverse-hasil-forecast-timur} diatas merupakan hasil forecasting di wilayah Timur  periode Januari 2024 hingga Desember 2024.
-    Secara umum, model mampu mengikuti pola perubahan curah hujan sesuai dengan data aktual dengan cukup baik.
-    Meskipun terdapat beberapa perbedaan antara data aktual dengan hasil forecast, seperti di bulan Maret hingga April 2024  dimana hasil forecast lebih rendah dibandingkan dengan data aktual.
-    Hal ini menunjukkan bahwa model masih memiliki sedikit keterlambatan dalam merespon perubahan ekstrim curah hujan.
-    Lalu curah hujan menunjukkan penurunan pada pertengahan tahun (Sekitar bulan Mei hingga bulan September 2024) dan kembali meningkat di akhir tahun (bulan Oktober hingga bulan Desember 2024) meskipun terdapat perbedaan data aktual dan hasil forecast tetapi itu tidak mempengaruhi pola keseluruhan.
-    Dengan nilai RMSE sebesar 1,407 menunjukkan bahwa error forecasting berada pada kategori rendah sehingga model dapat dikatakan memiliki akurasi yang sangat baik dalam memprediksi pola curah hujan di wilayah Timur.
+    Berdasarkan Gambar~\ref{fig:starima-inverse-hasil-forecast-timur} grafik menunjukkan bahwa model peramalan di Wilayah Timur memiliki akurasi sangat tinggi, dengan nilai RMSE sebesar 1,294 yang merupakan paling rendah dibandingkan wilayah lainnya.
+    Hasil peramalan sangat mendekati data aktual pada hampir seluruh periode, baik saat curah hujan tinggi maupun rendah.
+    Meskipun terdapat sedikit overestimate pada lonjakan di akhir periode, deviasinya relatif kecil dan tidak memengaruhi pola umum.
+    Secara keseluruhan, model di Wilayah Timur paling stabil dan representatif, sehingga sangat andal untuk peramalan dan analisis curah hujan.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.3/inverse-hasil-forecast-utara.png}
         \caption{Hasil Peramalan Wilayah Utara}
         \label{fig:starima-inverse-hasil-forecast-utara}
     \end{figure}
-    Gambar~\ref{fig:starima-inverse-hasil-forecast-utara} diatas merupakan hasil forecasting di wilayah Utara periode Januari 2024 hingga Desember 2024.
-    Secara umum, model mampu mengikuti pola perubahan curah hujan sesuai dengan data aktual dengan cukup baik.
-    Meskipun terdapat beberapa perbedaan antara data aktual dengan hasil forecast, seperti di bulan Maret hingga April 2024  dimana hasil forecast lebih rendah dibandingkan dengan data aktual.
-    Hal ini menunjukkan bahwa model masih memiliki sedikit keterlambatan dalam merespon perubahan ekstrim curah hujan.
-    Lalu curah hujan menunjukkan penurunan pada pertengahan tahun (Sekitar bulan Mei hingga bulan September 2024) dan kembali meningkat di akhir tahun (bulan Oktober hingga bulan Desember 2024) meskipun terdapat perbedaan data aktual dan hasil forecast tetapi itu tidak mempengaruhi pola keseluruhan.
-    Dengan nilai RMSE sebesar 1.681 menunjukkan bahwa error forecasting berada pada kategori rendah sehingga model dapat dikatakan memiliki akurasi yang sangat baik dalam memprediksi pola curah hujan di wilayah Utara.
+    Berdasarkan Gambar~\ref{fig:starima-inverse-hasil-forecast-utara} grafik menunjukkan bahwa model peramalan di Wilayah Utara mampu menangkap pola umum curah hujan dengan cukup baik, terutama pada awal hingga pertengahan periode.
+    Pada kondisi curah hujan rendah, hasil prediksi relatif mendekati data aktual, menandakan kinerja model yang stabil.
+    Namun, pada periode ekstrem di akhir tahun, model cenderung melakukan overestimate terhadap lonjakan curah hujan, sehingga menurunkan akurasi prediksi.
+    Nilai RMSE sebesar 2,796 menunjukkan tingkat kesalahan menengah, dengan akurasi yang lebih baik dibandingkan Wilayah Selatan dan Tengah, tetapi masih di bawah Wilayah Timur.
 \end{enumerate}
 \subsection{Bobot Lokasi Normalisasi Korelasi Silang}
 Perhitungan bobot lokasi normalisasi korelasi silang dapat diselesaikan dengan menormalisasikan korelasi silang antar lokasi pada lag yang sesuai, penentuan lag berdasarkan orde struktur data deret waktu.
