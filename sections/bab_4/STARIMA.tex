@@ -103,7 +103,7 @@ Berikut merupakan matriks bobot lokasi seragam:
         \caption{Hasil Peramalan Wilayah Barat}
         \label{fig:starima-uniform-hasil-forecast-barat}
     \end{figure}
-    Berdasarkan Gambar~\ref{fig:starima-uniform-hasil-forecast-barat} hasil prediksi curah hujan di Wilayah Barat menunjukkan nilai error sebesar 2,824, yang mengindikasikan bahwa tingkat kesalahan prediksi relatif kecil hingga menengah, sehingga model memiliki kemampuan peramalan yang cukup baik.
+    Berdasarkan Gambar~\ref{fig:starima-uniform-hasil-forecast-barat} hasil prediksi curah hujan di Wilayah Barat menunjukkan nilai error sebesar 2,962, yang mengindikasikan bahwa tingkat kesalahan prediksi relatif kecil hingga menengah, sehingga model memiliki kemampuan peramalan yang cukup baik.
     Model mampu menangkap pola kenaikan curah hujan musiman di awal tahun dengan baik.
     Pada periode Mei hingga Agustus, terjadi penurunan curah hujan, dan hasil prediksi model masih mengikuti arah perubahan tersebut meskipun pada beberapa periode nilai prediksi sedikit lebih tinggi dibandingkan data aktual.
     Selanjutnya, mulai September hingga Desember, tren peningkatan curah hujan kembali terdeteksi dengan cukup akurat.
@@ -114,41 +114,40 @@ Berikut merupakan matriks bobot lokasi seragam:
         \caption{Hasil Peramalan Wilayah Selatan}
         \label{fig:starima-uniform-hasil-forecast-selatan}
     \end{figure}
-    Berdasarkan Gambar~\ref{fig:starima-uniform-hasil-forecast-selatan} Grafik menunjukkan bahwa model STARIMA mampu mengikuti pola musiman umum curah hujan di Wilayah Selatan, termasuk tren kenaikan di awal tahun, penurunan saat memasuki musim kemarau, serta kenaikan kembali di akhir tahun.
-    Pada periode kemarau, nilai prediksi relatif mendekati data aktual meskipun masih terdapat selisih kecil pada beberapa bulan.
-    Namun, model cenderung melakukan overestimate pada periode puncak curah hujan, khususnya pada akhir tahun, sehingga menyebabkan nilai RMSE sebesar 3,856, yang lebih tinggi dibandingkan Wilayah Barat.
-    Hal ini menunjukkan bahwa meskipun model cukup baik dalam menangkap arah dan pola perubahan curah hujan, akurasinya masih terbatas dalam memprediksi besarnya nilai ekstrem di Wilayah Selatan.
+    Berdasarkan Gambar~\ref{fig:starima-uniform-hasil-forecast-selatan} grafik menunjukkan bahwa model peramalan mampu menangkap pola musiman umum curah hujan di Wilayah Selatan dengan cukup baik, ditunjukkan oleh kemampuan model mengikuti penurunan curah hujan dari awal hingga pertengahan tahun serta kenaikan kembali menjelang akhir tahun.
+    Pada periode curah hujan rendah (Juni–Oktober 2024), hasil prediksi relatif mendekati data aktual, menandakan kinerja model yang stabil pada kondisi tersebut.
+    Namun, pada periode curah hujan tinggi di awal dan akhir tahun, model cenderung melakukan overestimate yang signifikan, terutama menjelang Januari 2025, sehingga berkontribusi terhadap nilai RMSE sebesar 3,921 yang tergolong cukup tinggi.
+    Hal ini menunjukkan bahwa meskipun model efektif dalam menangkap tren dan musim, akurasinya masih terbatas dalam memprediksi lonjakan ekstrem curah hujan.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.2/uniform-hasil-forecast-tengah.png}
         \caption{Hasil Peramalan Wilayah Tengah}
         \label{fig:starima-uniform-hasil-forecast-tengah}
     \end{figure}
-    Berdasarkan Gambar~\ref{fig:starima-uniform-hasil-forecast-tengah} Grafik menunjukkan bahwa model STARIMA mampu mengikuti pola musiman dan tren umum curah hujan di Wilayah Tengah, termasuk kenaikan di awal tahun, penurunan pada periode transisi menuju musim kemarau, serta kenaikan kembali di akhir tahun.
-    Namun, pada fase kemarau dengan fluktuasi kecil, model cenderung menghasilkan nilai yang terlalu rendah (underestimate), sementara pada periode puncak hujan di akhir tahun terjadi overestimate yang sangat besar.
-    Nilai RMSE sebesar 3,971, yang merupakan tertinggi dibandingkan wilayah lain, menunjukkan bahwa akurasi model di Wilayah Tengah relatif paling rendah.
-    Hal ini mengindikasikan bahwa meskipun model cukup baik dalam menangkap arah dan pola perubahan curah hujan, model masih kurang stabil dalam memprediksi dinamika curah hujan yang ekstrem dan cepat berubah.
+    Berdasarkan Gambar~\ref{fig:starima-uniform-hasil-forecast-tengah} grafik menunjukkan bahwa model peramalan mampu mengikuti pola fluktuasi dan tren umum curah hujan di Wilayah Tengah dengan cukup baik, terutama pada periode awal hingga pertengahan tahun.
+    Pada kondisi curah hujan rendah di pertengahan tahun, hasil prediksi relatif mendekati data aktual, menandakan kinerja model yang stabil.
+    Namun, pada periode ekstrem di akhir tahun, khususnya menjelang Januari 2025, model cenderung melakukan overestimate, sehingga menurunkan akurasi prediksi.
+    Nilai RMSE sebesar 4,092 menunjukkan tingkat kesalahan yang masih moderat, yang mengindikasikan bahwa model cukup baik dalam menangkap pola umum, tetapi masih memiliki keterbatasan dalam memprediksi lonjakan curah hujan ekstrem di Wilayah Tengah.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.2/uniform-hasil-forecast-timur.png}
         \caption{Hasil Peramalan Wilayah Timur}
         \label{fig:starima-uniform-hasil-forecast-timur}
     \end{figure}
-    Berdasarkan Gambar~\ref{fig:starima-uniform-hasil-forecast-timur} Grafik menunjukkan bahwa model STARIMA memiliki kinerja terbaik di Wilayah Timur, dengan nilai RMSE sebesar 1,277 yang merupakan paling rendah dibandingkan wilayah lainnya.
-    Model mampu mengikuti pola musiman dan fluktuasi curah hujan dengan sangat baik, mulai dari fase kenaikan di awal tahun, penurunan tajam pada periode transisi, hingga kondisi curah hujan rendah yang stabil.
-    Pada periode kemarau, hasil prediksi hampir berhimpit dengan data aktual, menunjukkan tingkat akurasi yang sangat tinggi.
-    Di akhir tahun, model tetap mampu menangkap kenaikan curah hujan dengan baik, meskipun terdapat sedikit overestimate pada puncak, namun kesalahan tersebut relatif kecil.
-    Secara keseluruhan, hasil ini menunjukkan bahwa model STARIMA sangat akurat dan stabil dalam memprediksi curah hujan di Wilayah Timur.
+    Berdasarkan Gambar~\ref{fig:starima-uniform-hasil-forecast-timur} Grafik menunjukkan bahwa model peramalan memiliki kinerja sangat baik di Wilayah Timur, dengan nilai RMSE sebesar 1,331 yang tergolong rendah.
+    Hasil prediksi terlihat sangat berdekatan dengan data aktual pada hampir seluruh periode pengamatan, baik pada kondisi curah hujan tinggi, rendah, maupun saat terjadi peningkatan kembali di akhir tahun.
+    Model juga menunjukkan stabilitas tinggi tanpa deviasi ekstrem, serta mampu memprediksi kondisi curah hujan minimum dengan sangat akurat.
+    Secara keseluruhan, hasil ini mengindikasikan bahwa model paling akurat dan konsisten dalam merepresentasikan dinamika curah hujan di Wilayah Timur dibandingkan wilayah lainnya.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{images/bab_4/bab_4.3/bab_4.3.2/uniform-hasil-forecast-utara.png}
         \caption{Hasil Peramalan Wilayah Utara}
         \label{fig:starima-uniform-hasil-forecast-utara}
     \end{figure}
-    Berdasarkan Gambar~\ref{fig:starima-uniform-hasil-forecast-utara} Grafik menunjukkan bahwa model STARIMA memiliki akurasi menengah di Wilayah Utara dengan nilai RMSE sebesar 2,882.
-    Model mampu mengikuti pola musiman dan tren umum curah hujan dengan cukup baik, terutama pada periode curah hujan rendah yang relatif stabil, di mana hasil prediksi hampir mendekati data aktual.
-    Namun, pada periode dengan lonjakan curah hujan yang ekstrem, khususnya di akhir tahun, model cenderung melakukan overestimate yang cukup besar, sehingga meningkatkan nilai kesalahan prediksi.
-    Secara keseluruhan, model cukup efektif dalam menangkap arah perubahan curah hujan, tetapi masih memiliki keterbatasan dalam memprediksi magnitudo puncak hujan di Wilayah Utara.
+    Berdasarkan Gambar~\ref{fig:starima-uniform-hasil-forecast-utara} grafik menunjukkan bahwa model peramalan mampu mengikuti pola fluktuasi umum curah hujan di Wilayah Utara dengan cukup baik, termasuk penurunan di pertengahan tahun dan peningkatan menjelang akhir periode.
+    Pada kondisi curah hujan rendah hingga sedang, hasil prediksi relatif mendekati data aktual, menandakan kinerja model yang stabil.
+    Namun, pada periode ekstrem di akhir tahun, model cenderung melakukan overestimate, sehingga menurunkan akurasi prediksi.
+    Nilai RMSE sebesar 2,922 menunjukkan tingkat kesalahan menengah, dengan akurasi yang lebih baik dibandingkan Wilayah Tengah, tetapi masih di bawah Wilayah Timur.
 \end{enumerate}
 \subsection{Bobot Invers Jarak}
 Perhitungan bobot lokasi inver jarak menggunakan jarak sebenarnya natar lokasi, perhitungan bobot ini diperoleh dari hasil invers jarak sebenarnya yang kemudian dinormalisasi.
