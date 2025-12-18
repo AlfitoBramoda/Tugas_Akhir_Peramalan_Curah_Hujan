@@ -1,12 +1,12 @@
 \chapter*{\textit{Abstract}}
-Rainfall plays a vital role in sectors such as agriculture, infrastructure, and disaster risk management, making accurate forecasting a critical necessity, particularly in major urban areas like Surabaya that are vulnerable to flooding and surface inundation. 
-Given that rainfall is simultaneously influenced by spatial and temporal variations, this study applies the STARIMA model to forecast monthly rainfall while accounting for the dynamic interconnections among regions. 
-The dataset employed is derived from NASA POWER satellite imagery covering the period 2015 - 2024.
-The research workflow includes data preprocessing using Box-Cox transformation and differencing, spatio-temporal pattern analysis, stationarity testing, construction of Spatial Weight Matrices with three weighting schemes (uniform, inverse-distance, and cross-correlation), development of SARIMA models as benchmarks, and performance evaluation using RMSE. 
-The findings indicate consistent seasonal patterns and strong spatial correlations across Surabaya's regions, highlighting the essential role of spatial information in rainfall forecasting.
-The best-performing model is STARIMA(1,1,1) with a spatial lag of 1 and its optimal configuration—uniform weighting—yielding an average RMSE of 1.728, outperforming both other STARIMA variants and SARIMA. 
-In the East region, for example, RMSE decreases significantly from 4.596 (SARIMA) to 1.407 (STARIMA). 
-These results affirm that integrating spatial and temporal dimensions through the STARIMA framework substantially enhances rainfall forecasting accuracy and has the potential to support early warning systems and hydrometeorological disaster mitigation initiatives in Surabaya.
+Rainfall plays an important role in various sectors such as agriculture, infrastructure, and disaster risk management, making accurate prediction a primary necessity, especially in large cities like Surabaya that are vulnerable to flooding and waterlogging. 
+Considering that rainfall is influenced by spatial and temporal variations simultaneously, this study applies the STARIMA model to predict monthly rainfall by accounting for dynamic interregional interactions. 
+The data used are derived from NASA POWER satellite imagery for the period 2015-2024.
+The research stages include data preprocessing through Box-Cox transformation and differencing, analysis of spatio-temporal patterns, stationarity testing, construction of a Spatial Weight Matrix using three weighting schemes (uniform, inverse distance, and cross-correlation), development of a SARIMA model as a benchmark, and performance evaluation using RMSE.
+The results indicate the presence of consistent seasonal patterns and strong spatial correlations among regions in Surabaya, reflecting that spatial information cannot be ignored in rainfall forecasting. 
+The best model is STARIMA$(0, 0, 0) × (0, 1, 1_{0})_{12}$ with spatial lag 1 and uniform weights, producing an average RMSE of 2.7934, which is lower than other STARIMA models as well as the SARIMA model. 
+For example, in the eastern region, the RMSE decreases significantly from 4.634 (SARIMA) to 1.331 (STARIMA). 
+These findings confirm that integrating spatial and temporal aspects through the STARIMA model improves rainfall prediction accuracy and has the potential to support early warning systems and hydrometeorological disaster mitigation in Surabaya.
 \vspace{0.5 cm}
 \begin{flushleft}
 {\textbf{Keywords:} Rainfall Prediction,  Spatial Weight Matrix, STARIMA, Surabaya.}

@@ -1,11 +1,11 @@
 \chapter*{ABSTRAK}
-Curah hujan memiliki peran penting bagi berbagai sektor seperti pertanian, infrastruktur, dan pengelolaan risiko bencana, sehingga prediksi yang akurat menjadi kebutuhan utama terutama di kota besar seperti Surabaya yang rentan terhadap banjir dan genangan. 
-Mengingat curah hujan dipengaruhi oleh variasi ruang dan waktu secara simultan, penelitian ini menerapkan model STARIMA untuk memprediksi curah hujan bulanan dengan mempertimbangkan keterkaitan dinamis antarwilayah. 
-Data yang digunakan berasal dari citra satelit NASA POWER periode 2015 - 2024. 
-Tahapan penelitian meliputi pra-pemrosesan data melalui transformasi Box-Cox dan differencing, analisis pola spasio-temporal, uji stasioneritas, penyusunan Spatial Weight Matrix menggunakan tiga skema bobot (seragam, invers jarak, dan korelasi silang), pembangunan model SARIMA sebagai model pembanding, serta evaluasi performa menggunakan RMSE. 
-Hasil penelitian menunjukkan adanya pola musiman yang konsisten serta korelasi spasial yang kuat antarwilayah Surabaya, mencerminkan bahwa informasi ruang tidak dapat diabaikan dalam peramalan. 
-Model terbaik diperoleh pada STARIMA(1,1,1) dengan lag spasial 1 dan bobot terbaiknya yaitu bobot seragam, yang menghasilkan RMSE rata-rata 1.728 lebih rendah dibandingkan model STARIMA lain maupun SARIMA. 
-Misalnya di wilayah Timur, RMSE turun signifikan dari 4.596 (SARIMA) menjadi 1.407 (STARIMA). 
+Curah hujan memiliki peran penting bagi berbagai sektor seperti pertanian, infrastruktur, dan pengelolaan risiko bencana, sehingga prediksi yang akurat menjadi kebutuhan utama terutama di kota besar seperti Surabaya yang rentan terhadap banjir dan genangan.
+Mengingat curah hujan dipengaruhi oleh variasi ruang dan waktu secara simultan, penelitian ini menerapkan model STARIMA untuk memprediksi curah hujan bulanan dengan mempertimbangkan keterkaitan dinamis antarwilayah.
+Data yang digunakan berasal dari citra satelit NASA POWER periode 2015 - 2024.
+Tahapan penelitian meliputi pra-pemrosesan data melalui transformasi Box-Cox dan differencing, analisis pola spasio-temporal, uji stasioneritas, penyusunan Spatial Weight Matrix menggunakan tiga skema bobot (seragam, invers jarak, dan korelasi silang), pembangunan model SARIMA sebagai model pembanding, serta evaluasi performa menggunakan RMSE.
+Hasil penelitian menunjukkan adanya pola musiman yang konsisten serta korelasi spasial yang kuat antarwilayah Surabaya, mencerminkan bahwa informasi ruang tidak dapat diabaikan dalam peramalan.
+Model terbaik diperoleh pada STARIMA$(0, 0, 0) \times (0, 1, 1_{0})_{12}$ dengan lag spasial 1 dan bobot terbaiknya yaitu bobot seragam, yang menghasilkan RMSE rata-rata 2.7934 lebih rendah dibandingkan model STARIMA lain maupun SARIMA.
+Misalnya di wilayah Timur, RMSE turun signifikan dari 4.634 (SARIMA) menjadi 1.331 (STARIMA).
 Temuan ini menegaskan bahwa integrasi aspek ruang dan waktu melalui STARIMA mampu meningkatkan akurasi prediksi curah hujan dan berpotensi mendukung sistem peringatan dini serta mitigasi bencana hidrometeorologi di Surabaya.
 \vspace{0.5 cm}
 \begin{flushleft}
